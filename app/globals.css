@@ -1,0 +1,43 @@
+@font-face {
+  font-family: "Borscha";
+  src: url("/fonts/borscha-typeface/Borscha-Regular-BF69c8e64155413.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Borscha";
+  src: url("/fonts/borscha-typeface/Borscha-Italic-BF69c8e6432f792.ttf") format("truetype");
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Borscha";
+  src: url("/fonts/borscha-typeface/Borscha-SemiBold-BF69c8e6428f7aa.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; min-height: 100%; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: "Borscha", Arial, sans-serif;
+  background: #f7f4f2;
+  color: #111;
+  overflow-x: hidden;
+}
+a { color: inherit; }
+button, a { font: inherit; }
+button { color: inherit; }
+::selection { background: #9863ff; color: #fff; }
+body, body * {
+    cursor: url("/images/arrow-cursor.svg") 2 0, auto;
+}
+body a, body a *, body a p, body button, body button *, body input[type="submit"], body input[type="submit"] *, body input[type="button"], body input[type="button"] *, body [data-hover], body [data-hover] *, body [data-gsap-slider-list-status] [data-hover]:hover, body [data-gsap-slider-list-status] [data-hover]:hover * {
+    cursor: url("/images/hover-cursor.svg") 12 0, pointer;
+}
