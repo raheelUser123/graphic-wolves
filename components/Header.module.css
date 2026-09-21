@@ -278,6 +278,10 @@
   color: #111;
   transform: translateX(5px);
 }
+.menuLinks a:hover img {
+    transform: rotate(25deg);
+    transition: .9s;
+}
 
 .menuLinks a:not(:hover) {
   opacity: 0.86;
