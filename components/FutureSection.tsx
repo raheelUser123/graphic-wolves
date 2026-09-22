@@ -371,18 +371,29 @@ export default function FutureSection() {
   }, []);
 
   return (
-    <section
-      ref={sectionRef}
-      className={styles.futureSection}
+  <section
+    ref={sectionRef}
+    className={styles.futureSection}
+  >
+    {/* LEFT PURPLE GLOW */}
+    <div
+      className={styles.leftGlow}
+      aria-hidden="true"
     >
-      <div className={styles.container}>
-        {/* =====================================
-            HEADING
-        ===================================== */}
+      <img
+        src="/images/future/ellipse-3.png"
+        alt=""
+      />
+    </div>
 
-        <div
-          className={`${styles.headingWrap} future-heading-trigger`}
-        >
+    <div className={styles.container}>
+      {/* =====================================
+          HEADING
+      ===================================== */}
+
+      <div
+        className={`${styles.headingWrap} future-heading-trigger`}
+      >
           <h2 className={styles.heading}>
             <span>an agency built</span>
 

@@ -1,0 +1,449 @@
+.statsSection {
+  position: relative;
+  width: 100%;
+
+  padding: 100px 24px;
+
+  background: #f9f6f5;
+}
+
+.grid {
+  width: min(1440px, 100%);
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns: 1.3fr 1fr 1fr;
+
+  grid-template-areas:
+    "black purple greyTop"
+    "greyBottom greyBottom green";
+
+  gap: 8px;
+}
+
+/* =========================================
+   COMMON CARD
+========================================= */
+
+.card {
+  position: relative;
+
+  min-height: 300px;
+
+  border-radius: 14px;
+
+  overflow: hidden;
+}
+
+/* =========================================
+   BLACK ANIMATED CARD
+========================================= */
+
+.blackCard {
+  grid-area: black;
+
+  background: #000;
+  color: #fff;
+}
+
+.blackInner {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  min-height: 300px;
+
+  padding: 30px 28px;
+
+  overflow: hidden;
+}
+
+/* =========================================
+   NUMBER FACTS HEADING
+========================================= */
+
+.videoTitle {
+  position: relative;
+
+  z-index: 5;
+
+  display: flex;
+  align-items: baseline;
+
+  gap: 7px;
+
+  color: #9c69ff;
+}
+
+.videoDot {
+  font-size: 34px;
+  line-height: 1;
+}
+
+.videoTitleBold {
+  font-family: "Borscha", Arial, sans-serif;
+
+  font-weight: 700;
+  font-style: normal;
+
+  font-size: 49px;
+  line-height: 1;
+
+  letter-spacing: -0.03em;
+}
+
+.videoTitleItalic {
+  font-family:
+    "Canela Text Trial",
+    "Canela",
+    Georgia,
+    serif;
+
+  font-weight: 100;
+  font-style: italic;
+
+  font-size: 49px;
+  line-height: 1;
+
+  letter-spacing: -0.03em;
+}
+
+/* =========================================
+   SERVICES ANIMATION
+========================================= */
+
+.serviceStack {
+  position: absolute;
+
+  inset: 82px 22px 18px;
+
+  overflow: hidden;
+}
+
+.serviceItem {
+  position: absolute;
+
+  left: 0;
+
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  width: 100%;
+
+  font-family: "Borscha", Arial, sans-serif;
+
+  font-weight: 600;
+  font-style: normal;
+
+  font-size: 44px;
+  line-height: 1;
+
+  letter-spacing: -0.03em;
+
+  color: rgba(255, 255, 255, 0.5);
+
+  opacity: 0.24;
+
+  filter: blur(3px);
+
+  transform-origin: left center;
+
+  white-space: nowrap;
+
+  will-change:
+    transform,
+    opacity,
+    filter;
+}
+
+/*
+  Different vertical positions.
+  Active item comes into focus but all others
+  stay faded behind.
+*/
+
+.serviceItem:nth-child(1) {
+  top: 4%;
+}
+
+.serviceItem:nth-child(2) {
+  top: 18%;
+}
+
+.serviceItem:nth-child(3) {
+  top: 32%;
+}
+
+.serviceItem:nth-child(4) {
+  top: 46%;
+}
+
+.serviceItem:nth-child(5) {
+  top: 60%;
+}
+
+.serviceItem:nth-child(6) {
+  top: 74%;
+}
+
+.serviceItem:nth-child(7) {
+  top: 88%;
+}
+
+.serviceItem:nth-child(8) {
+  top: 102%;
+}
+
+.serviceItem:nth-child(9) {
+  top: 116%;
+}
+
+/* active text */
+
+.serviceActive {
+  z-index: 4;
+}
+
+/* Arrow */
+
+.serviceArrow {
+  display: inline-block;
+
+  width: 0;
+
+  opacity: 0;
+
+  overflow: hidden;
+
+  font-size: 46px;
+
+  transition:
+    width 0.55s ease,
+    opacity 0.45s ease;
+}
+
+.arrowVisible {
+  width: 42px;
+
+  opacity: 1;
+}
+
+/* =========================================
+   PURPLE CARD
+========================================= */
+
+.purpleCard {
+  grid-area: purple;
+
+  background: #b48ffe;
+}
+
+/* =========================================
+   TOP GREY CARD
+========================================= */
+
+.greyTopCard {
+  grid-area: greyTop;
+
+  background: #d9d9d9;
+}
+
+/* =========================================
+   BOTTOM LEFT GREY
+========================================= */
+
+.greyBottomCard {
+  grid-area: greyBottom;
+
+  background: #d9d9d9;
+}
+
+/* =========================================
+   BOTTOM RIGHT GREEN
+========================================= */
+
+.greenCard {
+  grid-area: green;
+
+  background: #81f6ae;
+}
+
+/* =========================================
+   COUNTER NUMBER
+========================================= */
+
+.number {
+  display: block;
+
+  padding: 28px 28px 0;
+
+  color: #000000;
+
+  font-family: "Borscha", Arial, sans-serif;
+
+  font-weight: 600;
+  font-style: normal;
+
+  font-size: 72px;
+  line-height: 1.05;
+
+  letter-spacing: 0;
+}
+
+/* =========================================
+   CARD FOOTER
+========================================= */
+
+.cardFooter,
+.cardFooterNoBorder {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  padding: 20px 28px 22px;
+
+  color: #111111;
+
+  font-family:
+    "Canela Text Trial",
+    "Canela",
+    Georgia,
+    serif;
+
+  font-weight: 100;
+  font-style: italic;
+
+  font-size: 35px;
+  line-height: 1;
+
+  letter-spacing: -0.03em;
+}
+
+.cardFooter {
+  border-top: 1px solid rgba(0, 0, 0, 0.42);
+}
+
+.cardFooterNoBorder {
+  border-top: none;
+}
+
+/* =========================================
+   DESKTOP: BOTTOM ROW EQUAL WIDTH
+========================================= */
+
+.greyBottomCard,
+.greenCard {
+  min-height: 290px;
+}
+
+/*
+  Main point:
+  bottom two boxes split equally.
+*/
+
+@media (min-width: 1101px) {
+  .grid {
+    grid-template-columns: repeat(6, 1fr);
+
+    grid-template-areas:
+      "black black purple purple greyTop greyTop"
+      "greyBottom greyBottom greyBottom green green green";
+  }
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1100px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+
+    grid-template-areas:
+      "black black"
+      "purple greyTop"
+      "greyBottom green";
+  }
+
+  .card {
+    min-height: 260px;
+  }
+
+  .blackCard,
+  .blackInner {
+    min-height: 340px;
+  }
+
+  .number {
+    font-size: 58px;
+  }
+
+  .cardFooter,
+  .cardFooterNoBorder {
+    font-size: 27px;
+  }
+
+  .serviceItem {
+    font-size: 36px;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 767px) {
+  .statsSection {
+    padding: 70px 16px;
+  }
+
+  .grid {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card {
+    min-height: 220px;
+  }
+
+  .blackCard,
+  .blackInner {
+    min-height: 360px;
+  }
+
+  .videoTitleBold,
+  .videoTitleItalic {
+    font-size: 36px;
+  }
+
+  .serviceStack {
+    inset: 80px 18px 18px;
+  }
+
+  .serviceItem {
+    font-size: 30px;
+  }
+
+  .serviceArrow {
+    font-size: 34px;
+  }
+
+  .arrowVisible {
+    width: 34px;
+  }
+
+  .number {
+    font-size: 54px;
+  }
+
+  .cardFooter,
+  .cardFooterNoBorder {
+    font-size: 24px;
+  }
+}
