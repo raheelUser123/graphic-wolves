@@ -2,29 +2,40 @@
 .loader {
   position: fixed;
   inset: 0;
-  z-index: 9999;
-  display: grid;
-  place-items: center;
+  z-index: 99999;
+  width: 100%;
+  height: 100dvh;
   background: #3264f4;
-  clip-path: polygon(0 0, 100% 0, 100% 82%, 82% 100%, 0 100%);
-  will-change: transform;
+  overflow: hidden;
 }
 
-.loaderInner {
-  display: grid;
-  place-items: center;
-  width: 100%;
-  height: 100%;
+.loaderLogoWrap {
+  position: absolute;
+  inset: 0;
+
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  pointer-events: none;
 }
 
 .loaderLogo {
   display: block;
-  width: clamp(130px, 14vw, 220px);
-  height: auto;
-  filter: brightness(0) invert(1);
-  will-change: transform, opacity;
-}
 
+  width: clamp(140px, 13vw, 215px);
+  height: auto;
+
+  filter: brightness(0) invert(1);
+
+  transform-origin: center;
+
+  will-change:
+    transform,
+    opacity;
+}
 .hero {
   position: relative;
   width: 100%;

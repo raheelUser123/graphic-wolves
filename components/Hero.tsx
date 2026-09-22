@@ -5,13 +5,80 @@ import gsap from "gsap";
 import Header from "./Header";
 import styles from "./Hero.module.css";
 
+/* =========================================================
+   ZIGZAG CLIP-PATH GENERATOR
+
+   Ye function har frame par ek fresh polygon() string
+   banata hai. Isliye point-count hamesha same rehta hai
+   (samples + 2), aur GSAP ka tween bilkul smooth chalta
+   hai — koi vertex-mismatch glitch nahi hota.
+
+   progress: 0 = poori screen blue (full cover)
+             1 = blue poori tarah gayab (fully open)
+========================================================= */
+
+type ZigzagOptions = {
+  waves?: number; // kitni curls/swirls honge boundary mein (1.5-2 = ek bara swoosh)
+  amplitude?: number; // curl kitni deep/round hai (% units)
+  slope?: number; // diagonal ka angle (0 = seedha vertical cut, zyada = zyada tira)
+  samples?: number; // resolution — jitna zyada utna smooth/round curve
+};
+
+function buildZigzagClipPath(progress: number, opts: ZigzagOptions = {}) {
+  const {
+    waves = 1.6,
+    amplitude = 13,
+    slope = 0.55,
+    samples = 70, // high resolution -> straight segments curve jaisi dikhti hain
+  } = opts;
+
+  // threshold woh "diagonal value" hai jahan tak blue region jaata hai
+  const dMax = 100 + slope * 100 + 20; // full screen cover (margin ke saath)
+  const dMin = -amplitude - 20; // poori tarah khali
+
+  const threshold = dMax - progress * (dMax - dMin);
+
+  const points: string[] = ["-20% -20%"];
+
+  for (let i = 0; i <= samples; i++) {
+    const y = (i / samples) * 100;
+
+    // sine wave -> sharp "V" ki jagah gol/round swirl-jaisi curl
+    const angle = (y / 100) * waves * Math.PI * 2;
+    const jag = Math.sin(angle) * amplitude;
+
+    let x = threshold - slope * y + jag;
+    x = Math.max(-20, Math.min(120, x));
+
+    points.push(`${x.toFixed(2)}% ${y.toFixed(2)}%`);
+  }
+
+  points.push("-20% 120%");
+
+  return `polygon(${points.join(", ")})`;
+}
+
 export default function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
+
+  /* =========================
+     LOADER
+  ========================= */
+
   const loaderRef = useRef<HTMLDivElement>(null);
   const loaderLogoRef = useRef<HTMLImageElement>(null);
+
+  /* =========================
+     HERO
+  ========================= */
+
   const leftEyeRef = useRef<HTMLSpanElement>(null);
   const rightEyeRef = useRef<HTMLSpanElement>(null);
   const circleRef = useRef<SVGPathElement>(null);
+
+  /* =========================================================
+     INTRO / LOADER / HERO ANIMATION
+  ========================================================= */
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
@@ -19,6 +86,10 @@ export default function Hero() {
       const eyeGroup = document.querySelector(`.${styles.eyes}`);
       const header = document.querySelector(`.${styles.hero} header`);
       const video = document.querySelector(`.${styles.video}`);
+
+      /* =========================================
+         HERO INITIAL STATE
+      ========================================= */
 
       gsap.set(words, {
         yPercent: 118,
@@ -46,6 +117,10 @@ export default function Hero() {
 
       gsap.set(`.${styles.services}`, { y: 12, opacity: 0 });
 
+      /* =========================================
+         CIRCLE INITIAL STATE
+      ========================================= */
+
       if (circleRef.current) {
         const length = circleRef.current.getTotalLength();
         gsap.set(circleRef.current, {
@@ -54,61 +129,115 @@ export default function Hero() {
         });
       }
 
-      const tl = gsap.timeline({ defaults: { ease: "power4.out" } });
+      /* =========================================
+         MAIN TIMELINE
+      ========================================= */
+
+      const tl = gsap.timeline({
+        defaults: { ease: "power4.out" },
+      });
+
+      /* =====================================================
+         LOADER
+      ===================================================== */
 
       if (loaderRef.current && loaderLogoRef.current) {
-        gsap.set(loaderRef.current, { yPercent: 0 });
-        gsap.set(loaderLogoRef.current, { opacity: 0, scale: 0.92, y: 8 });
+        const wipe = { p: 0 };
 
+        /* full blue screen, koi zigzag nahi (progress = 0) */
+        gsap.set(loaderRef.current, {
+          autoAlpha: 1,
+          pointerEvents: "all",
+          clipPath: buildZigzagClipPath(0),
+        });
+
+        gsap.set(loaderLogoRef.current, {
+          opacity: 0,
+          scale: 0.9,
+          y: 8,
+        });
+
+        /* logo in */
         tl.to(loaderLogoRef.current, {
           opacity: 1,
           scale: 1,
           y: 0,
           duration: 0.6,
           ease: "power3.out",
-        })
-          .to(loaderLogoRef.current, {
-            scale: 1.035,
-            duration: 0.8,
-            ease: "sine.inOut",
-          })
-          .to(loaderLogoRef.current, {
-            opacity: 0,
-            y: -8,
-            duration: 0.3,
-            ease: "power2.in",
-          })
-          .to(loaderRef.current, {
-            yPercent: -112,
-            duration: 1.05,
-            ease: "power4.inOut",
-          });
+        });
+
+        /* hold */
+        tl.to({}, { duration: 0.45 });
+
+        /* logo out */
+        tl.to(loaderLogoRef.current, {
+          opacity: 0,
+          scale: 0.94,
+          y: -5,
+          duration: 0.26,
+          ease: "power2.in",
+        });
+
+        /* -----------------------------------------
+           SINGLE CONTINUOUS ZIGZAG WIPE
+
+           Poore keyframes ki jagah ab sirf EK tween
+           hai jo `wipe.p` ko 0 -> 1 le jaata hai, aur
+           onUpdate mein fresh polygon generate hoti
+           hai. Isse morph hamesha smooth rehta hai.
+        ----------------------------------------- */
+
+        tl.to(wipe, {
+          p: 1,
+          duration: 2.1,
+          ease: "power2.inOut",
+          onUpdate: () => {
+            if (loaderRef.current) {
+              loaderRef.current.style.clipPath = buildZigzagClipPath(
+                wipe.p,
+                {
+                  waves: 1.6, // kitne bade curls/swirls
+                  amplitude: 13, // curl kitni round/deep ho
+                  slope: 0.55, // diagonal angle
+                }
+              );
+            }
+          },
+        });
+
+        tl.set(loaderRef.current, {
+          autoAlpha: 0,
+          pointerEvents: "none",
+        });
       }
+
+      /* =====================================================
+         HEADER
+      ===================================================== */
 
       if (header) {
         tl.to(
           header,
-          {
-            y: 0,
-            opacity: 1,
-            duration: 0.8,
-            ease: "power3.out",
-          },
-          "-=0.48"
+          { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" },
+          "-=0.55"
         );
       }
+
+      /* =====================================================
+         VIDEO
+      ===================================================== */
 
       if (video) {
         tl.to(
           video,
-          {
-            scale: 1,
-            duration: 1.8,
-            ease: "power3.out",
-          },
-          "-=0.8"
+          { scale: 1, duration: 1.8, ease: "power3.out" },
+          "-=0.78"
         );
       }
+
+      /* =====================================================
+         HERO WORDS
+      ===================================================== */
 
       tl.to(
         words,
@@ -121,8 +250,12 @@ export default function Hero() {
           stagger: 0.11,
           ease: "power4.out",
         },
-        "-=1.15"
+        "-=1.18"
       );
+
+      /* =====================================================
+         EYES
+      ===================================================== */
 
       if (eyeGroup) {
         tl.to(
@@ -139,17 +272,21 @@ export default function Hero() {
         );
       }
 
+      /* =====================================================
+         CIRCLE DRAW
+      ===================================================== */
+
       if (circleRef.current) {
         tl.to(
           circleRef.current,
-          {
-            strokeDashoffset: 0,
-            duration: 1.45,
-            ease: "power2.inOut",
-          },
+          { strokeDashoffset: 0, duration: 1.45, ease: "power2.inOut" },
           "-=0.34"
         );
       }
+
+      /* =====================================================
+         SERVICES
+      ===================================================== */
 
       tl.to(
         `.${styles.services}`,
@@ -158,13 +295,22 @@ export default function Hero() {
       );
     }, sectionRef);
 
-    return () => ctx.revert();
+    return () => {
+      ctx.revert();
+    };
   }, []);
 
-  useEffect(() => {
-    const updateEye = (eye: HTMLSpanElement | null, mouseX: number, mouseY: number) => {
-      if (!eye) return;
+  /* =========================================================
+     EYE MOUSE TRACKING
+  ========================================================= */
 
+  useEffect(() => {
+    const updateEye = (
+      eye: HTMLSpanElement | null,
+      mouseX: number,
+      mouseY: number
+    ) => {
+      if (!eye) return;
       const pupil = eye.querySelector<HTMLElement>(`.${styles.pupil}`);
       if (!pupil) return;
 
@@ -175,7 +321,6 @@ export default function Hero() {
       const dy = mouseY - centerY;
       const angle = Math.atan2(dy, dx);
       const strength = Math.min(Math.hypot(dx, dy) / 240, 1);
-
       const x = Math.cos(angle) * rect.width * 0.11 * strength;
       const y = Math.sin(angle) * rect.height * 0.13 * strength;
 
@@ -197,10 +342,18 @@ export default function Hero() {
     return () => window.removeEventListener("mousemove", onMouseMove);
   }, []);
 
+  /* =========================================================
+     JSX
+  ========================================================= */
+
   return (
-    <section ref={sectionRef} className={styles.hero} aria-labelledby="home-hero-heading">
+    <section
+      ref={sectionRef}
+      className={styles.hero}
+      aria-labelledby="home-hero-heading"
+    >
       <div ref={loaderRef} className={styles.loader} aria-hidden="true">
-        <div className={styles.loaderInner}>
+        <div className={styles.loaderLogoWrap}>
           <img
             ref={loaderLogoRef}
             src="/images/graphic-logo.svg"
@@ -223,32 +376,60 @@ export default function Hero() {
       </video>
 
       <div className={styles.videoTint} aria-hidden="true" />
+
       <Header />
 
       <div className={styles.heroContent}>
         <h1 id="home-hero-heading" className={styles.heading}>
           <span className={styles.line}>
-            <span className={styles.wordMask}><span className={styles.wordInner}>One</span></span>
-            <span className={`${styles.wordMask} ${styles.team}`}><span className={styles.wordInner}>team</span></span>
+            <span className={styles.wordMask}>
+              <span className={styles.wordInner}>One</span>
+            </span>
+
+            <span className={`${styles.wordMask} ${styles.team}`}>
+              <span className={styles.wordInner}>team</span>
+            </span>
 
             <span className={styles.eyesMask} aria-label="eyes">
               <span className={styles.eyes} aria-hidden="true">
-                <span ref={leftEyeRef} className={styles.eye}><span className={styles.pupil} /></span>
-                <span ref={rightEyeRef} className={styles.eye}><span className={styles.pupil} /></span>
+                <span ref={leftEyeRef} className={styles.eye}>
+                  <span className={styles.pupil} />
+                </span>
+                <span ref={rightEyeRef} className={styles.eye}>
+                  <span className={styles.pupil} />
+                </span>
               </span>
             </span>
 
-            <span className={styles.wordMask}><span className={styles.wordInner}>for</span></span>
-            <span className={styles.wordMask}><span className={styles.wordInner}>the</span></span>
-            <span className={styles.wordMask}><span className={styles.wordInner}>Brand</span></span>
+            <span className={styles.wordMask}>
+              <span className={styles.wordInner}>for</span>
+            </span>
+
+            <span className={styles.wordMask}>
+              <span className={styles.wordInner}>the</span>
+            </span>
+
+            <span className={styles.wordMask}>
+              <span className={styles.wordInner}>Brand</span>
+            </span>
           </span>
 
           <span className={styles.line}>
-            <span className={styles.wordMask}><span className={styles.wordInner}>the</span></span>
+            <span className={styles.wordMask}>
+              <span className={styles.wordInner}>the</span>
+            </span>
 
             <span className={styles.circleWrap}>
-              <span className={styles.wordMask}><span className={styles.wordInner}>Build &amp; Bizz.</span></span>
-              <svg className={styles.circleSvg} viewBox="0 0 608 100" preserveAspectRatio="none" aria-hidden="true">
+              <span className={styles.wordMask}>
+                <span className={styles.wordInner}>Build &amp; Bizz.</span>
+              </span>
+
+              <svg
+                className={styles.circleSvg}
+                viewBox="0 0 608 100"
+                preserveAspectRatio="none"
+                aria-hidden="true"
+              >
                 <path
                   ref={circleRef}
                   className={styles.circleStroke}
@@ -261,8 +442,10 @@ export default function Hero() {
       </div>
 
       <div className={styles.services} aria-label="Services">
-        <span>Branding</span><span className={styles.plus}>+</span>
-        <span>Development</span><span className={styles.plus}>+</span>
+        <span>Branding</span>
+        <span className={styles.plus}>+</span>
+        <span>Development</span>
+        <span className={styles.plus}>+</span>
         <span>E-Commerce</span>
       </div>
     </section>

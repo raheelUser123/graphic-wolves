@@ -13,12 +13,6 @@
 
   display: grid;
 
-  grid-template-columns: 1.3fr 1fr 1fr;
-
-  grid-template-areas:
-    "black purple greyTop"
-    "greyBottom greyBottom green";
-
   gap: 8px;
 }
 
@@ -43,8 +37,14 @@
 .blackCard {
   grid-area: black;
 
-  background: #000;
-  color: #fff;
+  background: #000000;
+  color: #ffffff;
+
+  /*
+    Rotating text ko card boundary se
+    thora bahar breathe karne dena hai.
+  */
+  overflow: visible;
 }
 
 .blackInner {
@@ -57,7 +57,7 @@
 
   padding: 30px 28px;
 
-  overflow: hidden;
+  overflow: visible;
 }
 
 /* =========================================
@@ -67,7 +67,7 @@
 .videoTitle {
   position: relative;
 
-  z-index: 5;
+  z-index: 20;
 
   display: flex;
   align-items: baseline;
@@ -78,8 +78,12 @@
 }
 
 .videoDot {
+  font-family: "Borscha", Arial, sans-serif;
+
   font-size: 34px;
   line-height: 1;
+
+  color: #9c69ff;
 }
 
 .videoTitleBold {
@@ -92,6 +96,8 @@
   line-height: 1;
 
   letter-spacing: -0.03em;
+
+  color: #9c69ff;
 }
 
 .videoTitleItalic {
@@ -108,31 +114,56 @@
   line-height: 1;
 
   letter-spacing: -0.03em;
+
+  color: #9c69ff;
 }
 
 /* =========================================
-   SERVICES ANIMATION
+   SERVICE ROTATOR
 ========================================= */
 
-.serviceStack {
+.serviceStage {
   position: absolute;
 
-  inset: 82px 22px 18px;
+  left: 28px;
+  right: 18px;
 
-  overflow: hidden;
+  top: 60%;
+
+  height: 90px;
+
+  transform: translateY(-50%);
+
+  overflow: visible;
+
+  z-index: 8;
+
+  pointer-events: none;
 }
+
+/*
+  Saare service items same center position
+  pe start karte hain.
+  GSAP unko upar / neeche / rotate karega.
+*/
 
 .serviceItem {
   position: absolute;
 
   left: 0;
+  top: 50%;
 
   display: flex;
   align-items: center;
 
-  gap: 12px;
+  gap: 10px;
 
-  width: 100%;
+  width: max-content;
+  max-width: calc(100% - 10px);
+
+  transform: translateY(-50%);
+
+  transform-origin: left center;
 
   font-family: "Borscha", Arial, sans-serif;
 
@@ -144,15 +175,49 @@
 
   letter-spacing: -0.03em;
 
-  color: rgba(255, 255, 255, 0.5);
-
-  opacity: 0.24;
-
-  filter: blur(3px);
-
-  transform-origin: left center;
-
   white-space: nowrap;
+
+  color: rgba(255, 255, 255, 0.534);
+
+  will-change:
+    transform,
+    opacity,
+    filter,
+    color;
+
+  pointer-events: none;
+}
+
+/* =========================================
+   SERVICE ARROW
+========================================= */
+
+.serviceArrow {
+  display: inline-block;
+
+  flex: 0 0 auto;
+
+  width: 0;
+
+  opacity: 0;
+
+  overflow: hidden;
+
+  font-family: "Borscha", Arial, sans-serif;
+
+  font-size: 48px;
+  line-height: 1;
+
+  color: #ffffff;
+
+  will-change:
+    width,
+    opacity,
+    transform;
+}
+
+.serviceText {
+  display: inline-block;
 
   will-change:
     transform,
@@ -161,75 +226,12 @@
 }
 
 /*
-  Different vertical positions.
-  Active item comes into focus but all others
-  stay faded behind.
+  Last line bohat lambi hai,
+  isliye thori choti rakhi hai.
 */
 
-.serviceItem:nth-child(1) {
-  top: 4%;
-}
-
-.serviceItem:nth-child(2) {
-  top: 18%;
-}
-
-.serviceItem:nth-child(3) {
-  top: 32%;
-}
-
-.serviceItem:nth-child(4) {
-  top: 46%;
-}
-
-.serviceItem:nth-child(5) {
-  top: 60%;
-}
-
-.serviceItem:nth-child(6) {
-  top: 74%;
-}
-
-.serviceItem:nth-child(7) {
-  top: 88%;
-}
-
-.serviceItem:nth-child(8) {
-  top: 102%;
-}
-
-.serviceItem:nth-child(9) {
-  top: 116%;
-}
-
-/* active text */
-
-.serviceActive {
-  z-index: 4;
-}
-
-/* Arrow */
-
-.serviceArrow {
-  display: inline-block;
-
-  width: 0;
-
-  opacity: 0;
-
-  overflow: hidden;
-
-  font-size: 46px;
-
-  transition:
-    width 0.55s ease,
-    opacity 0.45s ease;
-}
-
-.arrowVisible {
-  width: 42px;
-
-  opacity: 1;
+.serviceItem:last-child {
+  font-size: 30px;
 }
 
 /* =========================================
@@ -334,18 +336,8 @@
 }
 
 /* =========================================
-   DESKTOP: BOTTOM ROW EQUAL WIDTH
+   DESKTOP LAYOUT
 ========================================= */
-
-.greyBottomCard,
-.greenCard {
-  min-height: 290px;
-}
-
-/*
-  Main point:
-  bottom two boxes split equally.
-*/
 
 @media (min-width: 1101px) {
   .grid {
@@ -354,6 +346,16 @@
     grid-template-areas:
       "black black purple purple greyTop greyTop"
       "greyBottom greyBottom greyBottom green green green";
+  }
+
+  /*
+    Bottom row:
+    50 / 50
+  */
+
+  .greyBottomCard,
+  .greenCard {
+    min-height: 290px;
   }
 }
 
@@ -380,6 +382,30 @@
     min-height: 340px;
   }
 
+  .videoTitleBold,
+  .videoTitleItalic {
+    font-size: 42px;
+  }
+
+  .serviceStage {
+    left: 24px;
+    right: 16px;
+
+    top: 60%;
+  }
+
+  .serviceItem {
+    font-size: 36px;
+  }
+
+  .serviceItem:last-child {
+    font-size: 25px;
+  }
+
+  .serviceArrow {
+    font-size: 40px;
+  }
+
   .number {
     font-size: 58px;
   }
@@ -387,10 +413,6 @@
   .cardFooter,
   .cardFooterNoBorder {
     font-size: 27px;
-  }
-
-  .serviceItem {
-    font-size: 36px;
   }
 }
 
@@ -406,6 +428,8 @@
   .grid {
     display: flex;
     flex-direction: column;
+
+    gap: 8px;
   }
 
   .card {
@@ -417,33 +441,54 @@
     min-height: 360px;
   }
 
+  .blackInner {
+    padding: 24px 20px;
+  }
+
+  .videoTitle {
+    gap: 5px;
+  }
+
+  .videoDot {
+    font-size: 26px;
+  }
+
   .videoTitleBold,
   .videoTitleItalic {
     font-size: 36px;
   }
 
-  .serviceStack {
-    inset: 80px 18px 18px;
+  .serviceStage {
+    left: 20px;
+    right: 14px;
+
+    top: 59%;
+
+    height: 80px;
   }
 
   .serviceItem {
     font-size: 30px;
   }
 
+  .serviceItem:last-child {
+    font-size: 19px;
+  }
+
   .serviceArrow {
     font-size: 34px;
   }
 
-  .arrowVisible {
-    width: 34px;
-  }
-
   .number {
     font-size: 54px;
+
+    padding: 24px 22px 0;
   }
 
   .cardFooter,
   .cardFooterNoBorder {
+    padding: 18px 22px 20px;
+
     font-size: 24px;
   }
 }
