@@ -49,11 +49,23 @@ body p, body p span, body h1, body h1 *, body h2, body h3, body h4, body h5, bod
 @font-face {
   font-family: "Canela Text Trial";
 
-  src: url("/fonts/canela-font-family/Canela-LightItalic-Trial.otf")
+  src: url("/fonts/canela-font-family/Canela-ThinItalic-Trial.otf")
     format("opentype");
 
   font-weight: 300;
   font-style: italic;
+
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Canela Text Trial Thin";
+
+  src: url("/fonts/canela-font-family/Canela-Thin-Trial.otf")
+    format("opentype");
+
+  font-weight: 300;
+  font-style: normal;
 
   font-display: swap;
 }

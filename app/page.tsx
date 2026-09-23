@@ -3,6 +3,9 @@ import HorizontalWords from "@/components/HorizontalWords";
 import FutureSection from "@/components/FutureSection";
 import StatsSection from "@/components/StatsSection";
 import ExpertiseSection from "@/components/ExpertiseSection";
+import ServicesSection from "@/components/ServicesSection";
+import ReviewsSection from "@/components/ReviewsSection";
+import FeaturedWorkSection from "@/components/FeaturedWorkSection";
 export default function HomePage() {
   return (
     <main>
@@ -11,6 +14,9 @@ export default function HomePage() {
       <FutureSection />
       <StatsSection />
       <ExpertiseSection />
+      <ServicesSection />
+      <ReviewsSection />
+      <FeaturedWorkSection />
     </main>
   );
 }
