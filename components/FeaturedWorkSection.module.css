@@ -98,11 +98,7 @@
 
   margin-left: 3px;
 
-  font-family:
-    "Canela Text Trial",
-    "Canela",
-    Georgia,
-    serif;
+  font-family: 'Canela Text Trial Thin';
 
   font-weight: 100;
 
@@ -394,7 +390,7 @@
 .middleBottom {
   position: absolute;
 
-  left: 38%;
+  left: 42%;
 
   top: 1030px;
 
