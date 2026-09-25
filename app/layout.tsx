@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import SmoothScroll from "@/components/SmoothScroll";
+import SmoothScroll from "@/components/layout/SmoothScroll/SmoothScroll";
 export const metadata: Metadata = {
   title: {
     default: "Graphic Wolves | Branding, Development & E-Commerce",

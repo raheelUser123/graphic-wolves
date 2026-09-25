@@ -1,0 +1,237 @@
+
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  width: 100%;
+  height: 100dvh;
+  background: #3264f4;
+  overflow: hidden;
+}
+
+.loaderLogoWrap {
+  position: absolute;
+  inset: 0;
+
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  pointer-events: none;
+}
+
+.loaderLogo {
+  display: block;
+
+  width: clamp(140px, 13vw, 215px);
+  height: auto;
+
+  filter: brightness(0) invert(1);
+
+  transform-origin: center;
+
+  will-change:
+    transform,
+    opacity;
+}
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 100svh;
+  overflow: hidden;
+  background: #f6f2ef;
+  color: #0d0d0e;
+}
+
+.video {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* .videoTint {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: rgba(247, 243, 240, 0.76);
+  pointer-events: none;
+} */
+
+.heroContent {
+  position: absolute;
+  left: 50%;
+  top: 50.5%;
+  z-index: 4;
+  width: 100%;
+  transform: translate(-50%, -50%);
+  padding: 0 28px;
+}
+
+.heading {
+  width: min(1230px, 100%);
+  margin: 0 auto;
+  font-family: "Borscha", Arial, sans-serif;
+  font-weight: 600;
+  font-size: clamp(58px, 6.65vw, 92px);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  text-align: center;
+}
+
+.line {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.14em;
+}
+
+.wordMask {
+  display: inline-block;
+  /* overflow: hidden; */
+  padding: 0.02em 0 0.1em;
+  margin-bottom: -0.1em;
+  vertical-align: bottom;
+}
+
+.wordInner {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
+.team .wordInner {
+  color: #9863ff;
+  font-family: "Borscha", Arial, sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.eyesMask {
+  display: inline-block;
+  position: relative;
+  width: 0.93em;
+  height: 0.79em;
+  overflow: visible;
+  transform: translateY(0.095em);
+}
+
+.eyes {
+  position: absolute;
+  left: 50%;
+  bottom: 0.02em;
+  display: flex;
+  align-items: center;
+  transform: translateX(-50%);
+  will-change: transform, opacity;
+}
+
+.eye {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 0.46em;
+  height: 0.75em;
+  border: 0.026em solid #0a0a0b;
+  border-radius: 52% 48% 50% 50% / 58% 58% 42% 42%;
+  background: #fff;
+  overflow: hidden;
+  transform: rotate(-2deg);
+}
+
+.eye + .eye {
+  margin-left: -0.085em;
+  transform: rotate(2deg);
+}
+
+.pupil {
+  display: block;
+  width: 27px;
+  height: 47px;
+  border-radius: 50%;
+  background: #080808;
+  will-change: transform;
+}
+
+.circleWrap {
+  position: relative;
+  display: inline-block;
+  padding: 0 0.045em 0.04em;
+}
+
+.circleSvg {
+      pointer-events: none;
+    width: 100%;
+    height: 114%;
+    position: absolute;
+    top: -7%;
+    left: -1%;
+    overflow: visible;
+    z-index: -1;
+}
+
+.circleStroke {
+  fill: none;
+  stroke: #82a0ff;
+  stroke-width: 2.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+
+.services {
+    z-index: 4;
+    opacity: 0;
+    align-items: center;
+    gap: 7px;
+    font-size: 18px;
+    display: flex;
+    position: absolute;
+    bottom: 27px;
+    right: 34px;
+    font-family: 'Borscha';
+}
+
+.plus {
+  color: #9863ff;
+  font-size: 14px;
+}
+
+@media (max-width: 920px) {
+  .heading { font-size: clamp(48px, 9vw, 72px); }
+  .heroContent { padding: 0 18px; }
+  .services { right: 20px; }
+}
+
+@media (max-width: 640px) {
+  .hero { min-height: 760px; }
+  .heroContent { top: 49%; padding: 0 14px; }
+  .heading { font-size: clamp(38px, 12vw, 56px); line-height: 0.98; }
+  .line { gap: 0.1em; }
+  .services {
+    left: 0;
+    right: 0;
+    bottom: 18px;
+    justify-content: center;
+    font-size: 9px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loader {
+    display: none;
+  }
+
+  .wordInner,
+  .eyes,
+  .services,
+  .circleStroke {
+    transition: none !important;
+    animation: none !important;
+  }
+}

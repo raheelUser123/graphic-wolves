@@ -1,0 +1,627 @@
+/* =========================================
+   SERVICES SECTION
+========================================= */
+
+.servicesSection {
+  position: relative;
+
+  width: 100%;
+  min-height: 100vh;
+
+  /*
+    Negative margin makes the black panel
+    physically overlap the Expertise section.
+  */
+  margin-top: -12vh;
+
+  padding: 150px 24px 80px;
+
+  background: #1a1a1a;
+  color: #ffffff;
+
+  overflow: hidden;
+
+  z-index: 40;
+
+  transform-origin: top center;
+
+  will-change:
+    transform,
+    border-radius;
+}
+
+
+/* =========================================
+   INNER
+========================================= */
+
+.inner {
+  position: relative;
+
+  width: min(1500px, 100%);
+  min-height: 900px;
+
+  margin: 0 auto;
+}
+
+
+/* =========================================
+   MAIN HEADING
+========================================= */
+
+.mainHeading {
+  font-family: 'Canela Text Trial Thin';
+  font-weight: 100;
+  font-style: normal;
+
+  font-size: 116px;
+  line-height: 100%;
+  letter-spacing: -0.05em;
+
+  text-align: center;
+  text-transform: uppercase;
+
+  color: #fff;
+}
+
+
+/* =========================================
+   CARDS WRAPPER
+========================================= */
+
+.cardsWrap {
+  position: relative;
+
+  width: min(1180px, 100%);
+  height: 530px;
+
+  /*
+    Larger gap after SERVICES heading.
+  */
+  margin: 190px auto 0;
+
+  perspective: 1200px;
+}
+
+
+/* =========================================
+   CARD SHELL
+
+   Position + default rotation are placed here.
+
+   Inner serviceCard is only used for hover,
+   therefore hover never destroys the base tilt.
+========================================= */
+
+.cardShell {
+  position: absolute;
+
+  width: 430px;
+
+  transform-origin: center center;
+
+  will-change:
+    transform,
+    opacity;
+}
+
+
+/* =========================================
+   CLICKABLE CARD
+========================================= */
+
+.serviceCard {
+  position: relative;
+
+  display: block;
+
+  width: 100%;
+  min-height: 245px;
+
+  padding: 26px 28px 24px;
+
+  border-radius: 10px;
+
+  color: #ffffff;
+
+  text-decoration: none;
+
+  overflow: visible;
+
+  cursor: pointer;
+
+  transform: translate3d(0, 0, 0);
+
+  will-change: transform;
+
+  transition:
+    filter 0.3s ease;
+}
+
+
+.serviceCard:hover {
+  filter: brightness(1.045);
+}
+
+
+/* =========================================
+   CARD CONTENT
+========================================= */
+
+.cardContent {
+  position: relative;
+
+  z-index: 2;
+
+  width: 100%;
+}
+
+
+/* =========================================
+   CARD TITLE
+========================================= */
+
+.cardTitle {
+  font-family: "Borscha", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  margin: 0;
+  font-size: 52px;
+  line-height: 105%;
+  letter-spacing: -0.01em;
+  color: #fff;
+}
+
+
+/* =========================================
+   DIVIDER
+========================================= */
+
+.cardDivider {
+  width: 100%;
+  height: 1px;
+
+  margin: 16px 0 17px;
+
+  background: rgba(
+    255,
+    255,
+    255,
+    0.9
+  );
+}
+
+
+/* =========================================
+   CAPTION
+
+   Important:
+   right side reserved for 150px icon.
+========================================= */
+
+.cardCaption {
+  margin: 0;
+
+  /*
+    Gives icon proper empty space.
+  */
+  width: calc(100% - 135px);
+  max-width: 270px;
+
+  color: #ffffff;
+
+  font-family:
+    "DM Sans",
+    Arial,
+    sans-serif;
+
+  font-weight: 400;
+  font-style: normal;
+
+  font-size: 24px;
+  line-height: 1;
+
+  letter-spacing: -0.03em;
+
+  text-align: left;
+}
+
+
+/* =========================================
+   LARGE ICON
+========================================= */
+
+.cardIcon {
+  position: absolute;
+
+  right: -25px;
+  bottom: -58px;
+
+  width: 150px;
+  height: 150px;
+
+  z-index: 5;
+
+  pointer-events: none;
+
+  transform-origin: center center;
+
+  will-change: transform;
+}
+
+
+.cardIcon img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+
+  user-select: none;
+
+  pointer-events: none;
+}
+
+
+/* =========================================
+   WEB DEVELOPMENT
+========================================= */
+
+.webShell {
+  left: 1%;
+  top: 0;
+
+  z-index: 2;
+
+  transform: rotate(-6deg);
+}
+
+
+.webCard {
+  background: #82a0ff;
+}
+
+
+/* =========================================
+   E-COMMERCE
+========================================= */
+
+.ecommerceShell {
+  left: 31%;
+  top: 125px;
+
+  z-index: 5;
+
+  transform: rotate(0deg);
+}
+
+
+.ecommerceCard {
+  background: #a0325a;
+}
+
+
+/* =========================================
+   BRANDING
+========================================= */
+
+.brandingShell {
+  right: 0;
+  top: 5px;
+
+  z-index: 3;
+
+  transform: rotate(5deg);
+}
+
+
+.brandingCard {
+  background: #2d7864;
+}
+
+
+/* =========================================
+   INDIVIDUAL ICON POSITIONING
+========================================= */
+
+/* Web icon can sit more toward right bottom */
+
+.webShell .cardIcon {
+  right: -20px;
+  bottom: -58px;
+}
+
+
+/* Shop icon centered more underneath */
+
+.ecommerceShell .cardIcon {
+  right: -10px;
+  bottom: -72px;
+
+  width: 165px;
+  height: 165px;
+}
+
+
+/* Pencil on far right */
+
+.brandingShell .cardIcon {
+  right: -47px;
+  bottom: -56px;
+
+  width: 150px;
+  height: 150px;
+}
+
+
+/* =========================================
+   HOVER DEPTH
+========================================= */
+
+.cardShell:hover {
+  z-index: 20;
+}
+
+
+/* =========================================
+   LARGE DESKTOP
+========================================= */
+
+@media (min-width: 1600px) {
+
+  .servicesSection {
+    padding-top: 160px;
+  }
+
+
+  .inner {
+    min-height: 950px;
+  }
+
+
+  .cardsWrap {
+    width: 1250px;
+    height: 550px;
+
+    margin-top: 200px;
+  }
+
+
+  .cardShell {
+    width: 455px;
+  }
+
+
+  .serviceCard {
+    min-height: 255px;
+  }
+
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1200px) {
+
+  .servicesSection {
+    margin-top: -8vh;
+
+    padding:
+      120px
+      22px
+      80px;
+  }
+
+
+  .inner {
+    min-height: 780px;
+  }
+
+
+  .mainHeading {
+    font-size: 88px;
+  }
+
+
+  .cardsWrap {
+    width: 900px;
+    max-width: 100%;
+
+    height: 470px;
+
+    margin-top: 145px;
+  }
+
+
+  .cardShell {
+    width: 360px;
+  }
+
+
+  .serviceCard {
+    min-height: 225px;
+
+    padding:
+      24px
+      24px
+      22px;
+  }
+
+
+  .cardTitle {
+    font-size: 40px;
+  }
+
+
+  .cardCaption {
+    width: calc(100% - 105px);
+
+    font-size: 19px;
+
+    max-width: 220px;
+  }
+
+
+  .cardIcon,
+  .ecommerceShell .cardIcon,
+  .brandingShell .cardIcon {
+    width: 120px;
+    height: 120px;
+  }
+
+
+  .webShell {
+    left: 0;
+  }
+
+
+  .ecommerceShell {
+    left: 29%;
+    top: 110px;
+  }
+
+
+  .brandingShell {
+    right: 0;
+  }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 767px) {
+
+  .servicesSection {
+    min-height: auto;
+
+    margin-top: -40px;
+
+    padding:
+      90px
+      16px
+      80px;
+
+    overflow: hidden;
+  }
+
+
+  .inner {
+    min-height: auto;
+  }
+
+
+  .mainHeading {
+    font-size: 58px;
+  }
+
+
+  .cardsWrap {
+    display: flex;
+    flex-direction: column;
+
+    gap: 34px;
+
+    width: 100%;
+    height: auto;
+
+    margin-top: 85px;
+  }
+
+
+  .cardShell {
+    position: relative;
+
+    inset: auto;
+
+    width: 100%;
+
+    transform: none !important;
+  }
+
+
+  .webShell {
+    transform: rotate(-2deg) !important;
+  }
+
+
+  .ecommerceShell {
+    transform: rotate(1deg) !important;
+  }
+
+
+  .brandingShell {
+    transform: rotate(-1deg) !important;
+  }
+
+
+  .serviceCard {
+    min-height: 230px;
+
+    padding:
+      24px
+      22px
+      25px;
+  }
+
+
+  .cardTitle {
+    font-size: 36px;
+  }
+
+
+  .cardDivider {
+    margin:
+      14px
+      0
+      16px;
+  }
+
+
+  .cardCaption {
+    width: calc(100% - 92px);
+
+    max-width: none;
+
+    font-size: 18px;
+    line-height: 1.08;
+  }
+
+
+  .cardIcon,
+  .webShell .cardIcon,
+  .ecommerceShell .cardIcon,
+  .brandingShell .cardIcon {
+    right: 2px;
+    bottom: 8px;
+
+    width: 100px;
+    height: 100px;
+  }
+
+}
+
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .servicesSection,
+  .cardShell,
+  .serviceCard,
+  .cardIcon {
+    transform: none !important;
+
+    animation: none !important;
+
+    transition: none !important;
+  }
+
+}

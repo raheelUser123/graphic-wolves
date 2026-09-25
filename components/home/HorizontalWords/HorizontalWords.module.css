@@ -1,0 +1,343 @@
+.horizontalWords {
+  position: relative;
+
+  width: 100%;
+
+  background: #f9f6f5;
+  color: #050505;
+
+  overflow: hidden;
+}
+
+/* =========================================
+   FULL VIEWPORT STAGE
+========================================= */
+
+.stage {
+  position: relative;
+
+  width: 100%;
+  height: 100vh;
+  min-height: 720px;
+
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+}
+
+/* =========================================
+   HORIZONTAL TRACK
+========================================= */
+
+.track {
+  position: absolute;
+
+  left: 0;
+  top: 47%;
+
+  width: max-content;
+
+  transform: translateY(-50%);
+
+  will-change: transform;
+
+  display: flex;
+  align-items: center;
+}
+
+/* =========================================
+   HEADING
+========================================= */
+
+.heading {
+  position: relative;
+
+  margin: 0;
+
+  white-space: nowrap;
+
+  font-family: "Borscha", Arial, sans-serif;
+
+  font-weight: 600;
+  font-style: normal;
+
+  font-size: 116px;
+  line-height: 87px;
+
+  letter-spacing: -0.02em;
+
+  color: #000;
+
+  user-select: none;
+text-transform: lowercase;
+  flex: 0 0 auto;
+}
+
+.letter {
+  position: relative;
+
+  display: inline-block;
+
+  will-change: transform;
+}
+
+.space {
+  display: inline-block;
+
+  width: 0.28em;
+}
+
+/* =========================================
+   STICKERS COMMON
+========================================= */
+
+.sticker {
+  position: absolute;
+
+  z-index: 6;
+
+  pointer-events: none;
+
+  will-change: transform;
+}
+
+.sticker img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+}
+
+/* =========================================
+   WATCH
+========================================= */
+
+.watchSticker {
+    width: 96px;
+    top: -20%;
+    left: 15%;
+}
+
+/* =========================================
+   CURSOR
+========================================= */
+
+.cursorSticker {
+  width: 120px;
+
+  left: 57%;
+  top: 77%;
+}
+
+/* =========================================
+   PHONE
+========================================= */
+
+.phoneSticker {
+  width: 124px;
+
+  left: 77%;
+  top: -70%;
+}
+
+/* =========================================
+   ARROWS COMMON
+========================================= */
+
+.arrow {
+  position: absolute;
+
+  color: #050505;
+
+  pointer-events: none;
+
+  overflow: visible;
+
+  z-index: 5;
+}
+
+/* =========================================
+   MAIN LOOP ARROW
+========================================= */
+
+.mainArrow {
+    width: 360px;
+    top: -62%;
+    left: 27%;
+}
+
+/* =========================================
+   FINAL ARROW
+========================================= */
+
+.finalArrowWrap {
+  position: relative;
+
+  flex: 0 0 auto;
+
+  width: 115px;
+  height: 115px;
+
+  margin-left: 10px;
+  margin-top: 72px;
+
+  pointer-events: none;
+
+  z-index: 6;
+}
+
+.finalArrow {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: visible;
+
+  color: #050505;
+}
+
+/* =========================================
+   CAPTION
+========================================= */
+
+.bottomText {
+  position: absolute;
+
+  left: 50%;
+  bottom: 200px;
+
+  width: min(620px, 84vw);
+
+  transform: translateX(-50%);
+
+  text-align: center;
+
+  z-index: 10;
+
+  pointer-events: none;
+}
+
+.bottomText p {
+  margin: 0;
+
+  font-family: "DM Sans", Arial, sans-serif;
+
+  font-weight: 500;
+  font-style: normal;
+
+  font-size: 20px;
+  line-height: 1;
+
+  letter-spacing: -0.03em;
+
+  color: #111;
+}
+
+.bottomText em {
+  font-style: italic;
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1100px) {
+  .stage {
+    min-height: 680px;
+  }
+
+  .heading {
+    font-size: 96px;
+    line-height: 76px;
+  }
+
+  .watchSticker {
+    width: 100px;
+  }
+
+  .cursorSticker {
+    width: 102px;
+  }
+
+  .phoneSticker {
+    width: 105px;
+  }
+
+  .mainArrow {
+    width: 300px;
+  }
+
+  .finalArrowWrap {
+    width: 125px;
+    height: 120px;
+
+    margin-left: 34px;
+    margin-top: 98px;
+  }
+
+  .bottomText {
+    bottom: 70px;
+  }
+
+  .bottomText p {
+    font-size: 18px;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 767px) {
+  .stage {
+    min-height: 650px;
+  }
+
+  .track {
+    top: 45%;
+  }
+
+  .heading {
+    font-size: 74px;
+    line-height: 62px;
+  }
+
+  .watchSticker {
+    width: 72px;
+  }
+
+  .cursorSticker {
+    width: 74px;
+  }
+
+  .phoneSticker {
+    width: 76px;
+  }
+
+  .mainArrow {
+    width: 245px;
+  }
+
+  .finalArrowWrap {
+    width: 90px;
+    height: 90px;
+
+    margin-left: 20px;
+    margin-top: 70px;
+  }
+
+  .bottomText {
+    bottom: 45px;
+
+    width: calc(100% - 36px);
+  }
+
+  .bottomText p {
+    font-size: 16px;
+    line-height: 1.1;
+  }
+}

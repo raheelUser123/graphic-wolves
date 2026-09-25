@@ -1,0 +1,859 @@
+/* =========================================
+   SECTION
+========================================= */
+
+.featuredSection {
+  position: relative;
+
+  width: 100%;
+
+  min-height: 2000px;
+
+  margin-top: -90px;
+
+  padding:
+    130px
+    24px
+    160px;
+
+  background: #1a1a1a;
+
+  color: #fff;
+
+  overflow: hidden;
+
+  z-index: 70;
+}
+
+
+/* =========================================
+   INNER
+========================================= */
+
+.inner {
+  position: relative;
+
+  width:
+    min(
+      1380px,
+      calc(100% - 40px)
+    );
+
+  height: 1700px;
+
+  margin: 0 auto;
+}
+
+
+/* =========================================
+   HEADING
+========================================= */
+
+.mainHeading {
+  position: relative;
+
+  z-index: 50;
+
+  width: 100%;
+
+  margin: 0;
+
+  display: flex;
+
+  align-items: baseline;
+
+  justify-content: center;
+
+  color: #fff;
+
+  font-family:
+    "Borscha",
+    Arial,
+    sans-serif;
+
+  font-weight: 400;
+
+  font-style: normal;
+
+  font-size: 116px;
+
+  line-height: 100%;
+
+  letter-spacing: -0.01em;
+
+  text-align: center;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================
+   WORK
+========================================= */
+
+.work {
+  position: relative;
+
+  display: inline-block;
+
+  margin-left: 3px;
+
+  font-family: 'Canela Text Trial Thin';
+
+  font-weight: 100;
+
+  font-style: italic;
+
+  font-size: 116px;
+
+  line-height: 100%;
+
+  letter-spacing: -0.05em;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================
+   ALL DRAWING PATHS
+========================================= */
+
+.headingLine,
+.middleSwirl,
+.bottomSwirl {
+  overflow: visible;
+
+  pointer-events: none;
+}
+
+
+.headingLine path,
+.middleSwirl path,
+.bottomSwirl path {
+  fill: none;
+
+  stroke: #ffffff;
+
+  stroke-linecap: round;
+
+  stroke-linejoin: round;
+
+  vector-effect:
+    non-scaling-stroke;
+
+  will-change:
+    stroke-dashoffset;
+}
+
+
+/* =========================================
+   HEADING SWIRL
+========================================= */
+
+.headingLine {
+  position: absolute;
+
+  left: -2%;
+
+  top: calc(100% + 4px);
+
+  width: 104%;
+
+  height: 34px;
+
+  z-index: 5;
+}
+
+
+.headingLine path {
+  stroke-width: 2.5;
+}
+
+
+/* =========================================
+   IMAGE CYCLER
+========================================= */
+
+.cycleInner {
+  position: relative;
+
+  width: 100%;
+
+  height: 100%;
+
+  overflow: hidden;
+
+  border-radius: inherit;
+}
+
+
+.cycleImage {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: cover;
+
+  opacity: 0;
+
+  transform:
+    scale(1.04);
+
+  transition:
+    opacity 0.8s ease,
+    transform 1.2s
+      cubic-bezier(
+        0.22,
+        1,
+        0.36,
+        1
+      );
+}
+
+
+.activeImage {
+  opacity: 1;
+
+  transform: scale(1);
+}
+
+
+/* =========================================
+   TOP LEFT VERTICAL
+========================================= */
+
+.topLeftVertical {
+  position: absolute;
+
+  left: 9%;
+
+  top: 315px;
+
+  width: 330px;
+
+  height: 395px;
+
+  z-index: 10;
+
+  border-radius: 14px;
+
+  overflow: hidden;
+}
+
+
+/* =========================================
+   TOP LEFT HORIZONTAL
+========================================= */
+
+.topLeftHorizontal {
+  position: absolute;
+
+  left: 0;
+
+  top: 595px;
+
+  width: 360px;
+
+  height: 205px;
+
+  z-index: 14;
+
+  border-radius: 12px;
+
+  overflow: hidden;
+}
+
+
+/* =========================================
+   BRANDING
+========================================= */
+
+.brandingBadge {
+  left: 23%;
+
+  top: 665px;
+
+  width: 160px;
+}
+
+
+/* =========================================
+   BRANDING LONG SWIRL
+========================================= */
+
+.middleSwirl {
+  position: absolute;
+
+  left: 29%;
+
+  top: 690px;
+
+  width: 105px;
+
+  height: 225px;
+
+  z-index: 30;
+}
+
+
+.middleSwirl path {
+  stroke-width: 2.4;
+}
+
+
+/* =========================================
+   GREEN LARGE
+========================================= */
+
+.greenShape {
+  position: absolute;
+
+  right: 4%;
+
+  top: 350px;
+
+  width: 270px;
+
+  z-index: 4;
+
+  pointer-events: none;
+}
+
+
+/* =========================================
+   TOP RIGHT
+========================================= */
+
+.topRight {
+  position: absolute;
+
+  right: 2%;
+
+  top: 585px;
+
+  width: 380px;
+
+  height: 250px;
+
+  z-index: 10;
+
+  border-radius: 12px;
+
+  overflow: hidden;
+}
+
+
+/* =========================================
+   ECOMMERCE
+========================================= */
+
+.ecommerceBadge {
+  right: 0;
+
+  top: 750px;
+
+  width: 175px;
+}
+
+
+/* =========================================
+   MIDDLE TOP
+========================================= */
+
+.middleTop {
+  position: absolute;
+
+  right: 13%;
+
+  top: 900px;
+
+  width: 340px;
+
+  height: 245px;
+
+  z-index: 10;
+
+  border-radius: 12px;
+
+  overflow: hidden;
+}
+
+
+/* =========================================
+   MIDDLE BOTTOM
+========================================= */
+
+.middleBottom {
+  position: absolute;
+
+  left: 42%;
+
+  top: 1030px;
+
+  width: 330px;
+
+  height: 260px;
+
+  z-index: 12;
+
+  border-radius: 12px;
+
+  overflow: hidden;
+}
+
+
+/* =========================================
+   GREEN SMALL
+========================================= */
+
+.greenSmall {
+  position: absolute;
+
+  right: 10.5%;
+
+  top: 1095px;
+
+  width: 95px;
+
+  z-index: 26;
+
+  pointer-events: none;
+}
+
+
+/* =========================================
+   PURPLE VECTOR
+========================================= */
+
+.purpleShape {
+  position: absolute;
+
+  left: -5%;
+
+  top: 1220px;
+
+  width: 390px;
+
+  z-index: 3;
+
+  pointer-events: none;
+}
+
+
+/* =========================================
+   BOTTOM LEFT
+========================================= */
+
+.bottomLeft {
+  position: absolute;
+
+  left: 7%;
+
+  top: 1305px;
+
+  width: 390px;
+
+  height: 280px;
+
+  z-index: 10;
+
+  border-radius: 12px;
+
+  overflow: hidden;
+}
+
+
+/* =========================================
+   WEB DEV
+========================================= */
+
+.webdevBadge {
+  left: 0;
+
+  top: 1360px;
+
+  width: 155px;
+}
+
+
+/* =========================================
+   BOTTOM RIGHT TOP
+========================================= */
+
+.bottomRightTop {
+  position: absolute;
+
+  right: 0;
+
+  top: 1280px;
+
+  width: 365px;
+
+  height: 265px;
+
+  z-index: 11;
+
+  border-radius: 12px;
+
+  overflow: hidden;
+}
+
+
+/* =========================================
+   BOTTOM SWIRL
+========================================= */
+
+.bottomSwirl {
+  position: absolute;
+
+  right: 25%;
+
+  top: 1450px;
+
+  width: 110px;
+
+  height: 90px;
+
+  z-index: 35;
+}
+
+
+.bottomSwirl path {
+  stroke-width: 3;
+}
+
+
+/* =========================================
+   BOTTOM RIGHT BOTTOM
+========================================= */
+
+.bottomRightBottom {
+  position: absolute;
+
+  right: 7%;
+
+  top: 1515px;
+
+  width: 430px;
+
+  height: 250px;
+
+  z-index: 12;
+
+  border-radius: 12px;
+
+  overflow: hidden;
+}
+
+
+/* =========================================
+   BADGES
+========================================= */
+
+.badge {
+  position: absolute;
+
+  z-index: 40;
+
+  display: block;
+
+  height: auto;
+
+  pointer-events: none;
+
+  transform-origin:
+    center center;
+
+  will-change:
+    transform,
+    opacity;
+}
+
+
+/* =========================================
+   LARGE DESKTOP
+========================================= */
+
+@media (min-width: 1600px) {
+
+  .featuredSection {
+    min-height: 2200px;
+  }
+
+
+  .inner {
+    width: 1500px;
+
+    height: 1850px;
+  }
+
+
+  .topLeftVertical {
+    width: 350px;
+
+    height: 420px;
+  }
+
+
+  .topLeftHorizontal {
+    width: 385px;
+
+    height: 220px;
+  }
+
+
+  .topRight {
+    width: 400px;
+
+    height: 270px;
+  }
+
+
+  .middleTop {
+    width: 365px;
+
+    height: 260px;
+  }
+
+
+  .middleBottom {
+    width: 350px;
+
+    height: 275px;
+  }
+
+
+  .bottomLeft {
+    width: 415px;
+
+    height: 295px;
+  }
+
+
+  .bottomRightTop {
+    width: 390px;
+
+    height: 280px;
+  }
+
+
+  .bottomRightBottom {
+    width: 455px;
+
+    height: 265px;
+  }
+
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1100px) {
+
+  .featuredSection {
+    min-height: 1550px;
+
+    padding-top: 110px;
+  }
+
+
+  .inner {
+    width: 100%;
+
+    height: 1300px;
+  }
+
+
+  .mainHeading,
+  .work {
+    font-size: 82px;
+  }
+
+
+  .topLeftVertical {
+    left: 7%;
+
+    top: 260px;
+
+    width: 260px;
+
+    height: 320px;
+  }
+
+
+  .topLeftHorizontal {
+    top: 495px;
+
+    width: 290px;
+
+    height: 170px;
+  }
+
+
+  .greenShape {
+    width: 200px;
+
+    top: 310px;
+  }
+
+
+  .topRight {
+    top: 470px;
+
+    width: 290px;
+
+    height: 195px;
+  }
+
+
+  .middleTop {
+    top: 720px;
+
+    width: 270px;
+
+    height: 200px;
+  }
+
+
+  .middleBottom {
+    top: 825px;
+
+    width: 270px;
+
+    height: 210px;
+  }
+
+
+  .purpleShape {
+    top: 990px;
+
+    width: 280px;
+  }
+
+
+  .bottomLeft {
+    top: 1060px;
+
+    width: 300px;
+
+    height: 220px;
+  }
+
+
+  .bottomRightTop {
+    top: 1040px;
+
+    width: 290px;
+
+    height: 210px;
+  }
+
+
+  .bottomRightBottom {
+    top: 1190px;
+
+    width: 330px;
+
+    height: 195px;
+  }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 767px) {
+
+  .featuredSection {
+    min-height: auto;
+
+    margin-top: -35px;
+
+    padding:
+      80px
+      16px
+      90px;
+  }
+
+
+  .inner {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 28px;
+
+    height: auto;
+  }
+
+
+  .mainHeading {
+    margin-bottom: 90px;
+
+    font-size: 52px;
+  }
+
+
+  .work {
+    font-size: 52px;
+  }
+
+
+  .topLeftVertical,
+  .topLeftHorizontal,
+  .topRight,
+  .middleTop,
+  .middleBottom,
+  .bottomLeft,
+  .bottomRightTop,
+  .bottomRightBottom {
+    position: relative;
+
+    inset: auto;
+
+    width: 100%;
+
+    height: 270px;
+  }
+
+
+  .topLeftVertical {
+    height: 390px;
+  }
+
+
+  .badge {
+    position: relative;
+
+    inset: auto;
+
+    width: 125px;
+
+    margin-top: -48px;
+
+    margin-left: 15px;
+  }
+
+
+  .ecommerceBadge {
+    margin-left: auto;
+  }
+
+
+  .greenShape,
+  .greenSmall,
+  .purpleShape,
+  .middleSwirl,
+  .bottomSwirl {
+    display: none;
+  }
+
+}

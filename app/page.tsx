@@ -1,13 +1,14 @@
-import Hero from "@/components/Hero";
-import HorizontalWords from "@/components/HorizontalWords";
-import FutureSection from "@/components/FutureSection";
-import StatsSection from "@/components/StatsSection";
-import ExpertiseSection from "@/components/ExpertiseSection";
-import ServicesSection from "@/components/ServicesSection";
-import ReviewsSection from "@/components/ReviewsSection";
-import FeaturedWorkSection from "@/components/FeaturedWorkSection";
-import ProudClientsSection from "@/components/ProudClientsSection";
-import FooterSection from "@/components/FooterSection";
+import Hero from "@/components/home/Hero/Hero";
+import HorizontalWords from "@/components/home/HorizontalWords/HorizontalWords";
+import FutureSection from "@/components/home/FutureSection/FutureSection";
+import StatsSection from "@/components/home/StatsSection/StatsSection";
+import ExpertiseSection from "@/components/home/ExpertiseSection/ExpertiseSection";
+import ServicesSection from "@/components/home/ServicesSection/ServicesSection";
+import ReviewsSection from "@/components/home/ReviewsSection/ReviewsSection";
+import FeaturedWorkSection from "@/components/home/FeaturedWorkSection/FeaturedWorkSection";
+import ProudClientsSection from "@/components/home/ProudClientsSection/ProudClientsSection";
+import FooterSection from "@/components/layout/Footer/FooterSection";
+
 export default function HomePage() {
   return (
     <main>

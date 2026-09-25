@@ -1,0 +1,205 @@
+/* =========================================
+   SECTION
+========================================= */
+
+.section {
+  position: relative;
+
+  width: 100%;
+
+  padding:
+    130px
+    60px
+    150px;
+
+  background: #f9f6f5;
+
+  color: #111111;
+}
+
+
+/* =========================================
+   INNER
+========================================= */
+
+.inner {
+  width: min(1500px, 100%);
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(360px, 0.72fr)
+    minmax(0, 1.65fr);
+
+  gap: 90px;
+}
+
+/* =========================================
+   LEFT HEADING
+
+   STATIC — NO ANIMATION
+========================================= */
+
+.heading {
+  margin: 0;
+
+  color: #111111;
+
+  font-family:
+    "Borscha",
+    Arial,
+    sans-serif;
+
+  font-weight: 500;
+
+  font-style: normal;
+
+  font-size: 46px;
+
+  line-height: 1;
+
+  letter-spacing: -0.01em;
+}
+
+
+/* =========================================
+   PARAGRAPH
+========================================= */
+
+.paragraph {
+  position: relative;
+
+  width: 100%;
+
+  max-width: 980px;
+
+  font-family: "DM Sans", Arial, sans-serif;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 1.39;
+  letter-spacing: -0.03em;
+}
+
+
+/* =========================================
+   INDIVIDUAL LINE
+
+   GSAP animates whole line.
+   NOT letters.
+========================================= */
+
+.paragraphLine {
+  display: block;
+
+  width: 100%;
+
+  color:
+    rgba(
+      17,
+      17,
+      17,
+      0.22
+    );
+
+  will-change:
+    transform,
+    opacity,
+    color;
+}
+
+
+/* FIRST PART BOLD LIKE REFERENCE */
+
+.paragraphLine strong {
+  font-weight: 600;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1100px) {
+
+  .section {
+    padding:
+      110px
+      30px
+      120px;
+  }
+
+
+  .inner {
+    grid-template-columns:
+      0.8fr
+      1.3fr;
+
+    gap: 50px;
+  }
+
+
+  .heading {
+    font-size: 37px;
+  }
+
+
+  .paragraph {
+    font-size: 27px;
+  }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 767px) {
+
+  .section {
+    padding:
+      80px
+      18px
+      90px;
+  }
+
+
+  .inner {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 50px;
+  }
+
+
+  .heading {
+    font-size: 34px;
+
+    line-height: 1.02;
+  }
+
+
+  .paragraph {
+    font-size: 23px;
+
+    line-height: 1.3;
+  }
+
+
+  /*
+    Mobile pe manually forced desktop lines
+    naturally wrap ho sakti hain.
+  */
+
+  .paragraphLine {
+    display: inline;
+  }
+
+
+  .paragraphLine::after {
+    content: " ";
+  }
+
+}

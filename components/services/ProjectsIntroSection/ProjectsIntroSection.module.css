@@ -1,0 +1,384 @@
+/* =========================================
+   SECTION
+========================================= */
+
+.section {
+  position: relative;
+
+  width: 100%;
+
+  padding:
+    110px
+    60px
+    130px;
+
+  background: #f9f6f5;
+
+  color: #111111;
+}
+
+
+/* =========================================
+   INNER
+========================================= */
+
+.inner {
+  width: min(1500px, 100%);
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(460px, 0.95fr)
+    minmax(0, 1.25fr);
+
+  gap: 55px;
+
+  align-items: stretch;
+}
+
+
+/* =========================================
+   VIDEO
+========================================= */
+
+.videoWrap {
+  position: relative;
+
+  min-height: 620px;
+
+  border-radius: 18px;
+
+  overflow: hidden;
+
+  background: #111111;
+
+  will-change:
+    transform,
+    opacity;
+}
+
+
+.video {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  min-height: 620px;
+
+  object-fit: cover;
+}
+
+
+/* =========================================
+   CONTENT
+========================================= */
+
+.content {
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: space-between;
+
+  min-height: 620px;
+
+  padding:
+    8px
+    0
+    6px;
+}
+
+
+/* =========================================
+   HEADING
+========================================= */
+
+.heading {
+  margin: 0;
+
+  max-width: 790px;
+
+  color: #111111;
+
+  font-family:
+    "Borscha",
+    Arial,
+    sans-serif;
+
+  font-weight: 500;
+
+  font-style: normal;
+
+  font-size: 64px;
+
+  line-height: 1;
+
+  letter-spacing: -0.01em;
+
+  will-change:
+    transform,
+    opacity,
+    filter;
+}
+
+
+/* =========================================
+   BOTTOM CONTENT
+========================================= */
+
+.bottomContent {
+  max-width: 690px;
+
+  will-change:
+    transform,
+    opacity;
+}
+
+
+/* =========================================
+   CAPTION
+========================================= */
+
+.caption {
+  max-width: 650px;
+
+  margin:
+    0
+    0
+    26px;
+
+  color:
+    rgba(
+      17,
+      17,
+      17,
+      0.5
+    );
+
+  font-family:
+    "DM Sans",
+    Arial,
+    sans-serif;
+
+  font-weight: 500;
+
+  font-style: normal;
+
+  font-size: 26px;
+
+  line-height: 1.39;
+
+  letter-spacing: -0.03em;
+}
+
+
+/* =========================================
+   BUTTON
+========================================= */
+
+.button {
+  position: relative;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 12px;
+
+  min-height: 48px;
+
+  padding:
+    10px
+    18px;
+
+  border:
+    1.5px solid
+    #111111;
+
+  border-radius: 999px;
+
+  background: transparent;
+
+  color: #111111;
+
+  font-family:
+    "Borscha",
+    Arial,
+    sans-serif;
+
+  font-weight: 500;
+
+  font-style: normal;
+
+  font-size: 24px;
+
+  line-height: 1;
+
+  letter-spacing: 0.03em;
+
+  text-transform: uppercase;
+
+  text-decoration: none;
+
+  overflow: hidden;
+
+  transition:
+    background
+      0.35s ease,
+    color
+      0.35s ease,
+    transform
+      0.45s
+      cubic-bezier(
+        0.22,
+        1,
+        0.36,
+        1
+      );
+}
+
+
+/* =========================================
+   BUTTON HOVER
+========================================= */
+
+.button:hover {
+  background: #000000;
+
+  color: #ffffff;
+
+  transform:
+    translateY(-3px);
+}
+
+
+/* =========================================
+   ARROW
+========================================= */
+
+.arrow {
+  display: inline-block;
+
+  font-size: 24px;
+
+  line-height: 1;
+
+  transition:
+    transform
+      0.35s ease;
+}
+
+
+.button:hover
+.arrow {
+  transform:
+    translateX(5px);
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1100px) {
+
+  .section {
+    padding:
+      100px
+      30px
+      110px;
+  }
+
+
+  .inner {
+    grid-template-columns:
+      minmax(360px, 0.9fr)
+      minmax(0, 1.1fr);
+
+    gap: 38px;
+  }
+
+
+  .videoWrap,
+  .video,
+  .content {
+    min-height: 520px;
+  }
+
+
+  .heading {
+    font-size: 52px;
+  }
+
+
+  .caption {
+    font-size: 22px;
+  }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 767px) {
+
+  .section {
+    padding:
+      75px
+      18px
+      90px;
+  }
+
+
+  .inner {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 42px;
+  }
+
+
+  .videoWrap,
+  .video {
+    min-height: 440px;
+  }
+
+
+  .content {
+    min-height: auto;
+
+    gap: 60px;
+  }
+
+
+  .heading {
+    font-size: 44px;
+  }
+
+
+  .caption {
+    font-size: 20px;
+
+    line-height: 1.3;
+  }
+
+
+  .button {
+    font-size: 19px;
+
+    min-height: 44px;
+
+    padding:
+      9px
+      16px;
+  }
+
+}

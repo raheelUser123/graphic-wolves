@@ -1,0 +1,656 @@
+/* =========================================
+   SECTION
+========================================= */
+
+.section {
+  position: relative;
+
+  width: 100%;
+
+  padding:
+    120px
+    60px
+    150px;
+
+  background: #f9f6f5;
+
+  color: #111111;
+}
+
+
+/* =========================================
+   INNER
+========================================= */
+
+.inner {
+  width: min(1500px, 100%);
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns:
+    180px
+    minmax(0, 1fr);
+
+  gap: 70px;
+}
+
+
+/* =========================================
+   LABEL
+========================================= */
+
+.label {
+  padding-top: 22px;
+
+  color: #111111;
+
+  font-family:
+    "DM Sans",
+    Arial,
+    sans-serif;
+
+  font-weight: 500;
+
+  font-size: 32px;
+
+  line-height: 1.39;
+
+  letter-spacing:
+    -0.03em;
+}
+
+
+/* =========================================
+   LIST
+========================================= */
+
+.list {
+  width: 100%;
+}
+
+
+/* =========================================
+   SERVICE ROW
+========================================= */
+
+.row {
+  position: relative;
+
+  width: 100%;
+
+  overflow: hidden;
+
+  isolation: isolate;
+
+  border-top:
+    1px solid
+    rgba(17, 17, 17, 0.18);
+
+  /*
+    IMPORTANT:
+    transparent rahega.
+    Background image ab -ve z-index pe nahi hai.
+  */
+
+  background: transparent;
+}
+
+
+.row:last-child {
+  border-bottom:
+    1px solid
+    rgba(17, 17, 17, 0.18);
+}
+
+
+/* =========================================
+   IMAGE
+
+   Initially image neeche hidden.
+========================================= */
+
+.backgroundImage {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 0;
+
+  background-position: center;
+
+  background-size: cover;
+
+  background-repeat: no-repeat;
+
+  opacity: 0;
+
+  transform:
+    translate3d(
+      0,
+      105%,
+      0
+    )
+    scale(1.06);
+
+  transform-origin:
+    center bottom;
+
+  transition:
+    transform
+      0.9s
+      cubic-bezier(
+        0.22,
+        1,
+        0.36,
+        1
+      ),
+    opacity
+      0.45s ease;
+
+  will-change:
+    transform,
+    opacity;
+
+  pointer-events: none;
+}
+
+
+/* =========================================
+   IMAGE REVEALED
+
+   HOVER OR CLICK OPEN
+========================================= */
+
+.imageVisible
+.backgroundImage {
+  opacity: 1;
+
+  transform:
+    translate3d(
+      0,
+      0,
+      0
+    )
+    scale(1);
+}
+
+
+/* =========================================
+   OVERLAY
+========================================= */
+
+.imageOverlay {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 1;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(
+        0,
+        0,
+        0,
+        0.52
+      )
+      0%,
+      rgba(
+        0,
+        0,
+        0,
+        0.25
+      )
+      52%,
+      rgba(
+        0,
+        0,
+        0,
+        0.16
+      )
+      100%
+    );
+
+  opacity: 0;
+
+  transition:
+    opacity
+      0.6s ease;
+
+  pointer-events: none;
+}
+
+
+.imageVisible
+.imageOverlay {
+  opacity: 1;
+}
+
+
+/* =========================================
+   ROW TOP
+========================================= */
+
+.rowTop {
+  position: relative;
+
+  z-index: 5;
+
+  width: 100%;
+
+  min-height: 145px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content:
+    space-between;
+
+  gap: 35px;
+
+  padding:
+    24px
+    24px
+    24px
+    20px;
+}
+
+
+/* =========================================
+   HEADING
+========================================= */
+
+.serviceTitle {
+  display: inline-block;
+
+  max-width:
+    calc(100% - 90px);
+
+  color: #111111;
+
+  font-family:
+    "Borscha",
+    Arial,
+    sans-serif;
+
+  font-weight: 600;
+
+  font-style: normal;
+
+  font-size: 82px;
+
+  line-height: 1;
+
+  letter-spacing:
+    -0.03em;
+
+  text-decoration: none;
+
+  transition:
+    color
+      0.55s ease,
+    transform
+      0.7s
+      cubic-bezier(
+        0.22,
+        1,
+        0.36,
+        1
+      );
+}
+
+
+/* =========================================
+   WHEN IMAGE IS VISIBLE
+========================================= */
+
+.imageVisible
+.serviceTitle {
+  color: #ffffff;
+
+  transform:
+    translateX(7px);
+}
+
+
+/* =========================================
+   PLUS BUTTON
+========================================= */
+
+.plusButton {
+  position: relative;
+
+  z-index: 10;
+
+  flex:
+    0 0 58px;
+
+  width: 58px;
+
+  height: 58px;
+
+  display: grid;
+
+  place-items: center;
+
+  padding: 0;
+
+  border: none;
+
+  outline: none;
+
+  background: transparent;
+
+  color: #111111;
+
+  cursor: pointer;
+}
+
+
+/* =========================================
+   PLUS ICON
+========================================= */
+
+.plusButton span {
+  display: block;
+
+  color: inherit;
+
+  font-family:
+    "DM Sans",
+    Arial,
+    sans-serif;
+
+  font-size: 38px;
+
+  font-weight: 400;
+
+  line-height: 1;
+
+  transition:
+    transform
+      0.7s
+      cubic-bezier(
+        0.22,
+        1,
+        0.36,
+        1
+      ),
+    color
+      0.45s ease;
+}
+
+
+/* hover/open image pe white */
+
+.imageVisible
+.plusButton {
+  color: #ffffff;
+}
+
+
+/* =========================================
+   + TO X
+========================================= */
+
+.plusOpen span {
+  transform:
+    rotate(45deg);
+}
+
+
+/* =========================================
+   CAPTION OUTER
+
+   CSS GRID accordion technique.
+   Better than JS height:auto animation.
+========================================= */
+
+.captionOuter {
+  position: relative;
+
+  z-index: 5;
+
+  display: grid;
+
+  grid-template-rows:
+    0fr;
+
+  opacity: 0;
+
+  transition:
+    grid-template-rows
+      0.75s
+      cubic-bezier(
+        0.22,
+        1,
+        0.36,
+        1
+      ),
+    opacity
+      0.45s ease;
+}
+
+
+/* =========================================
+   OPEN CAPTION
+========================================= */
+
+.open
+.captionOuter {
+  grid-template-rows:
+    1fr;
+
+  opacity: 1;
+}
+
+
+/* =========================================
+   CAPTION INNER
+========================================= */
+
+.captionInner {
+  min-height: 0;
+
+  overflow: hidden;
+
+  transform:
+    translateY(15px);
+
+  transition:
+    transform
+      0.8s
+      cubic-bezier(
+        0.22,
+        1,
+        0.36,
+        1
+      );
+}
+
+
+.open
+.captionInner {
+  transform:
+    translateY(0);
+}
+
+
+/* =========================================
+   CAPTION
+========================================= */
+
+.caption {
+  max-width: 950px;
+
+  margin: 0;
+
+  padding:
+    0
+    120px
+    34px
+    27px;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.96
+    );
+
+  font-family:
+    "DM Sans",
+    Arial,
+    sans-serif;
+
+  font-weight: 500;
+
+  font-style: normal;
+
+  font-size: 24px;
+
+  line-height: 1;
+
+  letter-spacing: 0;
+}
+
+
+/* =========================================
+   SUBTLE IMAGE MOVEMENT
+========================================= */
+
+.imageVisible:hover
+.backgroundImage {
+  transform:
+    translate3d(
+      0,
+      0,
+      0
+    )
+    scale(1.025);
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1100px) {
+
+  .section {
+    padding:
+      100px
+      30px
+      120px;
+  }
+
+
+  .inner {
+    grid-template-columns:
+      130px
+      minmax(0, 1fr);
+
+    gap: 40px;
+  }
+
+
+  .label {
+    font-size: 26px;
+  }
+
+
+  .serviceTitle {
+    font-size: 60px;
+  }
+
+
+  .caption {
+    font-size: 21px;
+
+    padding-right: 70px;
+  }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 767px) {
+
+  .section {
+    padding:
+      75px
+      18px
+      90px;
+  }
+
+
+  .inner {
+    display: block;
+  }
+
+
+  .label {
+    margin-bottom: 30px;
+
+    padding: 0;
+
+    font-size: 22px;
+  }
+
+
+  .rowTop {
+    min-height: 100px;
+
+    gap: 12px;
+
+    padding:
+      18px
+      5px;
+  }
+
+
+  .serviceTitle {
+    max-width:
+      calc(100% - 55px);
+
+    font-size: 40px;
+
+    line-height: 0.98;
+  }
+
+
+  .plusButton {
+    width: 44px;
+
+    height: 44px;
+
+    flex-basis: 44px;
+  }
+
+
+  .plusButton span {
+    font-size: 30px;
+  }
+
+
+  .caption {
+    padding:
+      0
+      30px
+      25px
+      7px;
+
+    font-size: 18px;
+
+    line-height: 1.15;
+  }
+
+}
