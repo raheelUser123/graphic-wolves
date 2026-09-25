@@ -1,0 +1,465 @@
+/* =========================================
+   SECTION
+========================================= */
+
+.section {
+  position: relative;
+
+  width: 100%;
+
+  padding:
+    130px
+    40px
+    150px;
+
+  background: #111111;
+
+  color: #ffffff;
+
+  overflow: hidden;
+
+  z-index: 1;
+}
+
+
+/* =========================================
+   INNER
+========================================= */
+
+.inner {
+  width: min(1050px, 100%);
+
+  margin: 0 auto;
+}
+
+
+/* =========================================
+   HEADING
+========================================= */
+
+.heading {
+  display: flex;
+
+  align-items: baseline;
+
+  justify-content: center;
+
+  gap: 0;
+
+  margin:
+    0
+    0
+    115px;
+
+  color: #ffffff;
+
+  text-align: center;
+
+  will-change:
+    transform,
+    opacity,
+    filter;
+}
+
+
+.featured {
+  font-family:
+    "Borscha",
+    Arial,
+    sans-serif;
+
+  font-weight: 400;
+
+  font-style: normal;
+
+  font-size: 96px;
+
+  line-height: 1;
+
+  letter-spacing: -0.01em;
+}
+
+
+/* =========================================
+   WORK
+========================================= */
+
+.workWrap {
+  position: relative;
+
+  display: inline-block;
+}
+
+
+.work {
+  display: inline-block;
+
+  font-family:
+    "Canela Text Trial",
+    "Canela",
+    Georgia,
+    serif;
+
+  font-weight: 100;
+
+  font-style: italic;
+
+  font-size: 96px;
+
+  line-height: 1;
+
+  letter-spacing: -0.05em;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================
+   SWIRL
+========================================= */
+
+.swirl {
+  position: absolute;
+
+  left: 1%;
+
+  bottom: -19px;
+
+  width: 100%;
+
+  height: 30px;
+
+  overflow: visible;
+
+  pointer-events: none;
+}
+
+
+.swirl path {
+  fill: none;
+
+  stroke: #ffffff;
+
+  stroke-width: 2.1;
+
+  stroke-linecap: round;
+
+  stroke-linejoin: round;
+}
+
+
+/* =========================================
+   PROJECTS
+========================================= */
+
+.projects {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 28px;
+}
+
+
+/* =========================================
+   CARD
+========================================= */
+
+.card {
+  position: relative;
+
+  display: block;
+
+  width: 100%;
+
+  overflow: hidden;
+
+  border-radius: 10px;
+
+  text-decoration: none;
+
+  color: #111111;
+
+  background: #ffffff;
+
+  will-change:
+    transform,
+    opacity;
+}
+
+
+/* =========================================
+   IMAGE WRAP
+========================================= */
+
+.imageWrap {
+  position: relative;
+
+  width: 100%;
+
+  overflow: hidden;
+
+  background: #222222;
+
+  aspect-ratio: 1.95 / 1;
+}
+
+
+/* =========================================
+   IMAGE
+========================================= */
+
+.image {
+  display: block;
+
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: cover;
+
+  transform: scale(1);
+
+  transition:
+    transform
+      0.8s
+      cubic-bezier(
+        0.22,
+        1,
+        0.36,
+        1
+      );
+}
+
+
+.card:hover .image {
+  transform:
+    scale(1.035);
+}
+
+
+/* =========================================
+   INFO PANEL
+
+   HIDDEN UNDER IMAGE
+========================================= */
+
+.info {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 30px;
+
+  width: 100%;
+
+  max-height: 0;
+
+  padding:
+    0
+    26px;
+
+  overflow: hidden;
+
+  opacity: 0;
+
+  background: #ffffff;
+
+  transform:
+    translateY(25px);
+
+  transition:
+    max-height
+      0.7s
+      cubic-bezier(
+        0.22,
+        1,
+        0.36,
+        1
+      ),
+    padding
+      0.7s
+      cubic-bezier(
+        0.22,
+        1,
+        0.36,
+        1
+      ),
+    opacity
+      0.4s ease,
+    transform
+      0.7s
+      cubic-bezier(
+        0.22,
+        1,
+        0.36,
+        1
+      );
+}
+
+
+/* =========================================
+   HOVER INFO REVEAL
+========================================= */
+
+.card:hover .info {
+  max-height: 90px;
+
+  padding:
+    24px
+    26px;
+
+  opacity: 1;
+
+  transform:
+    translateY(0);
+}
+
+
+/* =========================================
+   PROJECT TITLE
+========================================= */
+
+.projectTitle {
+  font-family:
+    "Borscha",
+    Arial,
+    sans-serif;
+
+  font-weight: 600;
+
+  font-style: normal;
+
+  font-size: 28px;
+
+  line-height: 1;
+
+  letter-spacing: -0.03em;
+
+  color: #111111;
+}
+
+
+/* =========================================
+   DATE
+========================================= */
+
+.projectDate {
+  font-family:
+    "Borscha",
+    Arial,
+    sans-serif;
+
+  font-weight: 600;
+
+  font-style: normal;
+
+  font-size: 28px;
+
+  line-height: 1;
+
+  letter-spacing: -0.03em;
+
+  text-align: right;
+
+  color: #111111;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1100px) {
+
+  .section {
+    padding:
+      110px
+      30px
+      130px;
+  }
+
+
+  .heading {
+    margin-bottom: 90px;
+  }
+
+
+  .featured,
+  .work {
+    font-size: 72px;
+  }
+
+
+  .projectTitle,
+  .projectDate {
+    font-size: 24px;
+  }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 767px) {
+
+  .section {
+    padding:
+      90px
+      16px
+      100px;
+  }
+
+
+  .heading {
+    margin-bottom: 65px;
+  }
+
+
+  .featured,
+  .work {
+    font-size: 48px;
+  }
+
+
+  .swirl {
+    bottom: -13px;
+
+    height: 20px;
+  }
+
+
+  .projects {
+    gap: 18px;
+  }
+
+
+  .imageWrap {
+    aspect-ratio: 1.35 / 1;
+  }
+
+
+
+  .info {
+    max-height: 80px;
+
+    padding:
+      18px
+      16px;
+
+    opacity: 1;
+
+    transform: none;
+  }
+
+
+  .projectTitle,
+  .projectDate {
+    font-size: 20px;
+  }
+
+}

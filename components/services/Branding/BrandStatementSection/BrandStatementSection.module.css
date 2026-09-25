@@ -1,0 +1,234 @@
+/* =========================================
+   SECTION
+========================================= */
+
+.section {
+  position: relative;
+
+  width: 100%;
+
+  min-height: 100vh;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding:
+    120px
+    40px;
+
+  background: #f9f6f5;
+
+  overflow: hidden;
+}
+
+
+/* =========================================
+   INNER
+========================================= */
+
+.inner {
+  width: min(1450px, 100%);
+
+  margin: 0 auto;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+}
+
+
+/* =========================================
+   HEADING
+========================================= */
+
+.heading {
+  width: min(1250px, 100%);
+
+  margin: 0;
+
+  color: #111111;
+
+  font-family:
+    "Borscha",
+    Arial,
+    sans-serif;
+
+  font-weight: 600;
+
+  font-style: normal;
+
+  font-size: 86px;
+
+  line-height: 1.05;
+
+  letter-spacing: -0.03em;
+
+  text-align: center;
+}
+
+
+/* =========================================
+   EACH LINE
+========================================= */
+
+.line {
+  display: block;
+
+  color:
+    rgba(
+      17,
+      17,
+      17,
+      0.28
+    );
+
+  will-change:
+    color,
+    opacity;
+
+  /*
+    tiny overlap between visual lines
+    gives screenshot type compact heading
+  */
+  margin-top: -0.02em;
+}
+
+
+/* =========================================
+   LAST LINE
+========================================= */
+
+.lastLine {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 22px;
+}
+
+
+/* =========================================
+   ICON
+========================================= */
+
+.icon {
+  display: block;
+
+  width: 105px;
+
+  height: 105px;
+
+  flex: 0 0 105px;
+
+  object-fit: contain;
+
+  transform-origin:
+    center center;
+
+  will-change:
+    transform,
+    opacity,
+    filter;
+}
+
+
+/* =========================================
+   LARGE DESKTOP
+========================================= */
+
+@media (min-width: 1600px) {
+
+  .heading {
+    font-size: 92px;
+  }
+
+  .icon {
+    width: 115px;
+
+    height: 115px;
+
+    flex-basis: 115px;
+  }
+
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1100px) {
+
+  .section {
+    min-height: 820px;
+
+    padding:
+      100px
+      30px;
+  }
+
+
+  .heading {
+    font-size: 67px;
+  }
+
+
+  .lastLine {
+    gap: 16px;
+  }
+
+
+  .icon {
+    width: 80px;
+
+    height: 80px;
+
+    flex-basis: 80px;
+  }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 767px) {
+
+  .section {
+    min-height: 650px;
+
+    padding:
+      80px
+      18px;
+  }
+
+
+  .heading {
+    font-size: 44px;
+
+    line-height: 1.03;
+  }
+
+
+  .lastLine {
+    gap: 10px;
+  }
+
+
+  .icon {
+    width: 52px;
+
+    height: 52px;
+
+    flex-basis: 52px;
+  }
+
+}

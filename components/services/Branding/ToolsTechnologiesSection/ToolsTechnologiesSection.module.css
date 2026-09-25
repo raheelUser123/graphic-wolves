@@ -1,0 +1,396 @@
+/* =========================================
+   SECTION
+========================================= */
+
+.section {
+  position: relative;
+
+  width: 100%;
+
+  min-height: 900px;
+
+  padding:
+    130px
+    40px
+    150px;
+
+  background: #f9f6f5;
+
+  color: #111111;
+
+  overflow: visible;
+
+  isolation: isolate;
+}
+
+
+/* =========================================
+   INNER
+========================================= */
+
+.inner {
+  width: min(1180px, 100%);
+
+  margin: 0 auto;
+}
+
+
+/* =========================================
+   HEADING
+========================================= */
+
+.heading {
+  display: flex;
+
+  align-items: baseline;
+
+  justify-content: center;
+
+  gap: 0;
+
+  margin: 0;
+
+  text-align: center;
+
+  color: #111111;
+
+  will-change:
+    transform,
+    opacity,
+    filter;
+}
+
+
+.headingBold {
+  font-family:
+    "Borscha",
+    Arial,
+    sans-serif;
+
+  font-weight: 600;
+
+  font-style: normal;
+
+  font-size: 116px;
+
+  line-height: 1.05;
+
+  letter-spacing: -0.03em;
+}
+
+
+.headingItalic {
+  font-family:
+    "Canela Text Trial",
+    "Canela",
+    Georgia,
+    serif;
+
+  font-weight: 300;
+
+  font-style: italic;
+
+  font-size: 116px;
+
+  line-height: 1;
+
+  letter-spacing: -0.05em;
+}
+
+
+/* =========================================
+   CAPTION
+========================================= */
+
+.caption {
+  margin:
+    20px
+    0
+    55px;
+
+  color: #111111;
+
+  font-family:
+    "DM Sans",
+    Arial,
+    sans-serif;
+
+  font-weight: 500;
+
+  font-style: normal;
+
+  font-size: 24px;
+
+  line-height: 1;
+
+  letter-spacing: -0.03em;
+
+  text-align: center;
+
+  will-change:
+    transform,
+    opacity;
+}
+
+
+/* =========================================
+   GRID
+========================================= */
+
+.grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: 24px;
+}
+
+
+/* =========================================
+   CARD
+========================================= */
+
+.card {
+  position: relative;
+
+  min-height: 210px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 32px;
+
+  border-radius: 12px;
+
+  background: #ffffff;
+
+  overflow: hidden;
+
+  cursor: default;
+
+  will-change:
+    transform,
+    opacity;
+
+  transition:
+    background-color
+      0.45s
+      cubic-bezier(
+        0.22,
+        1,
+        0.36,
+        1
+      ),
+    transform
+      0.5s
+      cubic-bezier(
+        0.22,
+        1,
+        0.36,
+        1
+      );
+}
+
+
+/* =========================================
+   CARD HOVER
+========================================= */
+
+.card:hover {
+  background: #eee7ff;
+
+  transform:
+    translateY(-7px);
+}
+
+
+/* =========================================
+   ICON
+========================================= */
+
+.toolIcon {
+  display: block;
+
+  width: 70px;
+
+  height: 70px;
+
+  object-fit: contain;
+
+  transform-origin: center;
+
+  transition:
+    transform
+      0.55s
+      cubic-bezier(
+        0.22,
+        1,
+        0.36,
+        1
+      );
+}
+
+
+.card:hover .toolIcon {
+  transform:
+    scale(1.12)
+    rotate(-3deg);
+}
+
+
+/* =========================================
+   LEFT DECOR
+
+   SAME SECTION ME RAKHNA HAI.
+   Next black section ke upar overlap karega.
+========================================= */
+
+.decor {
+  position: absolute;
+
+  left: -45px;
+
+  bottom: -115px;
+
+  z-index: 20;
+
+  width: 230px;
+
+  pointer-events: none;
+
+  will-change:
+    transform,
+    opacity;
+}
+
+
+.decor img {
+  display: block;
+
+  width: 100%;
+
+  height: auto;
+
+  object-fit: contain;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1100px) {
+
+  .section {
+    min-height: auto;
+
+    padding:
+      110px
+      30px
+      130px;
+  }
+
+
+  .headingBold,
+  .headingItalic {
+    font-size: 82px;
+  }
+
+
+  .caption {
+    font-size: 21px;
+  }
+
+
+  .grid {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+
+  .card {
+    min-height: 185px;
+  }
+
+
+  .decor {
+    width: 185px;
+
+    bottom: -90px;
+  }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 767px) {
+
+  .section {
+    padding:
+      85px
+      18px
+      110px;
+  }
+
+
+  .heading {
+    flex-wrap: wrap;
+  }
+
+
+  .headingBold,
+  .headingItalic {
+    font-size: 54px;
+  }
+
+
+  .caption {
+    margin:
+      16px
+      0
+      38px;
+
+    font-size: 17px;
+
+    line-height: 1.2;
+  }
+
+
+  .grid {
+    grid-template-columns:
+      repeat(2, 1fr);
+
+    gap: 12px;
+  }
+
+
+  .card {
+    min-height: 135px;
+
+    padding: 20px;
+  }
+
+
+  .toolIcon {
+    width: 50px;
+
+    height: 50px;
+  }
+
+
+  .decor {
+    left: -25px;
+
+    bottom: -65px;
+
+    width: 130px;
+  }
+
+}

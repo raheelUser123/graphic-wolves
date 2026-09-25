@@ -154,9 +154,9 @@ export default function ProjectsIntroSection() {
             className={styles.heading}
           >
             A decade of projects where
-            <br />
+        
             design and strategy meet
-            <br />
+          
             purpose.
           </h2>
 

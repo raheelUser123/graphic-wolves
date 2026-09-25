@@ -226,7 +226,7 @@ export default function StatsSection() {
           active = (active + 1) % items.length;
 
           renderServices(true);
-        }, 2100);
+        }, 1100);
       };
 
       ScrollTrigger.create({
