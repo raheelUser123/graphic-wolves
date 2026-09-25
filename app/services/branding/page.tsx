@@ -3,6 +3,8 @@ import BrandingHero from "@/components/services/Branding/BrandingHero/BrandingHe
 import BrandStatementSection from "@/components/services/Branding/BrandStatementSection/BrandStatementSection";
 import ToolsTechnologiesSection from "@/components/services/Branding/ToolsTechnologiesSection/ToolsTechnologiesSection";
 import BrandingFeaturedWork from "@/components/services/Branding/BrandingFeaturedWork/BrandingFeaturedWork";
+import ReviewsSection from "@/components/home/ReviewsSection/ReviewsSection";
+import FooterSection from "@/components/layout/Footer/FooterSection";
 export default function BrandingPage() {
   return (
     <main>
@@ -11,6 +13,8 @@ export default function BrandingPage() {
       <BrandStatementSection />
       <ToolsTechnologiesSection />
       <BrandingFeaturedWork />
+      <ReviewsSection />
+      <FooterSection />
     </main>
   );
 }

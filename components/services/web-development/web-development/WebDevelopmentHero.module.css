@@ -1,0 +1,725 @@
+/* =========================================
+   SECTION
+========================================= */
+
+.section {
+  position: relative;
+
+  width: 100%;
+  min-height: 100vh;
+
+  background: #f9f6f5;
+
+  color: #111111;
+
+  overflow: hidden;
+}
+
+
+/* =========================================
+   CONTENT
+========================================= */
+
+.content {
+  width: 100%;
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding:
+    145px
+    0
+    45px;
+}
+
+
+/* =========================================
+   BREADCRUMB
+========================================= */
+
+.breadcrumb {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 18px;
+
+  margin:
+    34px
+    0
+    20px;
+}
+
+
+.breadcrumbMuted,
+.breadcrumbActive {
+  font-family:
+    "Borscha",
+    Arial,
+    sans-serif;
+
+  font-weight: 600;
+
+  font-size: 24px;
+
+  line-height: 1;
+
+  letter-spacing: -0.01em;
+
+  text-decoration: none;
+}
+
+
+.breadcrumbMuted {
+  color:
+    rgba(
+      17,
+      17,
+      17,
+      0.45
+    );
+}
+
+
+.breadcrumbActive {
+  color: #111111;
+}
+
+
+.breadcrumbDivider {
+  width: 1px;
+  height: 28px;
+
+  background:
+    rgba(
+      17,
+      17,
+      17,
+      0.25
+    );
+}
+
+
+/* =========================================
+   HEADING
+========================================= */
+
+.heading {
+  margin: 0;
+
+  max-width: 1050px;
+
+  color: #111111;
+
+  font-family:
+    "Borscha",
+    Arial,
+    sans-serif;
+
+  font-weight: 600;
+
+  font-size: 86px;
+
+  line-height: 1.05;
+
+  letter-spacing: -0.03em;
+
+  text-align: center;
+}
+
+
+.growth {
+  color: #9863ff;
+
+  font-family:
+    "Canela Text Trial",
+    "Canela",
+    Georgia,
+    serif;
+
+  font-weight: 600;
+
+  font-style: italic;
+
+  font-size: 96px;
+
+  line-height: 1.05;
+
+  letter-spacing: -0.03em;
+}
+
+
+/* =========================================
+   CAPTION
+========================================= */
+
+.caption {
+  margin:
+    30px
+    0
+    0;
+
+  color:
+    rgba(
+      17,
+      17,
+      17,
+      0.45
+    );
+
+  font-family:
+    "DM Sans",
+    Arial,
+    sans-serif;
+
+  font-weight: 500;
+
+  font-size: 24px;
+
+  line-height: 1.39;
+
+  letter-spacing: -0.03em;
+
+  text-align: center;
+}
+
+
+/* =========================================
+   CARDS VIEWPORT
+========================================= */
+
+.cardsViewport {
+  position: relative;
+
+  width: 100%;
+
+  margin-top: 92px;
+
+  padding:
+    35px
+    0
+    55px;
+
+  overflow: visible;
+}
+
+
+/* =========================================
+   CARDS ROW
+
+   REFERENCE KI MAIN CHEEZ:
+   ABSOLUTE POSITIONING NAHI.
+========================================= */
+
+.cardsRow {
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: max-content;
+
+  min-width: 100%;
+
+  margin: 0 auto;
+
+  padding:
+    0
+    80px;
+
+  /*
+    Entire hover interaction
+  */
+}
+
+
+/* =========================================
+   CARD ITEM
+========================================= */
+
+.cardItem {
+  position: relative;
+
+  flex: 0 0 auto;
+
+  width: 310px;
+  height: 370px;
+
+  /*
+    THIS creates initial overlap.
+  */
+
+  margin-left: -96px;
+
+  z-index: 1;
+
+  transform-origin:
+    center center;
+
+  transition:
+    transform
+      0.9s
+      cubic-bezier(
+        0.22,
+        1,
+        0.36,
+        1
+      ),
+    margin
+      0.9s
+      cubic-bezier(
+        0.22,
+        1,
+        0.36,
+        1
+      );
+
+  will-change:
+    transform;
+}
+
+
+/*
+  first card ko negative margin nahi.
+*/
+
+.cardItem:first-child {
+  margin-left: 0;
+}
+
+
+/* =========================================
+   INITIAL ROTATIONS
+
+   EXACT REFERENCE VALUES
+========================================= */
+
+.rotation1 {
+  transform:
+    rotate(-9deg);
+}
+
+
+.rotation2 {
+  transform:
+    rotate(6.5deg);
+}
+
+
+.rotation3 {
+  transform:
+    rotate(-5.5deg);
+}
+
+
+.rotation4 {
+  transform:
+    rotate(5deg);
+}
+
+
+.rotation5 {
+  transform:
+    rotate(-4.5deg);
+}
+
+
+/* =========================================
+   WHOLE ROW HOVER
+
+   Cards spread + straighten.
+========================================= */
+
+.cardsRow:hover
+.cardItem {
+  margin-left: 18px;
+
+  transform:
+    rotate(0deg)
+    translateY(0);
+}
+
+
+/*
+  first one ko normal.
+*/
+
+.cardsRow:hover
+.cardItem:first-child {
+  margin-left: 0;
+}
+
+
+/* =========================================
+   EXTRA HOVER DEPTH
+
+   Jo card individually hover hoga,
+   thora aage aaye.
+========================================= */
+
+.cardsRow:hover
+.cardItem:hover {
+  z-index: 20;
+
+  transform:
+    rotate(0deg)
+    translateY(-12px)
+    scale(1.025);
+}
+
+
+/* =========================================
+   IMAGE CARD
+========================================= */
+
+.imageCard {
+  width: 100%;
+  height: 100%;
+
+  border-radius: 16px;
+
+  overflow: hidden;
+
+  background: #e9e9e9;
+}
+
+
+.cardImage {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  transform:
+    scale(1.01);
+
+  transition:
+    transform
+      0.9s
+      cubic-bezier(
+        0.22,
+        1,
+        0.36,
+        1
+      );
+}
+
+
+.cardItem:hover
+.cardImage {
+  transform:
+    scale(1.045);
+}
+
+
+/* =========================================
+   STAT CARD
+========================================= */
+
+.statCard {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content:
+    space-between;
+
+  padding:
+    30px
+    27px
+    28px;
+
+  border-radius: 16px;
+
+  color: #111111;
+}
+
+
+.blueCard {
+  background:
+    #dbe4ff;
+}
+
+
+.greenCard {
+  background:
+    #5f9491;
+}
+
+
+/* =========================================
+   MILESTONE
+========================================= */
+
+.statNumber {
+  font-family:
+    "Borscha",
+    Arial,
+    sans-serif;
+
+  font-weight: 600;
+
+  font-size: 36px;
+
+  line-height: 1.05;
+
+  letter-spacing: -0.01em;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.statFooter {
+  width: 100%;
+}
+
+
+.statTitle {
+  font-family:
+    "Borscha",
+    Arial,
+    sans-serif;
+
+  font-weight: 600;
+
+  font-size: 24px;
+
+  line-height: 1;
+
+  letter-spacing: -0.01em;
+}
+
+
+.statDivider {
+  display: block;
+
+  width: 100%;
+  height: 1px;
+
+  margin:
+    10px
+    0;
+
+  background:
+    rgba(
+      17,
+      17,
+      17,
+      0.7
+    );
+}
+
+
+.statCaption {
+  font-family:
+    "DM Sans",
+    Arial,
+    sans-serif;
+
+  font-weight: 300;
+
+  font-size: 24px;
+
+  line-height: 1;
+
+  letter-spacing: -0.03em;
+}
+
+
+/* =========================================
+   LARGE DESKTOP
+
+   Screenshot/reference jaisa bigger spread.
+========================================= */
+
+@media (min-width: 1500px) {
+
+  .cardItem {
+    width: 340px;
+    height: 405px;
+
+    margin-left: -112px;
+  }
+
+
+  .cardsRow:hover
+  .cardItem {
+    margin-left: 23px;
+  }
+
+}
+
+
+/* =========================================
+   1920 WIDTH
+
+   Cards viewport me almost full spread.
+========================================= */
+
+@media (min-width: 1700px) {
+
+  .cardsRow {
+    padding:
+      0
+      55px;
+  }
+
+
+  .cardItem {
+    width: 350px;
+    height: 420px;
+  }
+
+
+  .cardsRow:hover
+  .cardItem {
+    margin-left: 25px;
+  }
+
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1200px) {
+
+  .heading {
+    font-size: 68px;
+  }
+
+
+  .growth {
+    font-size: 76px;
+  }
+
+
+  .caption {
+    font-size: 21px;
+  }
+
+
+  .cardsViewport {
+    margin-top: 70px;
+
+    transform:
+      scale(0.82);
+
+    transform-origin:
+      top center;
+
+    margin-bottom:
+      -70px;
+  }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 767px) {
+
+  .content {
+    padding:
+      120px
+      16px
+      40px;
+  }
+
+
+  .breadcrumb {
+    gap: 10px;
+  }
+
+
+  .breadcrumbMuted,
+  .breadcrumbActive {
+    font-size: 17px;
+  }
+
+
+  .breadcrumbDivider {
+    height: 20px;
+  }
+
+
+  .heading {
+    font-size: 46px;
+  }
+
+
+  .growth {
+    font-size: 52px;
+  }
+
+
+  .caption {
+    font-size: 17px;
+  }
+
+
+  .caption br {
+    display: none;
+  }
+
+
+  .cardsViewport {
+    width:
+      calc(100% + 32px);
+
+    margin-top: 55px;
+
+    transform:
+      scale(0.54);
+
+    transform-origin:
+      top center;
+
+    margin-bottom:
+      -160px;
+  }
+
+
+  .cardsRow {
+    min-width: max-content;
+
+    padding:
+      0
+      20px;
+  }
+
+
+  .cardItem {
+    width: 280px;
+    height: 340px;
+
+    margin-left: -100px;
+  }
+
+
+
+  @media (hover: none) {
+
+    .cardItem {
+      margin-left: -72px;
+    }
+
+  }
+
+}

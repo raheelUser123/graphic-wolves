@@ -22,7 +22,70 @@
 
   isolation: isolate;
 }
+/* =========================================
+   TOOLS SECTION
+========================================= */
 
+.section {
+  position: relative;
+
+  width: 100%;
+
+  min-height: 900px;
+
+  padding:
+    130px
+    40px
+    150px;
+
+  background:
+    #f9f6f5;
+
+  color: #111111;
+
+  /*
+    THIS IS IMPORTANT
+  */
+  overflow: visible;
+
+  z-index: 5;
+
+  isolation: auto;
+}
+
+
+/* =========================================
+   GREEN OVERLAP ARTWORK
+========================================= */
+
+.decor {
+  position: absolute;
+
+  left: -55px;
+
+  bottom: -145px;
+
+  width: 280px;
+
+  z-index: 50;
+
+  pointer-events: none;
+
+  will-change:
+    transform,
+    opacity;
+}
+
+
+.decor img {
+  display: block;
+
+  width: 100%;
+
+  height: auto;
+
+  object-fit: contain;
+}
 
 /* =========================================
    INNER

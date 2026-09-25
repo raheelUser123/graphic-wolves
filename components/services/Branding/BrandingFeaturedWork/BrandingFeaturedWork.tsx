@@ -1,8 +1,10 @@
 "use client";
+
 import { useLayoutEffect, useRef } from "react";
 import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 import styles from "./BrandingFeaturedWork.module.css";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -11,46 +13,43 @@ const projects = [
   {
     title: "Appcues",
     date: "2025",
-    image:
-      "/images/services/branding/featured/appcues.webp",
+    image: "/images/services/branding/featured/appcues.webp",
     href: "/projects/appcues",
+    className: "project1",
   },
+
   {
     title: "ThermoLab",
     date: "2025",
-    image:
-      "/images/services/branding/featured/thermolab.webp",
+    image: "/images/services/branding/featured/thermolab.webp",
     href: "/projects/thermolab",
+    className: "project2",
   },
+
+  {
+    title: "Appcues | Logo Branding",
+    date: "2025",
+    image: "/images/services/branding/featured/casa-cinta.webp",
+    href: "/projects/appcues-branding",
+    className: "project3",
+  },
+
   {
     title: "Casa Cinta",
     date: "2025",
-    image:
-      "/images/services/branding/featured/casa-cinta.webp",
+    image: "/images/services/branding/featured/branding.webp",
     href: "/projects/casa-cinta",
-  },
-  {
-    title: "Branding",
-    date: "2025",
-    image:
-      "/images/services/branding/featured/branding.webp",
-    href: "/projects/branding",
+    className: "project4",
   },
 ];
 
 export default function BrandingFeaturedWork() {
-  const sectionRef =
-    useRef<HTMLElement>(null);
-
-  const swirlPathRef =
-    useRef<SVGPathElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
+  const swirlRef = useRef<SVGPathElement>(null);
 
   useLayoutEffect(() => {
-    const section =
-      sectionRef.current;
-
-    const path =
-      swirlPathRef.current;
+    const section = sectionRef.current;
+    const swirl = swirlRef.current;
 
     if (!section) return;
 
@@ -66,16 +65,16 @@ export default function BrandingFeaturedWork() {
         );
 
       /* =========================================
-         HEADING
+         HEADING ENTRANCE
       ========================================= */
 
       if (heading) {
         gsap.fromTo(
           heading,
           {
-            y: 45,
+            y: 48,
             opacity: 0,
-            filter: "blur(5px)",
+            filter: "blur(6px)",
           },
           {
             y: 0,
@@ -83,7 +82,6 @@ export default function BrandingFeaturedWork() {
             filter: "blur(0px)",
 
             duration: 1,
-
             ease: "power4.out",
 
             scrollTrigger: {
@@ -100,59 +98,93 @@ export default function BrandingFeaturedWork() {
          SWIRL DRAW
       ========================================= */
 
-      if (path) {
+      if (swirl) {
         const length =
-          path.getTotalLength();
+          swirl.getTotalLength();
 
-        gsap.set(path, {
+        gsap.set(swirl, {
           strokeDasharray: length,
           strokeDashoffset: length,
         });
 
-        gsap.to(path, {
+        gsap.to(swirl, {
           strokeDashoffset: 0,
 
           ease: "none",
 
           scrollTrigger: {
             trigger: section,
-            start: "top 68%",
-            end: "top 38%",
-            scrub: 1.1,
+
+            start: "top 72%",
+            end: "top 42%",
+
+            scrub: 1.15,
+
+            invalidateOnRefresh: true,
           },
         });
       }
 
       /* =========================================
-         CARDS FADE UP
+         PROJECTS FADE UP
       ========================================= */
 
       gsap.fromTo(
         cards,
         {
-          y: 80,
+          y: 90,
           opacity: 0,
-          scale: 0.96,
+          scale: 0.965,
         },
         {
           y: 0,
           opacity: 1,
           scale: 1,
 
-          duration: 1,
+          duration: 1.05,
 
-          stagger: 0.14,
+          stagger: 0.13,
 
           ease: "power4.out",
 
           scrollTrigger: {
             trigger: section,
-            start: "top 67%",
+
+            start: "top 64%",
+
             toggleActions:
               "play none none reverse",
           },
         }
       );
+
+      /* =========================================
+         VERY SUBTLE PARALLAX
+      ========================================= */
+
+      cards.forEach((card, index) => {
+        gsap.to(card, {
+          y:
+            index % 2 === 0
+              ? -18
+              : -10,
+
+          ease: "none",
+
+          scrollTrigger: {
+            trigger: section,
+
+            start: "top bottom",
+            end: "bottom top",
+
+            scrub: 1.3,
+          },
+        });
+      });
+
+      requestAnimationFrame(() => {
+        ScrollTrigger.refresh();
+      });
     }, section);
 
     return () => {
@@ -164,7 +196,7 @@ export default function BrandingFeaturedWork() {
     <section
       ref={sectionRef}
       className={styles.section}
-      aria-labelledby="branding-featured-heading"
+      aria-labelledby="branding-featured-title"
     >
       <div className={styles.inner}>
         {/* =====================================
@@ -172,7 +204,7 @@ export default function BrandingFeaturedWork() {
         ===================================== */}
 
         <h2
-          id="branding-featured-heading"
+          id="branding-featured-title"
           data-featured-heading
           className={styles.heading}
         >
@@ -187,20 +219,20 @@ export default function BrandingFeaturedWork() {
 
             <svg
               className={styles.swirl}
-              viewBox="0 0 330 36"
+              viewBox="0 0 360 42"
               preserveAspectRatio="none"
               aria-hidden="true"
             >
               <path
-                ref={swirlPathRef}
+                ref={swirlRef}
                 d="
-                  M4 23
-                  C62 20 112 17 158 19
-                  C189 20 221 17 255 18
-                  C277 19 298 21 325 20
-                  C283 21 251 21 219 23
-                  C194 25 168 28 146 27
-                  C132 27 129 24 145 22
+                  M4 27
+                  C52 24 102 21 150 22
+                  C190 23 222 20 256 21
+                  C286 22 315 25 352 23
+                  C310 24 275 24 240 27
+                  C210 29 180 33 154 31
+                  C136 30 134 26 153 24
                 "
               />
             </svg>
@@ -208,19 +240,21 @@ export default function BrandingFeaturedWork() {
         </h2>
 
         {/* =====================================
-            PROJECTS
+            PROJECT GRID
         ===================================== */}
 
-        <div className={styles.projects}>
+        <div className={styles.projectsGrid}>
           {projects.map((project) => (
             <Link
               key={project.title}
               href={project.href}
               data-featured-card
-              className={styles.card}
+              className={`${styles.card} ${
+                styles[
+                  project.className as keyof typeof styles
+                ]
+              }`}
             >
-              {/* IMAGE */}
-
               <div className={styles.imageWrap}>
                 <img
                   src={project.image}
@@ -229,14 +263,20 @@ export default function BrandingFeaturedWork() {
                 />
               </div>
 
-              {/* HOVER INFO */}
+              {/* =================================
+                  HOVER INFO OVERLAY
+              ================================= */}
 
               <div className={styles.info}>
-                <span className={styles.projectTitle}>
+                <span
+                  className={styles.projectTitle}
+                >
                   {project.title}
                 </span>
 
-                <span className={styles.projectDate}>
+                <span
+                  className={styles.projectDate}
+                >
                   {project.date}
                 </span>
               </div>
