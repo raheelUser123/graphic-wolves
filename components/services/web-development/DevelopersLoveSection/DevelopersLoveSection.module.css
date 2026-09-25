@@ -1,0 +1,362 @@
+.section {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: #f8f7f5;
+  padding: 0px 0;
+}
+
+.inner {
+  width: min(1400px, calc(100% - 80px));
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.2fr);
+  align-items: center;
+  gap: 65px;
+}
+
+/* =========================================
+   LEFT PREVIEW
+========================================= */
+
+.previewArea {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+
+  padding: 25px;
+}
+
+.previewBackground {
+  position: absolute;
+  inset: 0;
+
+  background-image: url("/images/services/web-development/developers/preview-background.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  border-radius: 5px;
+
+  z-index: 0;
+}
+
+
+/* =========================================
+   IMAGE VIEWPORT
+========================================= */
+
+.imageViewport {
+  position: relative;
+  z-index: 1;
+
+  width: 100%;
+  height: 410px;
+
+  overflow: hidden;
+
+  background: #111;
+  border-radius: 5px;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.08);
+
+  isolation: isolate;
+}
+
+
+/*
+  The screenshot can be much taller than the viewport.
+
+  On hover it moves upward until the bottom of the
+  screenshot reaches the bottom of the viewport.
+*/
+
+.websiteImage {
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  max-width: none;
+
+  transform: translateY(0);
+
+  transition:
+    transform 1.8s cubic-bezier(0.22, 1, 0.36, 1);
+
+  will-change: transform;
+}
+
+
+/*
+  Hover:
+  -100% means move the entire image height upward.
+  +310px brings the bottom back to viewport bottom.
+*/
+
+.imageViewport:hover .websiteImage {
+  transform: translateY(calc(-100% + 310px));
+  transition: .9s;
+}
+
+
+/* =========================================
+   RIGHT CONTENT
+========================================= */
+
+.content {
+  position: relative;
+  z-index: 2;
+
+  max-width: 650px;
+}
+
+
+/* =========================================
+   MAIN HEADING
+========================================= */
+
+.heading {
+  margin: 0 0 20px;
+
+  font-family: "Borscha", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+
+  font-size: 56px;
+  line-height: 100%;
+  letter-spacing: -0.01em;
+
+  color: #111111;
+}
+
+
+/* =========================================
+   MAIN CAPTION
+========================================= */
+
+.caption {
+  max-width: 620px;
+
+  margin: 0;
+
+  font-family: "DM Sans", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+
+  font-size: 32px;
+  line-height: 139%;
+  letter-spacing: -0.03em;
+
+  color: #999999;
+}
+
+
+/* =========================================
+   FEATURES
+========================================= */
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 55px;
+
+  margin-top: 72px;
+}
+
+
+/* =========================================
+   FEATURE
+========================================= */
+
+.feature {
+  min-width: 0;
+}
+
+
+/* =========================================
+   ICON
+========================================= */
+
+.icon {
+  width: 30px;
+  height: 30px;
+
+  margin-bottom: 17px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #111111;
+}
+
+.icon svg {
+  display: block;
+
+  width: 28px;
+  height: 28px;
+}
+
+
+/* =========================================
+   SMALL HEADING
+========================================= */
+
+.featureHeading {
+  margin: 0 0 9px;
+
+  font-family: "DM Sans", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+
+  font-size: 32px;
+  line-height: 139%;
+  letter-spacing: -0.03em;
+
+  color: #111111;
+}
+
+
+/* =========================================
+   SMALL CAPTION
+========================================= */
+
+.featureCaption {
+  margin: 0;
+
+  font-family: "DM Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+
+  font-size: 20px;
+  line-height: 139%;
+  letter-spacing: -0.03em;
+
+  color: #999999;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1100px) {
+  .inner {
+    width: min(100% - 50px, 1000px);
+
+    grid-template-columns: 1fr;
+    gap: 65px;
+  }
+
+  .previewArea {
+    max-width: 750px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .content {
+    max-width: 750px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .heading {
+    font-size: 50px;
+  }
+
+  .caption {
+    font-size: 28px;
+  }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 767px) {
+  .section {
+    padding: 75px 0;
+  }
+
+  .inner {
+    width: calc(100% - 32px);
+
+    gap: 50px;
+  }
+
+  .previewArea {
+    padding: 15px;
+  }
+
+  .imageViewport {
+    height: 230px;
+  }
+
+  .imageViewport:hover .websiteImage {
+    transform: translateY(calc(-100% + 230px));
+  }
+
+  .heading {
+    margin-bottom: 16px;
+
+    font-size: 42px;
+    line-height: 105%;
+  }
+
+  .caption {
+    font-size: 23px;
+    line-height: 135%;
+  }
+
+  .features {
+    grid-template-columns: 1fr;
+
+    gap: 42px;
+
+    margin-top: 48px;
+  }
+
+  .featureHeading {
+    font-size: 27px;
+    line-height: 135%;
+  }
+
+  .featureCaption {
+    font-size: 18px;
+    line-height: 139%;
+  }
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+  .section {
+    padding: 60px 0;
+  }
+
+  .heading {
+    font-size: 36px;
+  }
+
+  .caption {
+    font-size: 21px;
+  }
+
+  .imageViewport {
+    height: 200px;
+  }
+
+  .imageViewport:hover .websiteImage {
+    transform: translateY(calc(-100% + 200px));
+  }
+}

@@ -25,7 +25,9 @@
   min-height: 100vh;
 
   display: flex;
+
   flex-direction: column;
+
   align-items: center;
 
   padding:
@@ -43,6 +45,7 @@
   display: flex;
 
   align-items: center;
+
   justify-content: center;
 
   gap: 18px;
@@ -91,6 +94,7 @@
 
 .breadcrumbDivider {
   width: 1px;
+
   height: 28px;
 
   background:
@@ -131,14 +135,15 @@
 }
 
 
+/* =========================================
+   PURPLE SPAN
+========================================= */
+
 .growth {
   color: #9863ff;
 
   font-family:
-    "Canela Text Trial",
-    "Canela",
-    Georgia,
-    serif;
+    "Canela Text Trial Thin";
 
   font-weight: 600;
 
@@ -209,9 +214,6 @@
 
 /* =========================================
    CARDS ROW
-
-   REFERENCE KI MAIN CHEEZ:
-   ABSOLUTE POSITIONING NAHI.
 ========================================= */
 
 .cardsRow {
@@ -232,15 +234,11 @@
   padding:
     0
     80px;
-
-  /*
-    Entire hover interaction
-  */
 }
 
 
 /* =========================================
-   CARD ITEM
+   COMMON CARD
 ========================================= */
 
 .cardItem {
@@ -250,10 +248,6 @@
 
   width: 310px;
   height: 370px;
-
-  /*
-    THIS creates initial overlap.
-  */
 
   margin-left: -96px;
 
@@ -271,7 +265,15 @@
         0.36,
         1
       ),
-    margin
+    margin-left
+      0.9s
+      cubic-bezier(
+        0.22,
+        1,
+        0.36,
+        1
+      ),
+    margin-right
       0.9s
       cubic-bezier(
         0.22,
@@ -281,13 +283,11 @@
       );
 
   will-change:
-    transform;
+    transform,
+    margin-left,
+    margin-right;
 }
 
-
-/*
-  first card ko negative margin nahi.
-*/
 
 .cardItem:first-child {
   margin-left: 0;
@@ -295,9 +295,7 @@
 
 
 /* =========================================
-   INITIAL ROTATIONS
-
-   EXACT REFERENCE VALUES
+   ROTATIONS
 ========================================= */
 
 .rotation1 {
@@ -331,46 +329,67 @@
 
 
 /* =========================================
-   WHOLE ROW HOVER
+   IMPORTANT HOVER BEHAVIOR
 
-   Cards spread + straighten.
+   ONLY TARGET CARD STRAIGHTENS
 ========================================= */
 
-.cardsRow:hover
-.cardItem {
-  margin-left: 18px;
+.cardItem:hover {
+  z-index: 50;
 
   transform:
     rotate(0deg)
-    translateY(0);
-}
+    translateY(-5px)
+    scale(1.012);
 
+  /*
+    Current card ka left overlap
+    considerably kam hota hai.
+  */
 
-/*
-  first one ko normal.
-*/
+  margin-left: -42px;
 
-.cardsRow:hover
-.cardItem:first-child {
-  margin-left: 0;
+  /*
+    Current card ke right me
+    proper space.
+  */
+
+  margin-right: 52px;
 }
 
 
 /* =========================================
-   EXTRA HOVER DEPTH
+   NEXT SIBLING SPACE
 
-   Jo card individually hover hoga,
-   thora aage aaye.
+   Hovered card ke right wala card
+   thora aur push hota hai.
 ========================================= */
 
-.cardsRow:hover
-.cardItem:hover {
-  z-index: 20;
+.cardItem:hover
++ .cardItem {
+  margin-left: -42px;
+}
 
-  transform:
-    rotate(0deg)
-    translateY(-12px)
-    scale(1.025);
+
+/* =========================================
+   FIRST CARD
+========================================= */
+
+.cardItem:first-child:hover {
+  margin-left: 0;
+
+  margin-right: 58px;
+}
+
+
+/* =========================================
+   LAST CARD
+========================================= */
+
+.cardItem:last-child:hover {
+  margin-left: -40px;
+
+  margin-right: 0;
 }
 
 
@@ -416,7 +435,7 @@
 .cardItem:hover
 .cardImage {
   transform:
-    scale(1.045);
+    scale(1.035);
 }
 
 
@@ -447,19 +466,17 @@
 
 
 .blueCard {
-  background:
-    #dbe4ff;
+  background: #dbe4ff;
 }
 
 
 .greenCard {
-  background:
-    #5f9491;
+  background: #5f9491;
 }
 
 
 /* =========================================
-   MILESTONE
+   STAT NUMBER
 ========================================= */
 
 .statNumber {
@@ -469,6 +486,8 @@
     sans-serif;
 
   font-weight: 600;
+
+  font-style: normal;
 
   font-size: 36px;
 
@@ -495,6 +514,8 @@
 
   font-weight: 600;
 
+  font-style: normal;
+
   font-size: 24px;
 
   line-height: 1;
@@ -518,7 +539,7 @@
       17,
       17,
       17,
-      0.7
+      0.65
     );
 }
 
@@ -531,6 +552,8 @@
 
   font-weight: 300;
 
+  font-style: normal;
+
   font-size: 24px;
 
   line-height: 1;
@@ -541,32 +564,50 @@
 
 /* =========================================
    LARGE DESKTOP
-
-   Screenshot/reference jaisa bigger spread.
 ========================================= */
 
 @media (min-width: 1500px) {
 
   .cardItem {
     width: 340px;
+
     height: 405px;
 
     margin-left: -112px;
   }
 
 
-  .cardsRow:hover
-  .cardItem {
-    margin-left: 23px;
+  .cardItem:hover {
+    margin-left: -48px;
+
+    margin-right: 66px;
+  }
+
+
+  .cardItem:hover
+  + .cardItem {
+    margin-left: -48px;
+  }
+
+
+  .cardItem:first-child:hover {
+    margin-left: 0;
+
+    margin-right: 72px;
+  }
+
+
+  .cardItem:last-child:hover {
+    margin-left: -46px;
+
+    margin-right: 0;
   }
 
 }
 
 
 /* =========================================
-   1920 WIDTH
-
-   Cards viewport me almost full spread.
+   VERY LARGE DESKTOP
 ========================================= */
 
 @media (min-width: 1700px) {
@@ -580,13 +621,33 @@
 
   .cardItem {
     width: 350px;
+
     height: 420px;
+
+    margin-left: -118px;
   }
 
 
-  .cardsRow:hover
-  .cardItem {
-    margin-left: 25px;
+  .cardItem:hover {
+    margin-left: -50px;
+
+    margin-right: 72px;
+  }
+
+
+  .cardItem:hover
+  + .cardItem {
+    margin-left: -50px;
+  }
+
+
+  .cardItem:first-child:hover {
+    margin-right: 78px;
+  }
+
+
+  .cardItem:last-child:hover {
+    margin-left: -48px;
   }
 
 }
@@ -707,17 +768,37 @@
 
   .cardItem {
     width: 280px;
+
     height: 340px;
 
     margin-left: -100px;
   }
 
 
+  /*
+    TOUCH DEVICES:
+    hover movement avoid.
+  */
 
   @media (hover: none) {
 
-    .cardItem {
-      margin-left: -72px;
+    .cardItem:hover {
+      margin-left: -100px;
+
+      margin-right: 0;
+    }
+
+
+    .cardItem:first-child:hover {
+      margin-left: 0;
+
+      margin-right: 0;
+    }
+
+
+    .cardItem:hover
+    + .cardItem {
+      margin-left: -100px;
     }
 
   }

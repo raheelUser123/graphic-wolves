@@ -1,0 +1,566 @@
+/* =========================================
+   SECTION
+========================================= */
+
+.section {
+  position: relative;
+
+  width: 100%;
+
+  padding:
+    130px
+    40px
+    190px;
+
+  background: #f9f6f5;
+
+  color: #111111;
+
+  overflow: visible;
+
+  z-index: 5;
+}
+
+
+/* =========================================
+   INNER
+========================================= */
+
+.inner {
+  width: min(1500px, 100%);
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns:
+    320px
+    minmax(0, 1fr);
+
+  gap: 80px;
+
+  align-items: start;
+}
+
+
+/* =========================================
+   HEADING COLUMN
+========================================= */
+
+.headingColumn {
+  position: relative;
+
+  z-index: 5;
+}
+
+
+/* =========================================
+   HEADING
+========================================= */
+
+.heading {
+  margin: 0;
+
+  color: #111111;
+
+  font-family:
+    "Borscha",
+    Arial,
+    sans-serif;
+
+  font-weight: 500;
+
+  font-style: normal;
+
+  font-size: 46px;
+
+  line-height: 1;
+
+  letter-spacing: -0.01em;
+
+  will-change:
+    transform,
+    opacity,
+    filter;
+}
+
+
+/* =========================================
+   GRID WRAPPER
+========================================= */
+
+.gridWrap {
+  position: relative;
+
+  width: 100%;
+
+  min-height: 480px;
+}
+
+
+/* =========================================
+   ACTUAL GRID
+========================================= */
+
+.grid {
+  position: relative;
+
+  z-index: 2;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  grid-template-rows:
+    repeat(4, 120px);
+
+  width: 100%;
+
+  height: 480px;
+}
+
+
+/* =========================================
+   LOGO CELL
+========================================= */
+
+.logoCell {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding:
+    22px
+    28px;
+
+  will-change:
+    transform,
+    opacity,
+    filter;
+}
+
+
+/* =========================================
+   LOGO
+========================================= */
+
+.logo {
+  display: block;
+
+  max-width: 145px;
+
+  max-height: 44px;
+
+  width: auto;
+
+  height: auto;
+
+  object-fit: contain;
+
+  user-select: none;
+
+  transition:
+    transform
+      0.45s
+      cubic-bezier(
+        0.22,
+        1,
+        0.36,
+        1
+      ),
+    opacity
+      0.3s ease;
+}
+
+
+.logoCell:hover
+.logo {
+  transform:
+    scale(1.06);
+
+  opacity: 0.72;
+}
+
+
+/* =========================================
+   GRID LINES COMMON
+========================================= */
+
+.horizontalLine,
+.verticalLine {
+  position: absolute;
+
+  z-index: 1;
+
+  display: block;
+
+  background:
+    rgba(
+      17,
+      17,
+      17,
+      0.14
+    );
+
+  pointer-events: none;
+
+  will-change:
+    transform;
+}
+
+
+/* =========================================
+   HORIZONTAL LINES
+========================================= */
+
+.horizontalLine {
+  left: 0;
+
+  width: 100%;
+
+  height: 1px;
+}
+
+
+.h1 {
+  top: 0;
+}
+
+
+.h2 {
+  top: 25%;
+}
+
+
+.h3 {
+  top: 50%;
+}
+
+
+.h4 {
+  top: 75%;
+}
+
+
+.h5 {
+  bottom: 0;
+}
+
+
+/* =========================================
+   VERTICAL LINES
+========================================= */
+
+.verticalLine {
+  top: 0;
+
+  width: 1px;
+
+  height: 100%;
+}
+
+
+.v1 {
+  left: 0;
+}
+
+
+.v2 {
+  left: 25%;
+}
+
+
+.v3 {
+  left: 50%;
+}
+
+
+.v4 {
+  left: 75%;
+}
+
+
+.v5 {
+  right: 0;
+}
+
+
+/* =========================================
+   PURPLE OVERLAP ICON
+========================================= */
+
+.decor {
+  position: absolute;
+
+  left: -65px;
+
+  bottom: -155px;
+
+  z-index: 40;
+
+  width: 300px;
+
+  pointer-events: none;
+
+  will-change:
+    transform,
+    opacity;
+}
+
+
+.decor img {
+  display: block;
+
+  width: 100%;
+
+  height: auto;
+
+  object-fit: contain;
+}
+
+
+/* =========================================
+   LARGE DESKTOP
+========================================= */
+
+@media (min-width: 1600px) {
+
+  .inner {
+    grid-template-columns:
+      350px
+      minmax(0, 1fr);
+
+    gap: 100px;
+  }
+
+
+  .grid {
+    grid-template-rows:
+      repeat(4, 135px);
+
+    height: 540px;
+  }
+
+
+  .gridWrap {
+    min-height: 540px;
+  }
+
+
+  .decor {
+    width: 330px;
+
+    bottom: -175px;
+  }
+
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1100px) {
+
+  .section {
+    padding:
+      110px
+      30px
+      160px;
+  }
+
+
+  .inner {
+    grid-template-columns:
+      240px
+      minmax(0, 1fr);
+
+    gap: 45px;
+  }
+
+
+  .heading {
+    font-size: 44px;
+  }
+
+
+  .grid {
+    grid-template-rows:
+      repeat(4, 100px);
+
+    height: 400px;
+  }
+
+
+  .gridWrap {
+    min-height: 400px;
+  }
+
+
+  .logo {
+    max-width: 105px;
+
+    max-height: 38px;
+  }
+
+
+  .decor {
+    width: 230px;
+
+    bottom: -125px;
+  }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 767px) {
+
+  .section {
+    padding:
+      85px
+      18px
+      130px;
+  }
+
+
+  .inner {
+    display: block;
+  }
+
+
+  .heading {
+    margin-bottom: 45px;
+
+    font-size: 40px;
+  }
+
+
+  .gridWrap {
+    min-height: auto;
+  }
+
+
+  .grid {
+    grid-template-columns:
+      repeat(2, 1fr);
+
+    grid-template-rows:
+      repeat(8, 100px);
+
+    height: 800px;
+  }
+
+
+  /*
+    Mobile pe desktop 4x4 lines ki
+    positions change karenge.
+  */
+
+  .v1 {
+    left: 0;
+  }
+
+
+  .v2 {
+    left: 50%;
+  }
+
+
+  .v3,
+  .v4 {
+    display: none;
+  }
+
+
+  .v5 {
+    right: 0;
+  }
+
+
+  .h1 {
+    top: 0;
+  }
+
+
+  .h2 {
+    top: 12.5%;
+  }
+
+
+  .h3 {
+    top: 25%;
+  }
+
+
+  .h4 {
+    top: 37.5%;
+  }
+
+
+  .h5 {
+    top: 50%;
+  }
+
+
+  /*
+    Extra mobile grid lines pseudo
+    implementation.
+  */
+
+  .gridWrap::before,
+  .gridWrap::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 1px;
+
+    background:
+      rgba(
+        17,
+        17,
+        17,
+        0.14
+      );
+
+    z-index: 1;
+  }
+
+
+  .gridWrap::before {
+    top: 62.5%;
+  }
+
+
+  .gridWrap::after {
+    top: 75%;
+  }
+
+
+  .logo {
+    max-width: 105px;
+
+    max-height: 35px;
+  }
+
+
+  .decor {
+    left: -40px;
+
+    bottom: -90px;
+
+    width: 170px;
+  }
+
+}

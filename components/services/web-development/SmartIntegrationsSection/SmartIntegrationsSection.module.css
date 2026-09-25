@@ -1,0 +1,470 @@
+.section {
+  position: relative;
+  width: 100%;
+  padding: 105px 60px 130px;
+  overflow: hidden;
+  background: #f9f6f5;
+  color: #111111;
+  isolation: isolate;
+}
+
+.inner {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  width: min(1500px, 100%);
+  min-height: 620px;
+  margin: 0 auto;
+}
+
+.inner::before {
+  position: absolute;
+  top: -105px;
+  bottom: -130px;
+  left: 50%;
+  border-left: 2px dotted #78baff;
+  content: "";
+  pointer-events: none;
+}
+
+.copy {
+  position: relative;
+  z-index: 1;
+  max-width: 640px;
+  padding: 0 72px 0 0;
+}
+
+.heading {
+  margin: 0 0 18px;
+  font-family: "Borscha", Arial, sans-serif;
+  font-size: 56px;
+  font-weight: 500;
+  font-style: normal;
+  line-height: 100%;
+  letter-spacing: -0.01em;
+}
+
+.caption {
+  max-width: 600px;
+  margin: 0 0 34px;
+  color: #111111;
+  font-family: "DM Sans", Arial, sans-serif;
+  font-size: 28px;
+  font-weight: 500;
+  font-style: normal;
+  line-height: 139%;
+  letter-spacing: -0.03em;
+}
+
+.includeHeading {
+  margin: 0 0 8px;
+  color: #777371;
+  font-family: "DM Sans", Arial, sans-serif;
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 139%;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.includeList {
+  margin: 0;
+  padding-left: 22px;
+  color: #777371;
+  font-family: "DM Sans", Arial, sans-serif;
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 139%;
+  letter-spacing: -0.03em;
+}
+
+.seeMore {
+  display: inline-block;
+  margin: 12px 0 0 22px;
+  color: #111111;
+  font-family: "DM Sans", Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.cardStage {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  min-height: 620px;
+  perspective: 1200px;
+}
+
+.card {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: min(280px, 44%);
+  min-height: 320px;
+  padding: 24px;
+  overflow: hidden;
+  border: 1px solid rgba(17, 17, 17, 0.04);
+  border-radius: 7px;
+  background: #ffffff;
+  box-shadow: 0 12px 30px rgba(31, 26, 24, 0.06);
+  rotate: var(--card-tilt, 0deg);
+  translate: 0 0;
+  scale: 1;
+  transform-origin: center;
+  transition:
+    translate 650ms cubic-bezier(0.22, 1.2, 0.36, 1),
+    rotate 650ms cubic-bezier(0.22, 1.2, 0.36, 1),
+    scale 650ms cubic-bezier(0.22, 1.2, 0.36, 1),
+    box-shadow 350ms ease;
+  will-change: translate, rotate, scale;
+}
+
+.card[data-position]:hover,
+.card[data-position]:focus-within {
+  z-index: 10 !important;
+  box-shadow: 0 24px 44px rgba(31, 26, 24, 0.17);
+  translate: 0 -18px !important;
+  rotate: 0deg !important;
+  scale: 1.045 !important;
+}
+
+.card[data-position="webflow"] {
+  --card-tilt: -2deg;
+  top: 205px;
+  left: 0;
+  z-index: 3;
+}
+
+.card[data-position="wix"] {
+  --card-tilt: 1.5deg;
+  top: 25px;
+  left: 22%;
+  z-index: 1;
+}
+
+.card[data-position="squarespace"] {
+  --card-tilt: 2.5deg;
+  top: 70px;
+  left: 52%;
+  z-index: 2;
+}
+
+.card[data-position="framer"] {
+  --card-tilt: -1.5deg;
+  top: 230px;
+  left: 32%;
+  z-index: 4;
+}
+
+.cardBrand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 40px;
+  margin-bottom: 12px;
+}
+
+.cardIcon {
+  display: block;
+  flex: 0 0 36px;
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
+
+.cardDomain {
+  color: #777371;
+  font-family: "DM Sans", Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.cardHeading {
+  margin: 0 0 8px;
+  color: #111111;
+  font-family: "DM Sans", Arial, sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 139%;
+  letter-spacing: -0.03em;
+}
+
+.cardCaption {
+  margin: 0 0 16px;
+  color: #777371;
+  font-family: "DM Sans", Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 139%;
+  letter-spacing: -0.03em;
+}
+
+.cardButton {
+  align-self: flex-start;
+  margin-top: auto;
+  padding: 7px 13px;
+  border-radius: 4px;
+  background: #111111;
+  color: #ffffff;
+  font-family: "DM Sans", Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 139%;
+  letter-spacing: -0.03em;
+  text-decoration: none;
+  transition: background-color 180ms ease, color 180ms ease;
+}
+
+.cardButton:hover,
+.cardButton:focus-visible {
+  background: #dceaff;
+  color: #111111;
+}
+
+@media (max-width: 1100px) {
+  .section {
+    padding: 85px 36px 110px;
+  }
+
+  .inner {
+    min-height: 560px;
+  }
+
+  .inner::before {
+    top: -85px;
+    bottom: -110px;
+  }
+
+  .copy {
+    padding-right: 50px;
+  }
+
+  .heading {
+    font-size: 46px;
+  }
+
+  .caption {
+    font-size: 23px;
+  }
+
+  .includeHeading,
+  .includeList {
+    font-size: 18px;
+  }
+
+  .cardStage {
+    min-height: 560px;
+  }
+
+  .card {
+    min-height: 300px;
+    padding: 19px;
+  }
+
+  .card[data-position="webflow"] {
+    top: 180px;
+  }
+
+  .card[data-position="framer"] {
+    top: 270px;
+  }
+
+  .cardHeading {
+    font-size: 21px;
+  }
+
+  .cardCaption {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 900px) {
+  .section {
+    padding: 75px 24px 100px;
+  }
+
+  .inner {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 0;
+    min-height: 520px;
+  }
+
+  .inner::before {
+    top: -75px;
+    bottom: -100px;
+  }
+
+  .copy {
+    max-width: none;
+    padding: 0 24px 0 0;
+  }
+
+  .heading {
+    font-size: 34px;
+  }
+
+  .caption {
+    margin-bottom: 22px;
+    font-size: 16px;
+  }
+
+  .includeHeading,
+  .includeList {
+    font-size: 14px;
+  }
+
+  .cardStage {
+    min-height: 520px;
+  }
+
+  .card {
+    width: min(280px, 44%);
+    min-height: 245px;
+    padding: 12px;
+  }
+
+  .cardBrand {
+    min-height: 28px;
+    margin-bottom: 8px;
+  }
+
+  .cardIcon {
+    flex-basis: 26px;
+    width: 26px;
+    height: 26px;
+  }
+
+  .cardDomain {
+    font-size: 10px;
+  }
+
+  .cardHeading {
+    margin-bottom: 5px;
+    font-size: 16px;
+  }
+
+  .cardCaption {
+    margin-bottom: 10px;
+    font-size: 12px;
+  }
+
+  .cardButton {
+    padding: 5px 9px;
+    font-size: 12px;
+  }
+
+  .card[data-position="webflow"] {
+    top: 205px;
+  }
+
+  .card[data-position="wix"] {
+    left: 22%;
+    top: 25px;
+  }
+
+  .card[data-position="squarespace"] {
+    left: 52%;
+    top: 60px;
+  }
+
+  .card[data-position="framer"] {
+    left: 32%;
+    top: 230px;
+  }
+}
+
+@media (max-width: 600px) {
+  .section {
+    padding: 64px 20px 90px;
+  }
+
+  .inner {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 30px;
+    min-height: 0;
+  }
+
+  .inner::before {
+    display: none;
+  }
+
+  .copy {
+    padding: 0;
+  }
+
+  .heading {
+    font-size: 40px;
+  }
+
+  .caption {
+    margin-bottom: 28px;
+    font-size: 20px;
+  }
+
+  .includeHeading,
+  .includeList {
+    font-size: 16px;
+  }
+
+  .cardStage {
+    min-height: 700px;
+    border-top: 2px dotted #78baff;
+    padding-top: 28px;
+    margin-right: -4px;
+    margin-left: -4px;
+  }
+
+  .card {
+    width: min(250px, 72%);
+    min-height: 285px;
+    padding: 17px;
+  }
+
+  .card[data-position="webflow"] {
+    top: 225px;
+    left: 0;
+  }
+
+  .card[data-position="wix"] {
+    top: 22px;
+    left: 25%;
+  }
+
+  .card[data-position="squarespace"] {
+    top: 125px;
+    left: 30%;
+  }
+
+  .card[data-position="framer"] {
+    top: 415px;
+    left: 32%;
+  }
+
+  .cardHeading {
+    font-size: 20px;
+  }
+
+  .cardCaption {
+    font-size: 14px;
+  }
+
+  .cardButton {
+    font-size: 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .cardButton {
+    transition-duration: 0.01ms;
+  }
+
+  .card:hover,
+  .card:focus-within {
+    translate: 0 0;
+    rotate: var(--card-tilt, 0deg);
+    scale: 1;
+  }
+}

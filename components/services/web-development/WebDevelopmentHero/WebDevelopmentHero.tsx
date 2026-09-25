@@ -9,44 +9,32 @@ import styles from "./WebDevelopmentHero.module.css";
 const cards = [
   {
     type: "image",
-    image:
-      "/images/services/web-development/hero/project-1.webp",
+    image: "/images/services/web-development/hero/project-1.webp",
     alt: "Website project preview",
-    rotation: -9,
   },
-
   {
     type: "stat",
-    rotation: 6.5,
     color: "blue",
     stat: "+5 Years",
     title: "Brand experience",
     caption: "Experiences that stick",
   },
-
   {
     type: "image",
-    image:
-      "/images/services/web-development/hero/project-2.webp",
+    image: "/images/services/web-development/hero/project-2.webp",
     alt: "Website project preview",
-    rotation: -5.5,
   },
-
   {
     type: "stat",
-    rotation: 5,
     color: "green",
     stat: "+30 Brands",
     title: "Built to Scale",
     caption: "Grow without limits",
   },
-
   {
     type: "image",
-    image:
-      "/images/services/web-development/hero/project-3.webp",
+    image: "/images/services/web-development/hero/project-3.webp",
     alt: "Website project preview",
-    rotation: -4.5,
   },
 ];
 
@@ -60,28 +48,16 @@ export default function WebDevelopmentHero() {
 
     const ctx = gsap.context(() => {
       const breadcrumb =
-        section.querySelector<HTMLElement>(
-          "[data-web-breadcrumb]"
-        );
+        section.querySelector<HTMLElement>("[data-web-breadcrumb]");
 
       const heading =
-        section.querySelector<HTMLElement>(
-          "[data-web-heading]"
-        );
+        section.querySelector<HTMLElement>("[data-web-heading]");
 
       const caption =
-        section.querySelector<HTMLElement>(
-          "[data-web-caption]"
-        );
+        section.querySelector<HTMLElement>("[data-web-caption]");
 
       const cards =
-        gsap.utils.toArray<HTMLElement>(
-          "[data-web-card]"
-        );
-
-      /* =========================================
-         INTRO
-      ========================================= */
+        gsap.utils.toArray<HTMLElement>("[data-web-card]");
 
       gsap.fromTo(
         breadcrumb,
@@ -92,9 +68,7 @@ export default function WebDevelopmentHero() {
         {
           opacity: 1,
           y: 0,
-
           duration: 0.7,
-
           ease: "power3.out",
         }
       );
@@ -110,11 +84,8 @@ export default function WebDevelopmentHero() {
           opacity: 1,
           y: 0,
           filter: "blur(0px)",
-
           duration: 1,
-
           delay: 0.06,
-
           ease: "power4.out",
         }
       );
@@ -128,42 +99,27 @@ export default function WebDevelopmentHero() {
         {
           opacity: 1,
           y: 0,
-
           duration: 0.85,
-
           delay: 0.22,
-
           ease: "power3.out",
         }
       );
-
-      /* =========================================
-         CARD INTRO
-
-         Rotation CSS handle karegi.
-         GSAP transform overwrite nahi karega.
-      ========================================= */
 
       gsap.fromTo(
         cards,
         {
           opacity: 0,
-          y: 75,
-          scale: 0.94,
+          y: 70,
+          scale: 0.95,
         },
         {
           opacity: 1,
           y: 0,
           scale: 1,
-
           duration: 1,
-
           stagger: 0.07,
-
           delay: 0.3,
-
           ease: "power4.out",
-
           clearProps: "transform",
         }
       );
@@ -180,9 +136,7 @@ export default function WebDevelopmentHero() {
       className={styles.section}
     >
       <div className={styles.content}>
-        {/* =====================================
-            BREADCRUMB
-        ===================================== */}
+        {/* BREADCRUMB */}
 
         <div
           data-web-breadcrumb
@@ -195,20 +149,14 @@ export default function WebDevelopmentHero() {
             Our Services
           </Link>
 
-          <span
-            className={styles.breadcrumbDivider}
-          />
+          <span className={styles.breadcrumbDivider} />
 
-          <span
-            className={styles.breadcrumbActive}
-          >
+          <span className={styles.breadcrumbActive}>
             Website Development
           </span>
         </div>
 
-        {/* =====================================
-            HEADING
-        ===================================== */}
+        {/* HEADING */}
 
         <h1
           data-web-heading
@@ -216,16 +164,13 @@ export default function WebDevelopmentHero() {
         >
           Websites That Stay
           <br />
-
           Fast as{" "}
           <span className={styles.growth}>
             You Grow.
           </span>
         </h1>
 
-        {/* =====================================
-            CAPTION
-        ===================================== */}
+        {/* CAPTION */}
 
         <p
           data-web-caption
@@ -236,9 +181,7 @@ export default function WebDevelopmentHero() {
           business grows, engineered for lasting performance.
         </p>
 
-        {/* =====================================
-            CARDS ROW
-        ===================================== */}
+        {/* CARDS */}
 
         <div className={styles.cardsViewport}>
           <div className={styles.cardsRow}>
@@ -270,38 +213,18 @@ export default function WebDevelopmentHero() {
                           : styles.greenCard
                       }`}
                     >
-                      <div
-                        className={
-                          styles.statNumber
-                        }
-                      >
+                      <div className={styles.statNumber}>
                         {card.stat}
                       </div>
 
-                      <div
-                        className={
-                          styles.statFooter
-                        }
-                      >
-                        <div
-                          className={
-                            styles.statTitle
-                          }
-                        >
+                      <div className={styles.statFooter}>
+                        <div className={styles.statTitle}>
                           {card.title}
                         </div>
 
-                        <span
-                          className={
-                            styles.statDivider
-                          }
-                        />
+                        <span className={styles.statDivider} />
 
-                        <div
-                          className={
-                            styles.statCaption
-                          }
-                        >
+                        <div className={styles.statCaption}>
                           {card.caption}
                         </div>
                       </div>
