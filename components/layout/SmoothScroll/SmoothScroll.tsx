@@ -35,6 +35,7 @@ export default function SmoothScroll() {
 
     const handleScroll = () => {
       ScrollTrigger.update();
+      window.dispatchEvent(new Event("lenis-scroll"));
     };
 
     lenis.on("scroll", handleScroll);

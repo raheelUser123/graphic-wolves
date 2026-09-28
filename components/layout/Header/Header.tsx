@@ -147,9 +147,14 @@ export default function Header({ variant = "default" }: { variant?: "default" | 
               })}
             </div>
 
-            <a className={styles.workButton} href="/#work" onClick={closePanels}>
+            <Link
+              className={styles.workButton}
+              href="/our-work"
+              onClick={closePanels}
+              aria-current={pathname === "/our-work" ? "page" : undefined}
+            >
               ALL OUR WORK
-            </a>
+            </Link>
           </nav>
         </div>
 
