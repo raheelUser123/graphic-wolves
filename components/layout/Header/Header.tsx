@@ -17,7 +17,7 @@ const menuItems = [
   },
   {
     label: "ABOUT",
-    href: "/#about",
+    href: "/about",
     icon: "/images/menu-icons/about-icon.svg",
     alt: "About Graphic Wolves navigation icon",
   },
@@ -29,7 +29,7 @@ const menuItems = [
   },
 ];
 
-export default function Header() {
+export default function Header({ variant = "default" }: { variant?: "default" | "light" }) {
   const pathname = usePathname();
   const [openPanel, setOpenPanel] = useState<OpenPanel>(null);
 
@@ -39,6 +39,7 @@ export default function Header() {
 
   const isMenuItemActive = (href: string) => {
     if (href === "/") return pathname === "/";
+    if (href === "/about") return pathname === "/about";
     if (href === "/services") return pathname === "/services" || pathname.startsWith("/services/");
     return false;
   };
@@ -51,7 +52,7 @@ export default function Header() {
         onClick={closePanels}
       />
 
-      <header className={styles.header}>
+      <header className={`${styles.header} ${variant === "light" ? styles.headerLight : ""}`}>
         <div
           className={styles.menuShell}
           onMouseEnter={() => setOpenPanel("menu")}

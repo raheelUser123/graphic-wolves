@@ -15,6 +15,15 @@
   pointer-events: auto;
 }
 
+.headerLight .menuTrigger,
+.headerLight .bookTrigger {
+  color: #fff;
+}
+
+.headerLight .logo img {
+  filter: brightness(0) invert(1);
+}
+
 .backdrop {
   position: fixed;
   inset: 0;

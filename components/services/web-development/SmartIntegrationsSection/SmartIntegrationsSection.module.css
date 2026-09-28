@@ -18,7 +18,7 @@
   margin: 0 auto;
 }
 
-.inner::before {
+/* .inner::before {
   position: absolute;
   top: -105px;
   bottom: -130px;
@@ -26,7 +26,7 @@
   border-left: 2px dotted #78baff;
   content: "";
   pointer-events: none;
-}
+} */
 
 .copy {
   position: relative;
@@ -167,11 +167,11 @@
 }
 
 .cardIcon {
-  display: block;
-  flex: 0 0 36px;
-  width: 36px;
-  height: 36px;
-  object-fit: contain;
+    display: block;
+    flex: 0 0 36px;
+    width: 56px;
+    height: 56px;
+    object-fit: contain;
 }
 
 .cardDomain {

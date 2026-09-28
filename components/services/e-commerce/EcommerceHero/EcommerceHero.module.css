@@ -1,0 +1,331 @@
+.section {
+  position: relative;
+  height: 190vh;
+  background: #f9f6f5;
+  color: #111;
+}
+
+.frame {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  height: 100svh;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  padding: 170px 24px 30px;
+  pointer-events: none;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin: 32px 0 22px;
+  opacity: 0;
+  pointer-events: auto;
+}
+
+.breadcrumbMuted,
+.breadcrumbActive {
+  font-family: "Borscha", Arial, sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.breadcrumbMuted {
+  color: rgba(17, 17, 17, 0.45);
+}
+
+.breadcrumbActive {
+  color: #111;
+}
+
+.breadcrumbDivider {
+  width: 1px;
+  height: 28px;
+  background: rgba(17, 17, 17, 0.25);
+}
+
+.heading {
+  max-width: 1000px;
+  margin: 0;
+  color: #111;
+  font-family: "Borscha", Arial, sans-serif;
+  font-size: 80px;
+  font-weight: 600;
+  line-height: 1.05;
+  text-align: center;
+  opacity: 0;
+}
+
+.highlight {
+  color: #9863ff;
+
+  font-family:
+    "Canela Text Trial Thin";
+
+  font-weight: 600;
+
+  font-style: italic;
+
+  font-size: 96px;
+
+  line-height: 1.05;
+
+  letter-spacing: -0.03em;
+}
+
+.caption {
+  max-width: 900px;
+  margin: 28px 0 0;
+  color: rgba(17, 17, 17, 0.48);
+  font-family: "DM Sans", Arial, sans-serif;
+  font-size: 21px;
+  font-weight: 500;
+  line-height: 1.45;
+  text-align: center;
+  opacity: 0;
+}
+
+.imageStage {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  pointer-events: none;
+}
+
+.projectCard {
+  position: absolute;
+  width: 217px;
+  height: 217px;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #e8e6e5;
+  box-shadow: 0 5px 20px rgba(17, 17, 17, 0.08);
+  will-change: transform;
+}
+
+.projectCard img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card1 {
+  top: 3.5%;
+  left: 21.5%;
+}
+
+.card2 {
+  top: 3.5%;
+  left: 66.5%;
+}
+
+.card3 {
+  top: 37%;
+  left: 6.7%;
+}
+
+.card4 {
+  top: 34%;
+  right: 8%;
+}
+
+.card5 {
+  bottom: 12%;
+  left: 13.5%;
+}
+
+.card6 {
+  bottom: 7%;
+  left: 35.8%;
+}
+
+.card7 {
+  left: 54.4%;
+  bottom: 8.5%;
+}
+
+.card8 {
+  right: 12%;
+  bottom: 12%;
+}
+
+@media (min-width: 1500px) {
+  .heading {
+    font-size: 86px;
+  }
+
+  .caption {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 900px) {
+  .content {
+    padding-top: 145px;
+  }
+
+  .heading {
+    font-size: clamp(48px, 8vw, 68px);
+  }
+
+  .caption {
+    max-width: 640px;
+    font-size: 18px;
+  }
+
+  .desktopBreak {
+    display: none;
+  }
+
+  .card1 {
+    left: 13%;
+  }
+
+  .card2 {
+    left: 68%;
+  }
+
+  .card3 {
+    left: 3%;
+  }
+
+  .card4 {
+    right: 3%;
+  }
+
+  .card5 {
+    left: 5%;
+  }
+
+  .card6 {
+    left: 29%;
+  }
+
+  .card7 {
+    left: auto;
+    right: 29%;
+  }
+
+  .card8 {
+    right: 5%;
+  }
+}
+
+@media (max-width: 600px) {
+  .section {
+    height: 205vh;
+  }
+
+  .frame {
+    min-height: 0;
+  }
+
+  .content {
+    justify-content: center;
+    padding: 94px 18px 30px;
+  }
+
+  .breadcrumb {
+    gap: 12px;
+    margin: 20px 0 18px;
+  }
+
+  .breadcrumbMuted,
+  .breadcrumbActive {
+    font-size: 16px;
+  }
+
+  .breadcrumbDivider {
+    height: 19px;
+  }
+
+  .heading {
+    font-size: clamp(42px, 11vw, 54px);
+  }
+
+  .highlight {
+    font-size: 1.03em;
+  }
+
+  .caption {
+    max-width: 430px;
+    margin-top: 20px;
+    font-size: 15px;
+    line-height: 1.45;
+  }
+
+  .projectCard {
+    width: clamp(110px, 34vw, 217px);
+    height: auto;
+    aspect-ratio: 1;
+    border-radius: 6px;
+  }
+
+  .card1 {
+    top: 14%;
+    left: 6%;
+  }
+
+  .card2 {
+    top: 13%;
+    left: auto;
+    right: 6%;
+  }
+
+  .card3 {
+    top: 36%;
+    left: 2%;
+  }
+
+  .card4 {
+    top: 35%;
+    right: 2%;
+  }
+
+  .card5 {
+    bottom: 18%;
+    left: 3%;
+  }
+
+  .card6 {
+    bottom: 9%;
+    left: 27%;
+  }
+
+  .card7 {
+    right: 27%;
+    bottom: 10%;
+  }
+
+  .card8 {
+    right: 3%;
+    bottom: 18%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section {
+    height: 100vh;
+  }
+
+  .frame {
+    position: relative;
+  }
+}

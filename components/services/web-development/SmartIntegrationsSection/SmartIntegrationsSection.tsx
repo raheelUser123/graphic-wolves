@@ -6,16 +6,16 @@ const integrations = [
   {
     name: "Webflow",
     domain: "Webflow.com",
-    icon: "/images/main-services-page/integrations/webflow.svg",
+    icon: "/images/services/web-development/integration/webflow.svg",
     description:
       "We design high-performance Webflow sites that are easy to manage and ready to grow.",
     href: "https://webflow.com",
     position: "webflow",
   },
   {
-    name: "Wix",
+    name: "Wix.com",
     domain: "Wix.com",
-    icon: "/images/main-services-page/integrations/wix.svg",
+    icon: "/images/services/web-development/integration/wix.svg",
     description:
       "Flexible Wix websites with polished visuals, strong performance, and easy content management.",
     href: "https://www.wix.com",
@@ -24,7 +24,7 @@ const integrations = [
   {
     name: "Squarespace",
     domain: "Squarespace.com",
-    icon: "/images/main-services-page/integrations/squarespace.svg",
+    icon: "/images/services/web-development/integration/squarespace.svg",
     description:
       "Distinctive Squarespace sites with responsive layouts and simple content management.",
     href: "https://www.squarespace.com",
@@ -33,7 +33,7 @@ const integrations = [
   {
     name: "Framer",
     domain: "Framer.com",
-    icon: "/images/main-services-page/integrations/framer.svg",
+    icon: "/images/services/web-development/integration/framer.svg",
     description:
       "High-fidelity Framer sites with expressive motion and a smooth path to launch.",
     href: "https://www.framer.com",
@@ -81,13 +81,13 @@ export default function SmartIntegrationsSection() {
                 <img
                   className={styles.cardIcon}
                   src={integration.icon}
-                  alt=""
+                  alt={integration.name}
                   aria-hidden="true"
                   onError={(event) => {
                     event.currentTarget.style.display = "none";
                   }}
                 />
-                <span className={styles.cardDomain}>{integration.domain}</span>
+              
               </div>
 
               <h3 className={styles.cardHeading}>{integration.name}</h3>

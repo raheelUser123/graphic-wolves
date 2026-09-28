@@ -1,0 +1,403 @@
+/* =========================================
+   SECTION
+========================================= */
+
+.section {
+  position: relative;
+
+  width: 100%;
+
+  min-height: 100vh;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding:
+    120px
+    40px;
+
+  background: #f9f6f5;
+
+  overflow: hidden;
+}
+
+
+/* =========================================
+   INNER
+========================================= */
+
+.inner {
+    width: min(1500px, 100%);
+
+  margin: 0 auto;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+}
+
+
+/* =========================================
+   HEADING
+========================================= */
+
+.heading {
+  width: min(1250px, 100%);
+
+  margin: 0;
+
+  color: #111111;
+
+  font-family:
+    "Borscha",
+    Arial,
+    sans-serif;
+
+  font-weight: 600;
+
+  font-style: normal;
+
+  font-size: 86px;
+
+  line-height: 1.05;
+
+  letter-spacing: -0.03em;
+
+  text-align: center;
+}
+
+
+/* =========================================
+   EACH LINE
+========================================= */
+
+.line {
+  display: block;
+
+  color:
+    rgba(
+      17,
+      17,
+      17,
+      0.28
+    );
+
+  will-change:
+    color,
+    opacity;
+
+  /*
+    tiny overlap between visual lines
+    gives screenshot type compact heading
+  */
+  margin-top: -0.02em;
+}
+
+
+/* =========================================
+   LAST LINE
+========================================= */
+
+.lastLine {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 22px;
+}
+
+
+/* =========================================
+   ICON
+========================================= */
+
+.icon {
+  display: block;
+
+  width: 105px;
+
+  height: 105px;
+
+  flex: 0 0 105px;
+
+  object-fit: contain;
+
+  transform-origin:
+    center center;
+
+  will-change:
+    transform,
+    opacity,
+    filter;
+}
+
+
+/* =========================================
+   LARGE DESKTOP
+========================================= */
+
+@media (min-width: 1600px) {
+
+  .heading {
+    font-size: 92px;
+  }
+
+  .icon {
+    width: 115px;
+
+    height: 115px;
+
+    flex-basis: 115px;
+  }
+
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1100px) {
+
+  .section {
+    min-height: 820px;
+
+    padding:
+      100px
+      30px;
+  }
+
+
+  .heading {
+    font-size: 67px;
+  }
+
+
+  .lastLine {
+    gap: 16px;
+  }
+
+
+  .icon {
+    width: 80px;
+
+    height: 80px;
+
+    flex-basis: 80px;
+  }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 767px) {
+
+  .section {
+    min-height: 650px;
+
+    padding:
+      80px
+      18px;
+  }
+
+
+  .heading {
+    font-size: 44px;
+
+    line-height: 1.03;
+  }
+
+
+  .lastLine {
+    gap: 10px;
+  }
+
+
+  .icon {
+    width: 52px;
+
+    height: 52px;
+
+    flex-basis: 52px;
+  }
+
+}
+
+.coreSection {
+  position: relative;
+  width: 100%;
+  padding: 0 20px 72px;
+  overflow: visible;
+  background: #f9f6f5;
+}
+
+.corePanel {
+  position: relative;
+  z-index: 1;
+  width: min(1500px, 100%);
+  min-height: 430px;
+  margin: 0 auto;
+  padding: 64px 36px 40px;
+  overflow: hidden;
+  border-radius: 14px;
+  background-color: #883cff;
+  background-image: url("/images/services/ecommerce/purple-bg.webp");
+  background-position: center;
+  background-size: cover;
+  color: #fff;
+}
+
+.orangeIcon {
+      position: absolute;
+    z-index: 3;
+    top: -400px;
+    left: 0;
+    width: 360px;
+    height: auto;
+    pointer-events: none;
+}
+
+.coreHeading {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  margin: 0 auto;
+  color: #fff;
+  font-family: "Borscha", Arial, sans-serif;
+  font-size: 56px;
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  text-align: center;
+}
+
+.serviceGrid {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 42px;
+}
+
+.serviceCard {
+  min-height: 150px;
+    padding: 22px 20px;
+    border: 2px solid #FFFFFF3D;
+    border-radius: 12px;
+    background: #8C62DF4D;
+    opacity: 0;
+    will-change: transform, opacity;
+    backdrop-filter: blur(61.9px);
+}
+
+.serviceCard h3 {
+  margin: 0;
+  color: #fff;
+  font-family: "DM Sans", Arial, sans-serif;
+  font-size: clamp(18px, 2.55vw, 38px);
+  font-weight: 600;
+  line-height: 1.14;
+  letter-spacing: -0.03em;
+}
+
+.serviceCard p {
+  margin: 20px 0 0;
+  color: rgba(255, 255, 255, 0.86);
+  font-family: Inter, Arial, sans-serif;
+  font-size: clamp(12px, 1.47vw, 22px);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+@media (max-width: 900px) {
+  .corePanel {
+    min-height: 0;
+    padding: 40px 18px 26px;
+  }
+
+  .coreHeading {
+    font-size: 32px;
+  }
+
+  .serviceGrid {
+    gap: 10px;
+    margin-top: 24px;
+  }
+
+  .serviceCard {
+    min-height: 100px;
+    padding: 16px 12px;
+  }
+
+  .serviceCard h3 {
+    font-size: 18px;
+  }
+
+  .serviceCard p {
+    margin-top: 14px;
+    font-size: 12px;
+    line-height: 1.25;
+  }
+
+  .orangeIcon {
+    top: -115px;
+    left: -100px;
+    width: 190px;
+  }
+}
+
+@media (max-width: 600px) {
+  .coreSection {
+    padding: 0 14px 52px;
+  }
+
+  .corePanel {
+    padding: 44px 16px 20px;
+  }
+
+  .coreHeading {
+    font-size: 28px;
+    line-height: 1.1;
+  }
+
+  .coreHeading br {
+    display: none;
+  }
+
+  .serviceGrid {
+    grid-template-columns: 1fr;
+    gap: 9px;
+    margin-top: 22px;
+  }
+
+  .serviceCard {
+    min-height: 0;
+    padding: 16px;
+  }
+
+  .serviceCard h3 {
+    font-size: 18px;
+  }
+
+  .serviceCard p {
+    margin-top: 10px;
+  }
+
+  .orangeIcon {
+    top: -90px;
+    left: -96px;
+    width: 160px;
+  }
+}
