@@ -42,23 +42,23 @@ const services = [
     href: "/services/e-commerce",
   },
 
-  {
-    title: "Mobile Apps",
-    caption:
-      "Purpose-built mobile experiences with intuitive interfaces, strong performance and polished interaction across devices.",
-    image:
-      "/images/main-services-page/services-list/ecommerce.webp",
-    href: "/services/mobile-apps",
-  },
+  // {
+  //   title: "Mobile Apps",
+  //   caption:
+  //     "Purpose-built mobile experiences with intuitive interfaces, strong performance and polished interaction across devices.",
+  //   image:
+  //     "/images/main-services-page/services-list/ecommerce.webp",
+  //   href: "/services/mobile-apps",
+  // },
 
-  {
-    title: "API Development",
-    caption:
-      "Reliable APIs and integrations designed to connect products, platforms and business workflows without unnecessary complexity.",
-    image:
-      "/images/main-services-page/services-list/branding.webp",
-    href: "/services/api-development",
-  },
+  // {
+  //   title: "API Development",
+  //   caption:
+  //     "Reliable APIs and integrations designed to connect products, platforms and business workflows without unnecessary complexity.",
+  //   image:
+  //     "/images/main-services-page/services-list/branding.webp",
+  //   href: "/services/api-development",
+  // },
 ];
 
 export default function ServicesAccordion() {

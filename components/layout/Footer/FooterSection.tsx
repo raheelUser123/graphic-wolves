@@ -25,8 +25,8 @@ const menuItems = [
     href: "/services",
   },
   {
-    label: "Projects",
-    href: "/projects",
+    label: "Our Work",
+    href: "/our-work",
   },
   {
     label: "Contact",
