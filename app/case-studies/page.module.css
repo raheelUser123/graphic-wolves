@@ -1,0 +1,75 @@
+.page {
+  min-height: 100vh;
+  background: #f0f0f3;
+  color: #111;
+}
+
+.listing {
+  width: min(1232px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 190px 0 100px;
+}
+
+.eyebrow,
+.category {
+  margin: 0;
+  font-family: "DM Sans", Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.heading {
+  margin: 10px 0 40px;
+  font-family: "Borscha", Arial, sans-serif;
+  font-size: clamp(44px, 6vw, 76px);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+}
+
+.card {
+  color: inherit;
+  text-decoration: none;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1.8;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.cardCopy {
+  padding-top: 16px;
+}
+
+.category {
+  color: rgba(17, 17, 17, 0.55);
+}
+
+.cardTitle {
+  margin: 5px 0 0;
+  font-family: "Borscha", Arial, sans-serif;
+  font-size: clamp(24px, 3vw, 38px);
+  font-weight: 500;
+  line-height: 1.08;
+}
+
+@media (max-width: 700px) {
+  .listing {
+    width: calc(100% - 40px);
+    padding: 140px 0 64px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
