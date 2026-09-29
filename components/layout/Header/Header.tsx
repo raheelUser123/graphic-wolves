@@ -37,6 +37,22 @@ export default function Header({ variant = "default" }: { variant?: "default" | 
   const menuOpen = openPanel === "menu";
   const whatsappOpen = openPanel === "whatsapp";
 
+  const handleMouseEnter = (panel: OpenPanel) => {
+    if (typeof window !== "undefined" && window.matchMedia("(hover: hover)").matches) {
+      setOpenPanel(panel);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (typeof window !== "undefined" && window.matchMedia("(hover: hover)").matches) {
+      setOpenPanel(null);
+    }
+  };
+
+  const togglePanel = (panel: OpenPanel) => {
+    setOpenPanel((current) => (current === panel ? null : panel));
+  };
+
   const isMenuItemActive = (href: string) => {
     if (href === "/") return pathname === "/";
     if (href === "/about") return pathname === "/about";
@@ -55,15 +71,15 @@ export default function Header({ variant = "default" }: { variant?: "default" | 
       <header className={`${styles.header} ${variant === "light" ? styles.headerLight : ""}`}>
         <div
           className={styles.menuShell}
-          onMouseEnter={() => setOpenPanel("menu")}
-          onMouseLeave={closePanels}
+          onMouseEnter={() => handleMouseEnter("menu")}
+          onMouseLeave={handleMouseLeave}
         >
           <button
             className={`${styles.menuTrigger} ${menuOpen ? styles.triggerHidden : ""}`}
             type="button"
             aria-expanded={menuOpen}
             aria-controls="site-menu-panel"
-            onClick={() => setOpenPanel((current) => (current === "menu" ? null : "menu"))}
+            onClick={() => togglePanel("menu")}
           >
             <span className={styles.menuIconWrap} aria-hidden="true">
               <Image
@@ -170,15 +186,15 @@ export default function Header({ variant = "default" }: { variant?: "default" | 
 
         <div
           className={styles.whatsappShell}
-          onMouseEnter={() => setOpenPanel("whatsapp")}
-          onMouseLeave={closePanels}
+          onMouseEnter={() => handleMouseEnter("whatsapp")}
+          onMouseLeave={handleMouseLeave}
         >
           <button
             className={`${styles.bookTrigger} ${whatsappOpen ? styles.bookTriggerHidden : ""}`}
             type="button"
             aria-expanded={whatsappOpen}
             aria-controls="whatsapp-panel"
-            onClick={() => setOpenPanel((current) => (current === "whatsapp" ? null : "whatsapp"))}
+            onClick={() => togglePanel("whatsapp")}
           >
             <span>Book Now</span>
             <span className={styles.whatsappIconWrap}>
