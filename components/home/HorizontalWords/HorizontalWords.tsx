@@ -57,8 +57,6 @@ export default function HorizontalWords() {
 
     if (!section || !track) return;
 
-    // Kill a stale instance first. This is important when coming back to
-    // the home page through Next.js client-side navigation.
     ScrollTrigger.getById("horizontal-words")?.kill(true);
 
     const ctx = gsap.context(() => {
@@ -71,218 +69,208 @@ export default function HorizontalWords() {
       const arrowPaths =
         gsap.utils.toArray<SVGPathElement>("[data-arrow-path]");
 
-      /* =========================================
-         INITIAL LETTER SCATTER
-      ========================================= */
+      const mm = gsap.matchMedia(section);
 
-      letterEls.forEach((letter, index) => {
-        const motion = createLetterMotion(index);
-
-        gsap.set(letter, {
-          xPercent: motion.x,
-          yPercent: motion.y,
-          rotation: motion.rotation,
-          transformOrigin: "50% 50%",
-          willChange: "transform",
-        });
-      });
-
-      /* =========================================
-         STICKERS INITIAL STATE
-      ========================================= */
-
-      gsap.set(stickers, {
-        scale: 0,
-        transformOrigin: "50% 50%",
-      });
-
-      /* =========================================
-         ARROWS INITIAL STATE
-      ========================================= */
-
-      arrowPaths.forEach((path) => {
-        const length = path.getTotalLength();
-
-        gsap.set(path, {
-          strokeDasharray: length,
-          strokeDashoffset: length,
-        });
-      });
-
-      /* =========================================
-         MAIN TIMELINE
-      ========================================= */
-
-      const timeline = gsap.timeline({
-        scrollTrigger: {
-          id: "horizontal-words",
-          trigger: section,
-          start: "top top",
-          end: "+=440%",
-          pin: true,
-          scrub: 0.5,
-          anticipatePin: 1,
-          invalidateOnRefresh: true,
-          refreshPriority: 1,
+      mm.add(
+        {
+          isDesktop: "(min-width: 1101px)",
+          isTablet: "(max-width: 1100px) and (min-width: 769px)",
+          isMobile: "(max-width: 768px)",
         },
-      });
+        (context) => {
+          const { isTablet, isMobile } = context.conditions as {
+            isDesktop: boolean;
+            isTablet: boolean;
+            isMobile: boolean;
+          };
 
-      /* =========================================
-         TRACK MOVEMENT
-      ========================================= */
+          const startX = isMobile ? 10 : isTablet ? 18 : 42;
+          const endX = isMobile ? -78 : isTablet ? -68 : -55;
 
-      timeline.fromTo(
-  track,
-  {
-    xPercent: 58,
-  },
-  {
-    xPercent: -57,
-    duration: 8.2,
-    ease: "none",
-  },
-  0
-);
+          /* INITIAL LETTER SCATTER */
+          letterEls.forEach((letter, index) => {
+            const motion = createLetterMotion(index);
 
-      /* =========================================
-         LETTERS SETTLE
-      ========================================= */
+            gsap.set(letter, {
+              xPercent: motion.x,
+              yPercent: motion.y,
+              rotation: motion.rotation,
+              transformOrigin: "50% 50%",
+              willChange: "transform",
+            });
+          });
 
-     /* =========================================
-   LETTERS ASSEMBLE ONE-BY-ONE
-========================================= */
+          /* STICKERS INITIAL STATE */
+          gsap.set(stickers, {
+            scale: 0,
+            transformOrigin: "50% 50%",
+          });
 
-letterEls.forEach((letter, index) => {
-  const startTime = 0.15 + index * 0.20;
+          /* ARROWS INITIAL STATE */
+          arrowPaths.forEach((path) => {
+            const length = path.getTotalLength();
 
-  timeline.to(
-    letter,
-    {
-      xPercent: 0,
-      yPercent: 0,
-      rotation: 0,
+            gsap.set(path, {
+              strokeDasharray: length,
+              strokeDashoffset: length,
+            });
+          });
 
-      duration: 1.45,
+          /* MAIN TIMELINE */
+          const timeline = gsap.timeline({
+            scrollTrigger: {
+              id: "horizontal-words",
+              trigger: section,
+              start: "top top",
+              end: isMobile ? "+=300%" : isTablet ? "+=360%" : "+=440%",
+              pin: true,
+              scrub: 0.5,
+              anticipatePin: 1,
+              invalidateOnRefresh: true,
+              refreshPriority: 1,
+            },
+          });
 
-      ease: "power2.out",
-    },
-    startTime
-  );
-});
+          /* TRACK MOVEMENT */
+          timeline.fromTo(
+            track,
+            {
+              xPercent: startX,
+            },
+            {
+              xPercent: endX,
+              duration: 8.2,
+              ease: "none",
+            },
+            0
+          );
 
-      /* =========================================
-         WATCH STICKER
-      ========================================= */
+          /* LETTERS ASSEMBLE ONE-BY-ONE */
+          letterEls.forEach((letter, index) => {
+            const startTime = 0.15 + index * 0.2;
 
-     timeline.fromTo(
-  "[data-sticker='watch']",
-  {
-    scale: 0,
-    yPercent: 55,
-    rotation: 18,
-  },
-  {
-    scale: 1,
-    yPercent: 0,
-    rotation: -4,
-    duration: 0.7,
-    ease: "back.out(1.7)",
-  },
-  0.8
-);
+            timeline.to(
+              letter,
+              {
+                xPercent: 0,
+                yPercent: 0,
+                rotation: 0,
+                duration: 1.45,
+                ease: "power2.out",
+              },
+              startTime
+            );
+          });
 
-timeline.to(
-  "[data-arrow='main'] [data-arrow-path]",
-  {
-    strokeDashoffset: 0,
-    duration: 0.9,
-    ease: "none",
-  },
-  1.25
-);
+          /* STICKERS & ARROWS TIMELINE */
+          timeline.fromTo(
+            "[data-sticker='watch']",
+            {
+              scale: 0,
+              yPercent: 55,
+              rotation: 18,
+            },
+            {
+              scale: 1,
+              yPercent: 0,
+              rotation: -4,
+              duration: 0.7,
+              ease: "back.out(1.7)",
+            },
+            0.8
+          );
 
-timeline.fromTo(
-  "[data-sticker='cursor']",
-  {
-    scale: 0,
-    yPercent: -110,
-    rotation: 18,
-  },
-  {
-    scale: 1,
-    yPercent: 0,
-    rotation: -8,
-    duration: 0.7,
-    ease: "back.out(1.7)",
-  },
-  2
-);
+          timeline.to(
+            "[data-arrow='main'] [data-arrow-path]",
+            {
+              strokeDashoffset: 0,
+              duration: 0.9,
+              ease: "none",
+            },
+            1.25
+          );
 
-timeline.to(
-  "[data-sticker='watch']",
-  {
-    scale: 0,
-    rotation: -24,
-    duration: 0.45,
-    ease: "power2.in",
-  },
-  2.8
-);
+          timeline.fromTo(
+            "[data-sticker='cursor']",
+            {
+              scale: 0,
+              yPercent: -110,
+              rotation: 18,
+            },
+            {
+              scale: 1,
+              yPercent: 0,
+              rotation: -8,
+              duration: 0.7,
+              ease: "back.out(1.7)",
+            },
+            2
+          );
 
-timeline.fromTo(
-  "[data-sticker='phone']",
-  {
-    scale: 0,
-    yPercent: 60,
-    rotation: 12,
-  },
-  {
-    scale: 1,
-    yPercent: 0,
-    rotation: 5,
-    duration: 0.7,
-    ease: "back.out(1.7)",
-  },
-  3.2
-);
+          timeline.to(
+            "[data-sticker='watch']",
+            {
+              scale: 0,
+              rotation: -24,
+              duration: 0.45,
+              ease: "power2.in",
+            },
+            2.8
+          );
 
-timeline.to(
-  "[data-sticker='cursor']",
-  {
-    scale: 0,
-    rotation: 25,
-    duration: 0.45,
-    ease: "power2.in",
-  },
-  4
-);
+          timeline.fromTo(
+            "[data-sticker='phone']",
+            {
+              scale: 0,
+              yPercent: 60,
+              rotation: 12,
+            },
+            {
+              scale: 1,
+              yPercent: 0,
+              rotation: 5,
+              duration: 0.7,
+              ease: "back.out(1.7)",
+            },
+            3.2
+          );
 
-timeline.to(
-  "[data-arrow='end'] [data-arrow-path]",
-  {
-    strokeDashoffset: 0,
-    duration: 1.15,
-    ease: "none",
-  },
-  6.65
-);
+          timeline.to(
+            "[data-sticker='cursor']",
+            {
+              scale: 0,
+              rotation: 25,
+              duration: 0.45,
+              ease: "power2.in",
+            },
+            4
+          );
 
-timeline.to(
-  "[data-sticker='phone']",
-  {
-    scale: 0,
-    rotation: 18,
-    duration: 0.5,
-    ease: "power2.in",
-  },
-  5.5
-);
+          timeline.to(
+            "[data-sticker='phone']",
+            {
+              scale: 0,
+              rotation: 18,
+              duration: 0.5,
+              ease: "power2.in",
+            },
+            5.5
+          );
 
-timeline.to({}, { duration: 0.4 });
+          timeline.to(
+            "[data-arrow='end'] [data-arrow-path]",
+            {
+              strokeDashoffset: 0,
+              duration: 1.15,
+              ease: "none",
+            },
+            6.65
+          );
 
-      // Refresh only after the new route has painted. Calling refresh
-      // synchronously during App Router navigation can calculate the pin
-      // against the previous route layout.
+          timeline.to({}, { duration: 0.4 });
+        }
+      );
+
       const frame = requestAnimationFrame(() => {
         ScrollTrigger.refresh(true);
         ScrollTrigger.update();
@@ -314,10 +302,7 @@ timeline.to({}, { duration: 0.4 });
       aria-labelledby="horizontalWordsTitle"
     >
       <div className={styles.stage}>
-        <div
-          ref={trackRef}
-          className={styles.track}
-        >
+        <div ref={trackRef} className={styles.track}>
           <h2
             id="horizontalWordsTitle"
             className={styles.heading}
@@ -354,7 +339,6 @@ timeline.to({}, { duration: 0.4 });
           </h2>
 
           {/* FINAL ARROW AFTER TEXT */}
-
           <div className={styles.finalArrowWrap}>
             <svg
               className={styles.finalArrow}
@@ -384,7 +368,6 @@ timeline.to({}, { duration: 0.4 });
           </div>
 
           {/* WATCH */}
-
           <div
             className={`${styles.sticker} ${styles.watchSticker}`}
             data-scroll-sticker
@@ -398,7 +381,6 @@ timeline.to({}, { duration: 0.4 });
           </div>
 
           {/* CURSOR */}
-
           <div
             className={`${styles.sticker} ${styles.cursorSticker}`}
             data-scroll-sticker
@@ -412,7 +394,6 @@ timeline.to({}, { duration: 0.4 });
           </div>
 
           {/* PHONE */}
-
           <div
             className={`${styles.sticker} ${styles.phoneSticker}`}
             data-scroll-sticker
@@ -426,7 +407,6 @@ timeline.to({}, { duration: 0.4 });
           </div>
 
           {/* MAIN ARROW */}
-
           <svg
             className={`${styles.arrow} ${styles.mainArrow}`}
             viewBox="0 0 386 127"
@@ -455,7 +435,6 @@ timeline.to({}, { duration: 0.4 });
         </div>
 
         {/* CAPTION */}
-
         <div className={styles.bottomText}>
           <p>
             wherever your audience scrolls, taps, or shops, we make sure your brand is already there looking sharp.

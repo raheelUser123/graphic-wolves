@@ -51,6 +51,7 @@
 .menuShell,
 .whatsappShell {
   position: relative;
+  z-index: 50;
 }
 
 .menuTrigger,
@@ -60,6 +61,8 @@
   background: transparent;
   color: #101010;
   cursor: pointer;
+  touch-action: manipulation;
+  white-space: nowrap;
 }
 
 .menuTrigger {
@@ -115,11 +118,13 @@
   top: 24px;
   transform: translateX(-50%);
   display: block;
+  z-index: 1;
+  pointer-events: auto;
 }
 
 .logo img {
   display: block;
-  /* width: clamp(190px, 20vw, 285px); */
+  width: clamp(170px, 20vw, 285px);
   height: auto;
 }
 
@@ -139,6 +144,7 @@
   place-items: center;
   width: 30px;
   height: 30px;
+  flex-shrink: 0;
   transition: transform 360ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -438,25 +444,156 @@
   to { transform: rotate(360deg); }
 }
 
-@media (max-width: 720px) {
-  .header { padding: 18px 16px; }
-  .logo { top: 21px; }
-  .logo img { width: 165px; }
+@media (max-width: 900px) {
+  .header {
+    padding: 20px 20px;
+  }
+  .logo {
+    top: 20px;
+  }
+  .logo img {
+    width: clamp(160px, 30vw, 220px);
+  }
+  .triggerLabel {
+    font-size: 16px;
+  }
+  .bookTrigger {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 16px 16px;
+  }
+  .logo {
+    top: 18px;
+  }
+  .logo img {
+    width: clamp(160px, 44vw, 215px);
+  }
+  .menuTrigger {
+    min-height: 40px;
+  }
+  .menuIconWrap {
+    width: 36px;
+    height: 36px;
+    margin-right: -12px;
+    flex-basis: 36px;
+  }
+  .menuIcon {
+    width: 36px;
+    height: 36px;
+  }
+  .triggerLabel {
+    font-size: 14px;
+  }
+  .bookTrigger {
+    min-height: 40px;
+    font-size: 12px;
+    gap: 2px;
+  }
+  .whatsappIconWrap {
+    width: 25px;
+    height: 25px;
+  }
   .menuPanel.panelOpen {
-    width: min(392px, calc(100vw - 24px));
-    height: 394px;
-    padding: 22px 20px;
+    width: min(360px, calc(100vw - 24px));
+    height: auto;
+    padding: 20px 18px 22px;
+    border-radius: 16px;
+    z-index: 100;
   }
-  .panelTopRow,
-  .menuLinks,
-  .workButton { min-width: 0; width: 100%; }
-  .menuLinks a { font-size: 35px; }
-  .navIconWrap { width: 34px; height: 34px; flex-basis: 34px; }
-  .navIconImage { width: 32px; height: 32px; }
-  .workButton { font-size: 24px; min-height: 60px; }
+  .panelTopRow {
+    min-width: 0;
+    width: 100%;
+  }
+  .panelBrand {
+    font-size: 15px;
+  }
+  .panelRing {
+    width: 36px;
+    height: 36px;
+    margin-right: -10px;
+  }
+  .panelRing img {
+    width: 36px;
+    height: 36px;
+  }
+  .menuLinks {
+    min-width: 0;
+    width: 100%;
+    gap: 12px;
+    margin-top: 18px;
+  }
+  .menuLinks a {
+    font-size: 22px;
+    gap: 10px;
+  }
+  .navIconWrap {
+    width: 28px;
+    height: 28px;
+    flex-basis: 28px;
+  }
+  .navIconImage {
+    width: 26px;
+    height: 26px;
+  }
+  .workButton {
+    min-width: 0;
+    width: 100%;
+    font-size: 16px;
+    min-height: 48px;
+    margin-top: 18px;
+    border-radius: 12px;
+  }
   .whatsappPanel.panelOpen {
-    width: min(370px, calc(100vw - 24px));
-    right: -2px;
+    width: min(340px, calc(100vw - 24px));
+    height: auto;
+    padding: 20px 20px 24px;
+    border-radius: 16px;
+    z-index: 100;
   }
-  .bookTrigger { font-size: 13px; }
+  .whatsappCopy {
+    min-width: 0;
+    width: 100%;
+  }
+  .whatsappCopy h2 {
+    font-size: 22px;
+    margin-bottom: 6px;
+  }
+  .whatsappCopy p {
+    font-size: 14px;
+    line-height: 1.35;
+  }
+  .whatsappCopy a {
+    font-size: 16px;
+    margin-top: 20px;
+  }
+  .qrCode {
+    width: 140px;
+    height: 140px;
+    margin: 8px auto 14px;
+  }
+}
+
+@media (max-width: 380px) {
+  .header {
+    padding: 14px 10px;
+  }
+  .logo img {
+    width: 145px;
+  }
+  .triggerLabel {
+    font-size: 13px;
+  }
+  .bookTrigger {
+    font-size: 11px;
+  }
+  .menuIconWrap {
+    width: 32px;
+    height: 32px;
+    margin-right: -10px;
+    flex-basis: 32px;
+  }
 }
