@@ -1,58 +1,18 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
+import { caseStudies } from "@/components/case-studies/data";
 import styles from "./OurWorkProjectsSection.module.css";
 
-const projects = [
-  {
-    name: "Appcues",
-    category: "Website Development",
-    image: "/images/featured/top-left-horizontal/1.webp",
-    href: "/services/web-development",
-  },
-  {
-    name: "MyAtomos",
-    category: "Website Development",
-    image: "/images/featured/top-left-vertical/1.webp",
-    href: "/services/web-development",
-  },
-  {
-    name: "AlphaChain",
-    category: "Branding Design",
-    image: "/images/featured/top-right/1.webp",
-    href: "/services/branding",
-  },
-  {
-    name: "AlphaChain",
-    category: "Branding Design",
-    image: "/images/featured/middle-top/1.webp",
-    href: "/services/branding",
-  },
-  {
-    name: "AgentBounty",
-    category: "Branding Design",
-    image: "/images/featured/middle-bottom/1.webp",
-    href: "/services/branding",
-  },
-  {
-    name: "Appcues",
-    category: "Website Development",
-    image: "/images/featured/bottom-left/1.webp",
-    href: "/services/web-development",
-  },
-  {
-    name: "Twirl",
-    category: "E-Commerce Development",
-    image: "/images/featured/bottom-right-top/1.webp",
-    href: "/services/e-commerce",
-  },
-  {
-    name: "TheThermoLab",
-    category: "E-Commerce Development",
-    image: "/images/featured/bottom-right-bottom/1.webp",
-    href: "/services/e-commerce",
-  },
-];
+const projects = caseStudies.map((study) => ({
+  name: study.title,
+  image:
+    study.heroMedia.type === "image"
+      ? study.heroMedia.src
+      : study.heroMedia.poster,
+  href: `/our-work/${study.slug}`,
+}));
 
 function ProjectRow({ reverse = false }: { reverse?: boolean }) {
   return (
@@ -61,11 +21,9 @@ function ProjectRow({ reverse = false }: { reverse?: boolean }) {
         {[0, 1].map((copy) => (
           <div className={styles.group} key={copy} aria-hidden={copy === 1}>
             {projects.map((project, index) => (
-              <a
+              <Link
                 className={styles.project}
                 href={project.href}
-                target="_blank"
-                rel="noopener noreferrer"
                 tabIndex={copy === 1 ? -1 : undefined}
                 key={`${project.name}-${project.image}-${index}`}
               >
@@ -74,9 +32,8 @@ function ProjectRow({ reverse = false }: { reverse?: boolean }) {
                 </span>
                 <span className={styles.projectTitle}>
                   <span className={styles.projectName}>{project.name}</span>
-                  <span className={styles.projectCategory}> | {project.category}</span>
                 </span>
-              </a>
+              </Link>
             ))}
           </div>
         ))}

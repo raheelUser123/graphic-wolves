@@ -1,0 +1,102 @@
+.section {
+  position: relative;
+  padding: 90px 24px 140px;
+  background-color: #f7f4f2;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: minmax(0, 400px) minmax(0, 640px);
+  gap: 60px;
+  width: min(1120px, 100%);
+  margin: 0 auto;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 34px;
+}
+
+.detailItem {
+  border-top: 1px solid rgba(17, 17, 17, 0.18);
+  padding-top: 18px;
+}
+
+.detailLabel {
+  margin: 0 0 6px;
+  color: rgba(17, 17, 17, 0.55);
+  font-family: "DM Sans", Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.detailValue {
+  margin: 0;
+  color: #111;
+  font-family: "Borscha", Arial, sans-serif;
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.formCard {
+  padding: 48px;
+  border-radius: 20px;
+  background: #171717;
+  color: #fff;
+}
+
+.formTitle {
+  margin: 0 0 28px;
+  font-family: "Borscha", Arial, sans-serif;
+  font-size: 44px;
+  font-weight: 600;
+  line-height: 1.05;
+}
+
+.form {
+  display: grid;
+  gap: 18px;
+}
+
+.formPlaceholder {
+  margin: 0;
+  padding: 28px;
+  border: 1px dashed rgba(255, 255, 255, 0.25);
+  border-radius: 12px;
+  color: rgba(255, 255, 255, 0.55);
+  font-family: "DM Sans", Arial, sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.5;
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .content {
+    grid-template-columns: 1fr;
+    gap: 44px;
+  }
+}
+
+@media (max-width: 700px) {
+  .section {
+    padding: 70px 18px 90px;
+  }
+
+  .formCard {
+    padding: 30px 22px;
+    border-radius: 14px;
+  }
+
+  .formTitle {
+    font-size: 34px;
+  }
+
+  .detailValue {
+    font-size: 24px;
+  }
+}

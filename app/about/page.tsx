@@ -19,7 +19,7 @@ export default function About() {
     <main>
       <Header variant="light" />
       <AboutHero />
-      <HorizontalWords />
+      {/* <HorizontalWords /> */}
       <StatsSection />
       <AboutStorySection />
       <FeaturedWorkSection />

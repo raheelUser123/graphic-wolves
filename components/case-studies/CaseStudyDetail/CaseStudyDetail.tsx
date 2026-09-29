@@ -117,7 +117,7 @@ export default function CaseStudyDetail({
               <p className={styles.nextProjectLabel}>Next Project</p>
               <h2 className={styles.nextProjectTitle}>{nextStudy.title}</h2>
             </div>
-            <Link className={styles.nextProjectLink} href={`/case-studies/${nextStudy.slug}`}>
+            <Link className={styles.nextProjectLink} href={`/our-work/${nextStudy.slug}`}>
               <StudyMedia
                 className={styles.nextProjectMedia}
                 media={

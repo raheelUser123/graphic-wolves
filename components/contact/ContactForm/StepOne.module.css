@@ -1,0 +1,60 @@
+.wrap {
+  width: 100%;
+  text-align: left;
+}
+
+.title {
+  margin: 0 0 16px;
+  color: #111111;
+  font-family: "Borscha", Arial, sans-serif;
+  font-size: clamp(34px, 4.5vw, 52px);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.description {
+  margin: 0 0 36px;
+  max-width: 680px;
+  color: rgba(17, 17, 17, 0.65);
+  font-family: "DM Sans", Arial, sans-serif;
+  font-size: clamp(16px, 2vw, 19px);
+  font-weight: 400;
+  line-height: 1.55;
+  letter-spacing: -0.01em;
+}
+
+.actionRow {
+  display: flex;
+  align-items: center;
+}
+
+.nextButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 28px;
+  border: none;
+  border-radius: 99px;
+  background-color: #262626;
+  color: #ffffff;
+  cursor: pointer;
+  font-family: "DM Sans", Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  transition: background-color 200ms ease, transform 200ms ease;
+}
+
+.nextButton:hover {
+  background-color: #111111;
+  transform: translateY(-1px);
+}
+
+.arrowIcon {
+  display: block;
+  transition: transform 200ms ease;
+}
+
+.nextButton:hover .arrowIcon {
+  transform: translateX(3px);
+}
