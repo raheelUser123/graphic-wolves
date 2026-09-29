@@ -706,23 +706,43 @@
   .mainHeading {
     width: 100%;
 
-    font-size: 56px;
+    font-size: 52px;
 
-    line-height: 64px;
+    line-height: 62px;
   }
 
 
   .mainHeading em {
-    font-size: 56px;
+    font-size: 52px;
 
-    line-height: 64px;
+    line-height: 62px;
+  }
+
+
+  .youngCircle {
+    left: -8px;
+    top: -2px;
+    width: calc(100% + 16px);
+    height: 108%;
+  }
+
+
+  .underLine {
+    left: -5%;
+    bottom: -8px;
+    width: 110%;
+    height: 32px;
   }
 
 
   .headingSticker {
-    width: 55px;
+    width: 48px;
 
-    height: 55px;
+    height: 48px;
+
+    margin-left: 6px;
+
+    vertical-align: -6px;
   }
 
 
@@ -740,6 +760,14 @@
     width: 230px;
   }
 
+  .reviewCard:nth-child(1) { left: 5% !important; }
+  .reviewCard:nth-child(2) { left: 34% !important; }
+  .reviewCard:nth-child(3) { left: 60% !important; }
+  .reviewCard:nth-child(4) { left: 10% !important; }
+  .reviewCard:nth-child(5) { left: 56% !important; }
+  .reviewCard:nth-child(6) { left: 6% !important; }
+  .reviewCard:nth-child(7) { left: 30% !important; }
+
 
   .purpleShadow {
     left: -380px;
@@ -753,42 +781,64 @@
 ========================================= */
 
 @media (max-width: 600px) {
+  .mainHeading br {
+    display: none;
+}
+  .purpleShadow {
+    width: 600px;
+    height: 390px;
+  }
 
   .introSection {
-    min-height: 75vh;
+    min-height: 70vh;
 
     padding:
-      55px
-      16px
-      120px;
+      50px
+      14px
+      100px;
   }
 
 
   .mainHeading {
-    font-size: 39px;
+    font-size: 33px;
 
-    line-height: 45px;
+    line-height: 42px;
   }
 
 
   .mainHeading em {
-    font-size: 39px;
+    font-size: 33px;
 
-    line-height: 45px;
+    line-height: 42px;
+  }
+
+
+  .youngCircle {
+    left: -5px;
+    top: -1px;
+    width: calc(100% + 10px);
+    height: 110%;
+  }
+
+
+  .underLine {
+    left: -4%;
+    bottom: -5px;
+    width: 108%;
+    height: 20px;
   }
 
 
   .headingSticker {
-    width: 42px;
+    width: 32px;
 
-    height: 42px;
+    height: 32px;
+
+    margin-left: 4px;
+
+    vertical-align: -4px;
   }
 
-
-  /*
-    Slightly shorter sticky timeline
-    on mobile.
-  */
 
   .stickyWrap {
     height: 430vh;
@@ -796,7 +846,7 @@
 
 
   .reviewsStage {
-    min-height: 700px;
+    min-height: 640px;
   }
 
 
@@ -823,27 +873,36 @@
 
 
   .reviewCard {
-    width: 210px;
+    width: 195px;
 
     padding:
-      15px
-      15px
-      14px;
+      14px
+      13px
+      12px;
   }
+
+  .reviewCard:nth-child(1) { left: 3% !important; }
+  .reviewCard:nth-child(2) { left: 24% !important; }
+  .reviewCard:nth-child(3) { left: 42% !important; }
+  .reviewCard:nth-child(4) { left: 8% !important; }
+  .reviewCard:nth-child(5) { left: 40% !important; }
+  .reviewCard:nth-child(6) { left: 4% !important; }
+  .reviewCard:nth-child(7) { left: 22% !important; }
 
 
   .quote {
-    font-size: 14px;
+    font-size: 13px;
+    line-height: 1.25;
   }
 
 
   .name {
-    font-size: 14px;
+    font-size: 13px;
   }
 
 
   .role {
-    font-size: 12px;
+    font-size: 11px;
   }
 
 }

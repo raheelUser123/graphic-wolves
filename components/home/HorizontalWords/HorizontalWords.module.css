@@ -289,6 +289,10 @@
   }
 }
 @media (max-width: 400px) {
+      .purpleShadow {
+        width: 500px;
+        height: 490px;
+    }
       .bottomText {
         bottom: 230px;
     }

@@ -1,16 +1,11 @@
 .expertiseSection {
   position: relative;
-
   width: 100%;
-
   height: 100vh;
   min-height: 760px;
-
   background: #f9f6f5;
-
   overflow: hidden;
 }
-
 
 /* =========================================
    STAGE
@@ -21,58 +16,39 @@
   width: 100%;
   height: 100vh;
   min-height: 700px;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   overflow: hidden;
 }
 
-
 /* =========================================
    RING ANCHOR
-
-   This ALWAYS stays in viewport center.
 ========================================= */
 
 .ringAnchor {
   position: absolute;
-    left: 52%;
-    top: 55%;
-
+  left: 50%;
+  top: 50%;
   width: 0;
   height: 0;
-
   transform: translate(-50%, -50%);
-
   z-index: 5;
   pointer-events: none;
 }
 
-
 /* =========================================
    ROTOR
-
-   ONLY THIS ROTATES.
-   No centering transforms here.
 ========================================= */
 
 .rotor {
   position: relative;
-
   width: 0;
   height: 0;
-
-  transform-origin:
-    center center;
-
-  will-change:
-    transform;
-
+  transform-origin: center center;
+  will-change: transform;
   pointer-events: none;
 }
-
 
 /* =========================================
    ICON CARD
@@ -80,20 +56,14 @@
 
 .card {
   position: absolute;
-
   left: 0;
   top: 0;
-
   width: 80px;
   height: 80px;
-
   margin-left: -40px;
   margin-top: -40px;
-
   border-radius: 12px;
-
   overflow: hidden;
-
   box-shadow: none;
 }
 
@@ -102,99 +72,76 @@
   height: 80px;
   display: block;
   object-fit: contain;
-
   border-radius: 14px;
   box-shadow: none;
 }
 
-
 /* =========================================
    ORGANIC ICON SIZES
-
-   Positions remain circular.
-   Only size differs slightly.
 ========================================= */
 
 .card:nth-child(2) {
   width: 166px;
   height: 166px;
-
   margin-left: -83px;
   margin-top: -83px;
 }
 
-
 .card:nth-child(3) {
   width: 178px;
   height: 178px;
-
   margin-left: -89px;
   margin-top: -89px;
 }
 
-
 .card:nth-child(4) {
   width: 164px;
   height: 164px;
-
   margin-left: -82px;
   margin-top: -82px;
 }
 
-
 .card:nth-child(5) {
   width: 176px;
   height: 176px;
-
   margin-left: -88px;
   margin-top: -88px;
 }
-
 
 .card:nth-child(6) {
   width: 168px;
   height: 168px;
-
   margin-left: -84px;
   margin-top: -84px;
 }
-
 
 .card:nth-child(7) {
   width: 176px;
   height: 176px;
-
   margin-left: -88px;
   margin-top: -88px;
 }
 
-
 .card:nth-child(8) {
   width: 162px;
   height: 162px;
-
   margin-left: -81px;
   margin-top: -81px;
 }
 
-
 .card:nth-child(9) {
   width: 172px;
   height: 172px;
-
   margin-left: -86px;
   margin-top: -86px;
 }
 
-
 .card:nth-child(10) {
   width: 168px;
   height: 168px;
-
   margin-left: -84px;
   margin-top: -84px;
 }
-
 
 /* =========================================
    CENTER CONTENT
@@ -204,17 +151,12 @@
   position: absolute;
   left: 50%;
   top: 50%;
-
   transform: translate(-50%, -50%);
-
   z-index: 20;
-
   width: max-content;
   max-width: 92vw;
-
   text-align: center;
 }
-
 
 /* =========================================
    HEADING
@@ -222,36 +164,19 @@
 
 .heading {
   margin: 0;
-
   display: flex;
-
   align-items: baseline;
-
   justify-content: center;
-
   gap: 5px;
-
   color: #050505;
-
-  font-family:
-    "Borscha",
-    Arial,
-    sans-serif;
-
+  font-family: "Borscha", Arial, sans-serif;
   font-weight: 600;
-
   font-style: normal;
-
   font-size: 116px;
-
   line-height: 1.05;
-
-  letter-spacing:
-    -0.03em;
-
+  letter-spacing: -0.03em;
   text-align: center;
 }
-
 
 .heading em {
   font-family:
@@ -259,161 +184,145 @@
     "Canela",
     Georgia,
     serif;
-
   font-weight: 300;
-
   font-style: italic;
-
   font-size: 116px;
-
   line-height: 1;
-
-  letter-spacing:
-    -0.05em;
+  letter-spacing: -0.05em;
 }
-
 
 /* =========================================
    CAPTION
 ========================================= */
 
 .caption {
-  margin:
-    18px
-    auto
-    0;
-
+  margin: 18px auto 0;
   max-width: 700px;
-
   color: #111111;
-
-  font-family:
-    "DM Sans",
-    Arial,
-    sans-serif;
-
+  font-family: "DM Sans", Arial, sans-serif;
   font-weight: 500;
-
   font-style: normal;
-
   font-size: 24px;
-
   line-height: 1;
-
-  letter-spacing:
-    -0.03em;
-
+  letter-spacing: -0.03em;
   text-align: center;
 }
-
 
 /* =========================================
    LARGE DESKTOP
 ========================================= */
 
 @media (min-width: 1600px) {
-
   .card {
     width: 185px;
     height: 185px;
-
     margin-left: -92.5px;
     margin-top: -92.5px;
   }
-
 }
-
 
 /* =========================================
    TABLET
 ========================================= */
 
 @media (max-width: 1200px) {
-
   .heading,
   .heading em {
-    font-size: 82px;
+    font-size: 64px;
   }
-
 
   .caption {
-    font-size: 20px;
+    font-size: 16px;
+    margin-top: 10px;
+    max-width: 420px;
   }
-
 
   .card,
   .card:nth-child(n) {
-    width: 132px;
-    height: 132px;
-
-    margin-left: -66px;
-    margin-top: -66px;
-
-    border-radius: 23px;
+    width: 90px;
+    height: 90px;
+    margin-left: -45px;
+    margin-top: -45px;
+    border-radius: 14px;
   }
 
+  .card img {
+    width: 90px;
+    height: 90px;
+  }
 }
-
 
 /* =========================================
    MOBILE
 ========================================= */
 
 @media (max-width: 767px) {
-
   .expertiseSection,
   .stage {
-    min-height: 680px;
+    min-height: 540px;
   }
 
-
   .centerContent {
-    width: calc(
-      100% - 28px
-    );
-
+    width: calc(100% - 28px);
     max-width: 100%;
   }
 
-
   .heading {
     flex-direction: column;
-
     align-items: center;
-
     gap: 0;
-
-    font-size: 54px;
-
+    font-size: 38px;
     line-height: 0.95;
   }
 
-
   .heading em {
-    font-size: 54px;
+    font-size: 38px;
   }
-
 
   .caption {
-    margin-top: 14px;
-
-    max-width: 310px;
-
-    font-size: 16px;
-
-    line-height: 1.15;
+    margin-top: 10px;
+    max-width: 250px;
+    font-size: 13px;
+    line-height: 1.2;
   }
-
 
   .card,
   .card:nth-child(n) {
-    width: 82px;
-    height: 82px;
-
-    margin-left: -41px;
-    margin-top: -41px;
-
-    border-radius: 16px;
+    width: 58px;
+    height: 58px;
+    margin-left: -29px;
+    margin-top: -29px;
+    border-radius: 10px;
   }
 
+  .card img {
+    width: 58px;
+    height: 58px;
+  }
+}
+
+@media (max-width: 420px) {
+  .heading,
+  .heading em {
+    font-size: 34px;
+  }
+
+  .caption {
+    font-size: 12px;
+    max-width: 220px;
+  }
+
+  .card,
+  .card:nth-child(n) {
+    width: 52px;
+    height: 52px;
+    margin-left: -26px;
+    margin-top: -26px;
+    border-radius: 9px;
+  }
+
+  .card img {
+    width: 52px;
+    height: 52px;
+  }
 }

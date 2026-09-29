@@ -339,9 +339,13 @@ export default function ReviewsSection() {
                     Math.PI
                 );
 
+              const viewportWidth = window.innerWidth;
+              const waveAmount =
+                viewportWidth < 600 ? 10 : viewportWidth < 900 ? 20 : 38;
+
               if (lane === "left") {
                 xWave =
-                  wave * 38;
+                  wave * waveAmount;
               }
 
               if (lane === "center") {
@@ -350,12 +354,12 @@ export default function ReviewsSection() {
                     localProgress *
                       Math.PI *
                       2
-                  ) * 24;
+                  ) * (waveAmount * 0.6);
               }
 
               if (lane === "right") {
                 xWave =
-                  wave * -38;
+                  wave * -waveAmount;
               }
 
               /* =============================
