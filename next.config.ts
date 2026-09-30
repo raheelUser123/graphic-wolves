@@ -6,12 +6,12 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'crownbehavioralclinic.com',
+        hostname: 'lightsalmon-swallow-827714.hostingersite.com',
         pathname: '/**',
       },
       {
         protocol: 'https',
-        hostname: '*.crownbehavioralclinic.com',
+        hostname: '*.lightsalmon-swallow-827714.hostingersite.com',
         pathname: '/**',
       },
     ],

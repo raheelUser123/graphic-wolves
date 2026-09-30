@@ -27,7 +27,7 @@ async function fetchPosts(
 
   const baseUrl =
     process.env.NEXT_PUBLIC_WORDPRESS_API_URL ||
-    'https://crownbehavioralclinic.com/wp-json/wp/v2';
+    'https://lightsalmon-swallow-827714.hostingersite.com/wp-json/wp/v2';
   const res = await fetch(`${baseUrl}/posts?${params.toString()}`);
   if (!res.ok) return [];
   return res.json();
