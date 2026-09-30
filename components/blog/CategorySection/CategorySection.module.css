@@ -13,7 +13,7 @@
   background: #0d0d0e;
   border-radius: 999px;
   padding: 6px;
-  max-width: 700px;
+  max-width: max-content;
   margin: 0 auto 40px;
   flex-wrap: wrap;
 }
