@@ -1001,6 +1001,83 @@ button:hover
 
 
 /* =========================================
+   LEGAL LINKS
+========================================= */
+
+.bottomLinks {
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    flex-end;
+
+  gap:
+    16px;
+
+  font-family:
+    "DM Sans",
+    Arial,
+    sans-serif;
+
+  font-weight:
+    400;
+
+  font-size:
+    16px;
+
+  line-height:
+    1;
+
+  letter-spacing:
+    0;
+
+  color:
+    rgba(
+      17,
+      17,
+      17,
+      0.65
+    );
+}
+
+.bottomLink {
+  color:
+    rgba(
+      17,
+      17,
+      17,
+      0.65
+    );
+
+  text-decoration:
+    none;
+
+  transition:
+    color
+      0.2s
+      ease;
+}
+
+.bottomLink:hover {
+  color:
+    #9863ff;
+}
+
+.bottomLinkDivider {
+  color:
+    rgba(
+      17,
+      17,
+      17,
+      0.35
+    );
+}
+
+
+/* =========================================
    TABLET
 ========================================= */
 
@@ -1069,6 +1146,12 @@ button:hover
   .newsletterCaption,
   .copyright,
   .designedBy {
+    font-size:
+      15px;
+  }
+
+  .bottomLinks,
+  .bottomLink {
     font-size:
       15px;
   }
@@ -1230,6 +1313,14 @@ button:hover
   .designedBy {
     text-align:
       left;
+  }
+
+  .bottomLinks {
+    justify-content:
+      flex-start;
+
+    flex-wrap:
+      wrap;
   }
 
 

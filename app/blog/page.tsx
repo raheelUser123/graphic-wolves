@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 
 export default async function BlogPage() {
   const [postsResult, categories] = await Promise.all([
-    getPosts(1, 7),
+    getPosts(1, 5),
     getCategories(),
   ]);
 

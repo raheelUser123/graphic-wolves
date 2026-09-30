@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useTransition } from 'react';
+import { useRef, useState, useTransition } from 'react';
 import Link from 'next/link';
 import BlogCard from '@/components/blog/BlogCard/BlogCard';
 import type { WordPressPost } from '@/lib/wordpress/types';
@@ -12,13 +12,15 @@ interface BlogGridProps {
   categoryId?: number;
 }
 
-async function fetchMorePosts(
+const POSTS_PER_PAGE = 5;
+
+async function fetchPosts(
   page: number,
   categoryId?: number
 ): Promise<WordPressPost[]> {
   const params = new URLSearchParams({
     page: String(page),
-    per_page: '6',
+    per_page: String(POSTS_PER_PAGE),
     _embed: '1',
   });
   if (categoryId) params.set('categories', String(categoryId));
@@ -32,18 +34,32 @@ async function fetchMorePosts(
 }
 
 export default function BlogGrid({ initialPosts, totalPages, categoryId }: BlogGridProps) {
+  const sectionRef = useRef<HTMLElement>(null);
   const [posts, setPosts] = useState<WordPressPost[]>(initialPosts);
   const [page, setPage] = useState(1);
+  const [cache, setCache] = useState<Record<number, WordPressPost[]>>({
+    1: initialPosts,
+  });
   const [isPending, startTransition] = useTransition();
 
-  const hasMore = page < totalPages;
+  const goToPage = (nextPage: number) => {
+    if (nextPage === page || nextPage < 1 || nextPage > totalPages) return;
 
-  const loadMore = () => {
-    const nextPage = page + 1;
-    startTransition(async () => {
-      const more = await fetchMorePosts(nextPage, categoryId);
-      setPosts((prev) => [...prev, ...more]);
+    // Already visited this page — switch instantly from the in-memory cache.
+    if (cache[nextPage]) {
+      setPosts(cache[nextPage]);
       setPage(nextPage);
+      sectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      return;
+    }
+
+    startTransition(async () => {
+      const nextPosts = await fetchPosts(nextPage, categoryId);
+      if (nextPosts.length === 0) return;
+      setCache((prev) => ({ ...prev, [nextPage]: nextPosts }));
+      setPosts(nextPosts);
+      setPage(nextPage);
+      sectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   };
 
@@ -63,7 +79,7 @@ export default function BlogGrid({ initialPosts, totalPages, categoryId }: BlogG
   const [firstPost, ...restPosts] = posts;
 
   return (
-    <section className={styles.section}>
+    <section ref={sectionRef} className={styles.section}>
       {/* TOP ROW: Purple CTA + first large post */}
       <div className={styles.topRow}>
         <div className={styles.ctaCard}>
@@ -80,7 +96,7 @@ export default function BlogGrid({ initialPosts, totalPages, categoryId }: BlogG
         <BlogCard post={firstPost} variant="large" />
       </div>
 
-      {/* REST GRID */}
+      {/* REST GRID (4 posts) */}
       {restPosts.length > 0 && (
         <div className={styles.grid}>
           {restPosts.map((post) => (
@@ -89,18 +105,48 @@ export default function BlogGrid({ initialPosts, totalPages, categoryId }: BlogG
         </div>
       )}
 
-      {/* LOAD MORE */}
-      {hasMore && (
-        <div className={styles.loadMoreWrap}>
+      {/* PAGINATION */}
+      {totalPages > 1 && (
+        <nav className={styles.pagination} aria-label="Blog pagination">
           <button
-            onClick={loadMore}
-            disabled={isPending}
-            className={styles.loadMore}
-            aria-label="Load more articles"
+            type="button"
+            className={styles.pageArrow}
+            onClick={() => goToPage(page - 1)}
+            disabled={isPending || page === 1}
+            aria-label="Previous page"
           >
-            {isPending ? 'Loading...' : 'Load More'}
+            ←
           </button>
-        </div>
+
+          {Array.from({ length: totalPages }, (_, i) => i + 1).map((n) =>
+            n === page ? (
+              <span key={n} className={styles.pageNumberActive} aria-current="page">
+                {n}
+              </span>
+            ) : (
+              <button
+                key={n}
+                type="button"
+                className={styles.pageNumber}
+                onClick={() => goToPage(n)}
+                disabled={isPending}
+                aria-label={`Page ${n}`}
+              >
+                {n}
+              </button>
+            )
+          )}
+
+          <button
+            type="button"
+            className={styles.pageArrow}
+            onClick={() => goToPage(page + 1)}
+            disabled={isPending || page === totalPages}
+            aria-label="Next page"
+          >
+            →
+          </button>
+        </nav>
       )}
     </section>
   );

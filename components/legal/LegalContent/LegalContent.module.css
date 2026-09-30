@@ -1,0 +1,53 @@
+.wrap {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 96px 28px;
+  background: #f7f4f2;
+}
+
+.section {
+  margin-bottom: 48px;
+}
+
+.section:last-child {
+  margin-bottom: 0;
+}
+
+.heading {
+  margin: 0 0 18px;
+  color: #111111;
+  font-family: "Borscha", Arial, sans-serif;
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.paragraph {
+  margin: 0 0 16px;
+  color: rgba(17, 17, 17, 0.7);
+  font-family: "DM Sans", Arial, sans-serif;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 1.6;
+  letter-spacing: -0.01em;
+}
+
+.paragraph:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 767px) {
+  .wrap {
+    padding: 64px 18px;
+  }
+
+  .heading {
+    font-size: 24px;
+  }
+
+  .paragraph {
+    font-size: 16px;
+  }
+}

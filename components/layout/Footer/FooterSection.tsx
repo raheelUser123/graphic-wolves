@@ -946,17 +946,41 @@ export default function FooterSection() {
               </div>
 
               {/* =====================================
-                  DESIGNED BY
+                  LEGAL LINKS
               ===================================== */}
 
-              <p
+              <div
                 className={
-                  styles.designedBy
+                  styles.bottomLinks
                 }
               >
-                Designed by
-                ActiveSolution for BYQ.
-              </p>
+                <Link
+                  href="/privacy-policy"
+                  className={
+                    styles.bottomLink
+                  }
+                >
+                  Privacy Policy
+                </Link>
+
+                <span
+                  className={
+                    styles.bottomLinkDivider
+                  }
+                  aria-hidden="true"
+                >
+                  |
+                </span>
+
+                <Link
+                  href="/terms-conditions"
+                  className={
+                    styles.bottomLink
+                  }
+                >
+                  Terms &amp; Conditions
+                </Link>
+              </div>
             </div>
           </div>
         </div>

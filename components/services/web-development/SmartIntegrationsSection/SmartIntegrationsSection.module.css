@@ -376,17 +376,37 @@
 }
 
 @media (max-width: 600px) {
-  #integration-cards article {
-    position: unset !important;
-    width: 100%;
-    transform: unset !important;
+  .section article {
+     position: unset;
     rotate: unset;
+    transform: unset !important;
+    translate: unset !important;
+    scale: unset !important;
+    width: 100%;
     margin-bottom: 10px;
     min-height: auto;
-}
+  }
+  /* Cards stack vertically, plain & flat — no tilt / float / scale on mobile */
+  #integration-cards article,
+  #integration-cards article:hover,
+  #integration-cards article:focus-within {
+    position: unset;
+    rotate: unset;
+    transform: unset !important;
+    translate: unset !important;
+    scale: unset !important;
+    width: 100%;
+    margin-bottom: 10px;
+    min-height: auto;
+  }
+
   #integration-cards {
     border: 0;
-}
+    min-height: 0;
+    border-top: 2px dotted #78baff;
+    padding-top: 28px;
+  }
+
   .section {
     padding: 64px 20px 90px;
   }
@@ -419,38 +439,8 @@
     font-size: 16px;
   }
 
-  .cardStage {
-    min-height: 700px;
-    border-top: 2px dotted #78baff;
-    padding-top: 28px;
-    margin-right: -4px;
-    margin-left: -4px;
-  }
-
   .card {
-    width: min(250px, 72%);
-    min-height: 285px;
-    padding: 17px;
-  }
-
-  .card[data-position="webflow"] {
-    top: 225px;
-    left: 0;
-  }
-
-  .card[data-position="wix"] {
-    top: 22px;
-    left: 25%;
-  }
-
-  .card[data-position="squarespace"] {
-    top: 125px;
-    left: 30%;
-  }
-
-  .card[data-position="framer"] {
-    top: 415px;
-    left: 32%;
+    padding: 17px 16px;
   }
 
   .cardHeading {

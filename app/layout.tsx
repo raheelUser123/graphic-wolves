@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 import SmoothScroll from "@/components/layout/SmoothScroll/SmoothScroll";
 export const metadata: Metadata = {
+  // IMPORTANT: change this to your real production domain.
+  metadataBase: new URL("https://graphicwolves.com"),
+
   title: {
     default: "Graphic Wolves | Branding, Development & E-Commerce",
     template: "%s | Graphic Wolves",
