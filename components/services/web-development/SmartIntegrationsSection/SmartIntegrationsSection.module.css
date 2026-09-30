@@ -376,6 +376,17 @@
 }
 
 @media (max-width: 600px) {
+  #integration-cards article {
+    position: unset !important;
+    width: 100%;
+    transform: unset !important;
+    rotate: unset;
+    margin-bottom: 10px;
+    min-height: auto;
+}
+  #integration-cards {
+    border: 0;
+}
   .section {
     padding: 64px 20px 90px;
   }

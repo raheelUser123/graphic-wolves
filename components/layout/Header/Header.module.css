@@ -463,6 +463,9 @@
 }
 
 @media (max-width: 768px) {
+  .whatsappShell {
+z-index: 30;
+  }
   .header {
     padding: 16px 16px;
   }

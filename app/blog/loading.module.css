@@ -1,0 +1,39 @@
+.loading {
+  width: 100%;
+  padding: 120px 28px 80px;
+  background: #f7f4f2;
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #e8e4e0 25%, #d4cec9 50%, #e8e4e0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 8px;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.skeletonBreadcrumb { width: 180px; height: 20px; }
+.skeletonHeading { width: 600px; max-width: 90%; height: 80px; border-radius: 12px; }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.skeletonCard { height: 340px; border-radius: 16px; }

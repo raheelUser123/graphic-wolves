@@ -172,7 +172,7 @@ export default function ProjectsIntroSection() {
             </p>
 
             <Link
-              href="/projects"
+              href="/our-work"
               className={styles.button}
             >
               <span>Projects</span>

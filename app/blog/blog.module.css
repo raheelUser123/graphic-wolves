@@ -1,0 +1,10 @@
+.main {
+  min-height: 100vh;
+  background: #f7f4f2;
+}
+
+.gridWrap {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}

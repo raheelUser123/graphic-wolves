@@ -804,3 +804,9 @@
   }
 
 }
+@media (max-width: 600px) {
+.cardsRow {
+    width: 100%;
+    min-width: unset;
+}
+}

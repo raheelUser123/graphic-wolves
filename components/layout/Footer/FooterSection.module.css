@@ -1247,3 +1247,43 @@ button:hover
       0 16px;
   }
 }
+
+
+/* =========================================
+   SMALL MOBILE (375 / 360px)
+========================================= */
+
+@media (
+  max-width:
+    430px
+) {
+
+  .ctaMain {
+    font-size:
+      28px;
+  }
+
+
+  .ctaItalic {
+    font-size:
+      29px;
+  }
+
+
+  .meetingLogo {
+    width:
+      68px;
+
+    height:
+      89px;
+  }
+
+
+  .ctaHeading {
+    gap:
+      5px;
+
+    height:
+      140px;
+  }
+}

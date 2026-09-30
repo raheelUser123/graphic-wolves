@@ -29,6 +29,10 @@ const menuItems = [
     href: "/our-work",
   },
   {
+    label: "Blog",
+    href: "/blog",
+  },
+  {
     label: "Contact",
     href: "/contact",
   },
@@ -165,6 +169,49 @@ export default function FooterSection() {
       !swirlPath
     ) {
       return;
+    }
+
+    /* =====================================================
+       MOBILE CHECK
+
+       767px se chhoti screens pe scroll animation
+       bilkul band kar do — sab elements final
+       visible state mein set kar do aur RAF loop
+       start hi mat karo.
+    ===================================================== */
+
+    const isMobile = window.innerWidth <= 767;
+
+    if (isMobile) {
+      /* Heading — koi shift nahi */
+      gsap.set(left, { x: 0, opacity: 1 });
+      gsap.set(right, { x: 0, opacity: 1 });
+
+      /* Meeting logo — seedha visible */
+      gsap.set(meetingLogo, {
+        scale: 1,
+        opacity: 1,
+        rotation: 0,
+        filter: "blur(0px)",
+        y: 0,
+      });
+
+      /* Swirl — poora draw */
+      const swirlLen = swirlPath.getTotalLength();
+      gsap.set(swirlPath, {
+        strokeDasharray: swirlLen,
+        strokeDashoffset: 0,
+      });
+
+      /* Footer card — poora visible */
+      gsap.set(footerCard, {
+        y: 0,
+        opacity: 1,
+        scale: 1,
+        filter: "blur(0px)",
+      });
+
+      return; /* RAF loop shuru mat karo */
     }
 
     let rafId = 0;
