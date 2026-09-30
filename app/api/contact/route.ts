@@ -63,6 +63,10 @@ function emailLayout(opts: {
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>${escapeHtml(title)}</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    body, table, td, p, a, h1, span { font-family: 'Poppins', Arial, Helvetica, sans-serif !important; }
+  </style>
 </head>
 <body style="margin:0;padding:0;background:${BRAND.bg};font-family:${FONT};">
   <div style="display:none;max-height:0;overflow:hidden;opacity:0;color:transparent;">
@@ -333,7 +337,12 @@ export async function POST(request: Request) {
     `;
 
     await transporter.sendMail({
-      from: `"Website Contact Form" <${process.env.SMTP_USER}>`,
+      from: {
+        name: `${yourName.trim().replace(/[\r\n"<>]/g, "")} (${companyName
+          .trim()
+          .replace(/[\r\n"<>]/g, "")})`,
+        address: process.env.SMTP_USER,
+      },
       to: process.env.ADMIN_EMAIL,
       replyTo: safeEmail || process.env.ADMIN_EMAIL,
 
