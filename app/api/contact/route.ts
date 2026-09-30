@@ -34,7 +34,7 @@ const BRAND = {
   white: "#FFFFFF",
 };
 
-const FONT = "'Helvetica Neue', Helvetica, Arial, sans-serif";
+const FONT = "'Poppins', Arial, Helvetica, sans-serif";
 
 function escapeHtml(value: string) {
   return value
