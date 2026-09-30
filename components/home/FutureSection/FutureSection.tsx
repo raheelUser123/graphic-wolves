@@ -381,7 +381,7 @@ export default function FutureSection() {
       aria-hidden="true"
     >
       <img
-        src="/images/future/ellipse-3.png"
+        src="/images/future/ellipse-3.webp"
         alt=""
       />
     </div>
