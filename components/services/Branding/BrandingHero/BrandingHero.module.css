@@ -382,7 +382,18 @@
 
 }
 
+@media (max-width: 1024px) {
+  .heroContent {
 
+    padding: 250px 30px 80px;
+}
+      .growth {
+        font-size: 60px;
+    }
+.heading {
+        font-size: 54px;
+    }
+}
 /* =========================================
    MOBILE
 ========================================= */
@@ -458,4 +469,28 @@
     display: none;
   }
 
+}
+
+@media (max-width: 375px) {
+  .heading {
+    font-size: 35px;
+    line-height: 48px;
+  }
+
+  .heading br {
+    display: none;
+  }
+
+  .growth {
+    font-size: 35px;
+    line-height: 48px;
+  }
+
+  .section {
+    min-height: auto;
+  }
+
+  .heroContent {
+    min-height: auto !important;
+  }
 }

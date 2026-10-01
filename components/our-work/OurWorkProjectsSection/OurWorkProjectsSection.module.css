@@ -60,7 +60,7 @@
 
 .project {
   display: block;
-  flex: 0 0 calc((100cqw - 90px) / 5);
+  flex: 0 0 calc((100cqw - 60px) / 3);
   color: inherit;
   text-decoration: none;
 }
@@ -145,7 +145,7 @@
   .track { animation-duration: 48s; }
   .trackReverse { animation-duration: 54s; }
   .group { gap: 18px; padding-right: 18px; }
-  .project { flex-basis: clamp(220px, 68vw, 280px); }
+  .project { flex-basis: calc((100cqw - 36px) / 2); }
   .projectTitle { margin-top: 9px; font-size: 17px; }
 }
 

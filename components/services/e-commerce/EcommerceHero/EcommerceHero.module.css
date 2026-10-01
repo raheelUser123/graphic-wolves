@@ -1,6 +1,6 @@
 .section {
   position: relative;
-  height: 190vh;
+  height: 180vh;
   background: #f9f6f5;
   color: #111;
 }
@@ -23,7 +23,7 @@
   height: 100%;
   flex-direction: column;
   align-items: center;
-  padding: 170px 24px 30px;
+  padding: 110px 24px 10px;
   pointer-events: none;
 }
 
@@ -167,6 +167,7 @@
 }
 
 @media (min-width: 1500px) {
+
   .heading {
     font-size: 86px;
   }
@@ -175,10 +176,70 @@
     font-size: 24px;
   }
 }
+@media (max-width: 1440px) {
+  .card2 {
+    left: 70.5%;
+  }
+
+  .card1 {
+    top: 3.5%;
+    left: 15%;
+  }
+}
+
+@media (max-width: 1100px) {
+  .projectCard {
+    width: 170px;
+    height: 170px;
+  }
+
+  .card5,
+  .card6,
+  .card7,
+  .card8 {
+    display: none;
+  }
+
+  .card1 {
+    left: 18%;
+  }
+
+  .card2 {
+    left: 67%;
+  }
+
+  .card3 {
+    left: 8%;
+  }
+
+  .card4 {
+    right: 10%;
+  }
+}
+@media (max-width: 1024px) {
+      .heading {
+        font-size: 54px;
+    }
+  .highlight {
+    font-size: 60px;
+}
+      .card4 {
+        right: 10%;
+        top: 72%;
+    }
+      .card3 {
+        left: 8%;
+        top: 72%;
+    }
+.content {
+    padding: 210px 24px 10px;
+}
+}
 
 @media (max-width: 900px) {
   .content {
-    padding-top: 145px;
+    padding-top: 210px;
+    padding-bottom: 0;
   }
 
   .heading {
@@ -229,6 +290,9 @@
 }
 
 @media (max-width: 600px) {
+  .heading br {
+    display: none;
+}
   .section {
     height: 205vh;
   }
@@ -290,13 +354,13 @@
   }
 
   .card3 {
-    top: 36%;
+    top: 76%;
     left: 2%;
   }
 
   .card4 {
-    top: 35%;
-    right: 2%;
+    top: 75%;
+    right: 3%;
   }
 
   .card5 {

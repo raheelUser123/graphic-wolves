@@ -203,10 +203,10 @@
 @media (max-width: 767px) {
 
   .section {
-    min-height: 650px;
+    min-height: auto;
 
     padding:
-      80px
+      40px
       18px;
   }
 
@@ -231,4 +231,10 @@
     flex-basis: 52px;
   }
 
+}
+@media (max-width: 600px) {
+  .heading {
+    font-size: 28px;
+    line-height: 38px;
+}
 }

@@ -201,7 +201,12 @@
   color: #9863ff;
   font-size: 14px;
 }
-
+@media (max-width: 1024px) {
+.pupil {
+    width: 24px;
+    height: 37px;
+}
+}
 @media (max-width: 920px) {
   .heading { font-size: clamp(48px, 9vw, 72px); }
   .heroContent { padding: 0 18px; }
@@ -209,6 +214,10 @@
 }
 
 @media (max-width: 640px) {
+  .pupil {
+    width: 15px;
+    height: 27px;
+}
   .hero { min-height: 760px; }
   .heroContent { top: 49%; padding: 0 14px; }
   .heading { font-size: clamp(38px, 12vw, 56px); line-height: 0.98; }

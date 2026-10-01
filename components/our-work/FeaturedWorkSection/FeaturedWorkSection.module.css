@@ -655,7 +655,14 @@
 ========================================= */
 
 @media (max-width: 1100px) {
+  .featuredSection .mainHeading {
+    display: block; 
+  white-space: unset; 
+}
 
+    .featuredSection .mainHeading, .featuredSection .work {
+        font-size: 40px;
+    }
   .featuredSection {
     min-height: 1550px;
 
