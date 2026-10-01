@@ -858,6 +858,22 @@ button:hover
     );
 }
 
+    .newsletterForm button:disabled {
+      cursor: wait;
+      opacity: 0.7;
+      transform: none;
+    }
+
+
+    .newsletterStatus {
+      margin: 12px 4px 0;
+      color: rgba(17, 17, 17, 0.72);
+      font-family: "DM Sans", Arial, sans-serif;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+
 
 /* =========================================
    BOTTOM ROW

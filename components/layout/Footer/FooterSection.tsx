@@ -4,6 +4,7 @@ import {
   FormEvent,
   useLayoutEffect,
   useRef,
+  useState,
 } from "react";
 
 import Link from "next/link";
@@ -123,6 +124,10 @@ const easeInOutCubic = (
 ========================================================= */
 
 export default function FooterSection() {
+  const [newsletterLoading, setNewsletterLoading] = useState(false);
+  const [newsletterMessage, setNewsletterMessage] = useState("");
+  const [newsletterError, setNewsletterError] = useState(false);
+
   const sectionRef =
     useRef<HTMLElement>(null);
 
@@ -576,10 +581,44 @@ export default function FooterSection() {
     event: FormEvent<HTMLFormElement>
   ) => {
     event.preventDefault();
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+    const email = formData.get("email");
 
-    /*
-      Newsletter API integration yahan.
-    */
+    if (typeof email !== "string") {
+      return;
+    }
+
+    setNewsletterLoading(true);
+    setNewsletterMessage("");
+    setNewsletterError(false);
+
+    void (async () => {
+      try {
+        const response = await fetch("/api/newsletter", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email }),
+        });
+        const result = await response.json();
+
+        if (!response.ok) {
+          throw new Error(result.message || "Unable to subscribe.");
+        }
+
+        setNewsletterMessage(result.message);
+        form.reset();
+      } catch (error) {
+        setNewsletterError(true);
+        setNewsletterMessage(
+          error instanceof Error
+            ? error.message
+            : "Unable to subscribe right now. Please try again later."
+        );
+      } finally {
+        setNewsletterLoading(false);
+      }
+    })();
   };
 
   return (
@@ -809,16 +848,20 @@ export default function FooterSection() {
               >
                 <input
                   type="email"
+                  name="email"
                   placeholder="Email Address"
                   aria-label="Email Address"
+                  autoComplete="email"
                   required
+                  disabled={newsletterLoading}
                 />
 
                 <button
                   type="submit"
+                  disabled={newsletterLoading}
                 >
                   <span>
-                    Join
+                    {newsletterLoading ? "Joining..." : "Join"}
                   </span>
 
                   <span
@@ -830,6 +873,16 @@ export default function FooterSection() {
                   </span>
                 </button>
               </form>
+
+              {newsletterMessage && (
+                <p
+                  className={styles.newsletterStatus}
+                  role={newsletterError ? "alert" : "status"}
+                  aria-live="polite"
+                >
+                  {newsletterMessage}
+                </p>
+              )}
             </div>
           </div>
 
