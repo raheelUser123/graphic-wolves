@@ -187,7 +187,7 @@ export default function FooterSection() {
 
     const isMobile = window.innerWidth <= 767;
 
-    let rafId = 0;
+    let rafId: number | null = null;
 
     /*
       Smoothed progress for premium scroll feel.
@@ -286,6 +286,8 @@ export default function FooterSection() {
     ===================================================== */
 
     const render = () => {
+      rafId = null;
+
       const rect =
         section.getBoundingClientRect();
 
@@ -547,29 +549,37 @@ export default function FooterSection() {
         }
       );
 
-      rafId =
-        requestAnimationFrame(
-          render
-        );
+      if (Math.abs(rawProgress - smoothProgress) > 0.005) {
+        scheduleRender();
+      }
     };
+
+    const scheduleRender = () => {
+      if (rafId === null) {
+        rafId = requestAnimationFrame(render);
+      }
+    };
+
+    window.addEventListener("scroll", scheduleRender, { passive: true });
+    window.addEventListener("lenis-scroll", scheduleRender, { passive: true });
 
     /* =====================================================
        START LOOP
     ===================================================== */
 
-    rafId =
-      requestAnimationFrame(
-        render
-      );
+    scheduleRender();
 
     /* =====================================================
        CLEANUP
     ===================================================== */
 
     return () => {
-      cancelAnimationFrame(
-        rafId
-      );
+      window.removeEventListener("scroll", scheduleRender);
+      window.removeEventListener("lenis-scroll", scheduleRender);
+
+      if (rafId !== null) {
+        cancelAnimationFrame(rafId);
+      }
     };
   }, []);
 
