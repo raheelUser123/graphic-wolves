@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
-import Lenis from "lenis";
+import type Lenis from "lenis";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -18,39 +18,58 @@ export default function SmoothScroll() {
   ========================================= */
   useEffect(() => {
     if (typeof window === "undefined") return;
+    if (window.matchMedia("(pointer: coarse), (max-width: 767px)").matches) {
+      return;
+    }
 
     // Do not let the browser restore an old page scroll position when
     // navigating back from another App Router route.
     const previousRestoration = window.history.scrollRestoration;
     window.history.scrollRestoration = "manual";
 
-    const lenis = new Lenis({
-      duration: 1.25,
-      smoothWheel: true,
-      wheelMultiplier: 0.85,
-      touchMultiplier: 1,
-    });
+    let disposed = false;
+    let lenis: Lenis | null = null;
+    let scrollHandler: (() => void) | null = null;
 
-    lenisRef.current = lenis;
+    const startLenis = async () => {
+      const { default: LenisClass } = await import("lenis");
+      if (disposed) return;
 
-    const handleScroll = () => {
-      ScrollTrigger.update();
-      window.dispatchEvent(new Event("lenis-scroll"));
-    };
+      lenis = new LenisClass({
+        duration: 1.25,
+        smoothWheel: true,
+        wheelMultiplier: 0.85,
+        touchMultiplier: 1,
+      });
 
-    lenis.on("scroll", handleScroll);
+      lenisRef.current = lenis;
 
-    const raf = (time: number) => {
-      lenis.raf(time);
+      scrollHandler = () => {
+        ScrollTrigger.update();
+        window.dispatchEvent(new Event("lenis-scroll"));
+      };
+
+      lenis.on("scroll", scrollHandler);
+
+      const raf = (time: number) => {
+        lenis?.raf(time);
+        rafRef.current = requestAnimationFrame(raf);
+      };
+
       rafRef.current = requestAnimationFrame(raf);
     };
 
-    rafRef.current = requestAnimationFrame(raf);
+    void startLenis().catch((error: unknown) => {
+      console.error("Unable to initialize smooth scrolling:", error);
+    });
 
     return () => {
+      disposed = true;
       cancelAnimationFrame(rafRef.current);
-      lenis.off("scroll", handleScroll);
-      lenis.destroy();
+      if (lenis && scrollHandler) {
+        lenis.off("scroll", scrollHandler);
+      }
+      lenis?.destroy();
       lenisRef.current = null;
       window.history.scrollRestoration = previousRestoration;
     };

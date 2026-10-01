@@ -3,41 +3,39 @@
 import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Link from "next/link";
 
+import { caseStudies } from "@/components/case-studies/data";
 import styles from "./EcommerceFeaturedWork.module.css";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const projects = [
-  {
-    name: "Twirl",
-    category: "E-commerce Website Development",
-    image: "/images/services/ecommerce/featuredwork/twirl.webp",
-    caption:
-      "A flexible storefront turning product discovery into a smooth path to checkout.",
-  },
-  {
-    name: "TheThermoLab",
-    category: "E-commerce Website Development",
-    image: "/images/services/ecommerce/featuredwork/thermolab.webp",
-    caption:
-      "A high-conversion online store built around clear product detail and effortless buying.",
-  },
-  {
-    name: "MyAtomos",
-    category: "E-commerce Experience",
-    image: "/images/services/ecommerce/featuredwork/myatomos.webp",
-    caption:
-      "A streamlined commerce experience that keeps products and account tools close at hand.",
-  },
-  {
-    name: "Appcues",
-    category: "E-commerce Website Development",
-    image: "/images/services/ecommerce/featuredwork/appcuse.webp",
-    caption:
-      "A polished digital storefront with clear messaging and a smooth purchase journey.",
-  },
-];
+const ecommerceCaseStudySlugs = new Set([
+  "dashi",
+  "myatoms",
+  "appcues-product-adoption",
+  "synthesis",
+]);
+
+const projectCategories: Record<string, string> = {
+  dashi: "E-commerce Website Development",
+  myatoms: "E-commerce Experience",
+  "appcues-product-adoption": "Website Development",
+  synthesis: "Web Development",
+};
+
+const projects = caseStudies
+  .filter((study) => ecommerceCaseStudySlugs.has(study.slug))
+  .map((study) => ({
+    slug: study.slug,
+    name: study.title,
+    category: projectCategories[study.slug] ?? "E-commerce Development",
+    image:
+      study.heroMedia.type === "image"
+        ? study.heroMedia.src
+        : study.heroMedia.poster,
+    alt: study.heroMedia.alt,
+  }));
 
 export default function EcommerceFeaturedWork() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -147,18 +145,29 @@ export default function EcommerceFeaturedWork() {
         <div className={styles.grid}>
           {projects.map((project) => (
             <article
-              key={project.name}
+              key={project.slug}
               className={styles.card}
               data-ecommerce-work-card
             >
-              <div className={styles.imageWrap}>
-                <img className={styles.image} src={project.image} alt={project.name} />
-              </div>
-              <h3 className={styles.title}>
-                <span className={styles.name}>{project.name}</span>
-                <span className={styles.category}> | {project.category}</span>
-              </h3>
-              <p className={styles.caption}>{project.caption}</p>
+              <Link
+                href={`/our-work/${project.slug}`}
+                className={styles.cardLink}
+                aria-label={`View the ${project.name} case study`}
+              >
+                <div className={styles.imageWrap}>
+                  <img
+                    className={styles.image}
+                    src={project.image}
+                    alt={project.alt}
+                    loading="lazy"
+                  />
+                </div>
+                <h3 className={styles.title}>
+                  <span className={styles.name}>{project.name}</span>
+                  <span className={styles.category}> | {project.category}</span>
+                </h3>
+                <p className={styles.caption}>View case study</p>
+              </Link>
             </article>
           ))}
         </div>

@@ -3,54 +3,48 @@
 import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Link from "next/link";
 
+import { caseStudies } from "@/components/case-studies/data";
 import styles from "./FeaturedWorkSection.module.css";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const projects = [
-  {
-    name: "AgentBound",
-    category: "Website Development",
-    image: "/images/services/web-development/featured-work/1.webp",
-    caption: "A brand identity and platform for the infamous Partridge Prison.",
-  },
-  {
-    name: "Appcues",
-    category: "Website Development",
-    image: "/images/services/web-development/featured-work/2.webp",
-    caption: "A brand identity and platform for the infamous Partridge Prison.",
-  },
-  {
-    name: "Synthesis Capital",
-    category: "Web Development",
-    image: "/images/services/web-development/featured-work/3.webp",
-    caption: "A brand identity and platform for the infamous Partridge Prison.",
-  },
-  {
-    name: "RichTech robotics",
-    category: "App Development",
-    image: "/images/services/web-development/featured-work/4.webp",
-    caption: "A brand identity and platform for the infamous Partridge Prison.",
-  },
-  {
-    name: "MyAtoms",
-    category: "App Development",
-    image: "/images/services/web-development/featured-work/5.webp",
-    caption: "A brand identity and platform for the infamous Partridge Prison.",
-  },
-  {
-    name: "Dashi",
-    category: "Website Development",
-    image: "/images/services/web-development/featured-work/6.webp",
-    caption: "A brand identity and platform for the infamous Partridge Prison.",
-  },
-];
+const webDevelopmentProjects = new Set([
+  "agent-bounty",
+  "appcues-product-adoption",
+  "synthesis",
+  "richtech-robotics",
+  "myatoms",
+  "dashi",
+]);
+
+const projectCategories: Record<string, string> = {
+  "agent-bounty": "Website Development",
+  "appcues-product-adoption": "Website Development",
+  synthesis: "Web Development",
+  "richtech-robotics": "App Development",
+  myatoms: "App Development",
+  dashi: "Website Development",
+};
+
+const projects = caseStudies
+  .filter((study) => webDevelopmentProjects.has(study.slug))
+  .map((study) => ({
+    slug: study.slug,
+    name: study.title,
+    category: projectCategories[study.slug] ?? "Web Development",
+    image:
+      study.heroMedia.type === "image"
+        ? study.heroMedia.src
+        : study.heroMedia.poster,
+    alt: study.heroMedia.alt,
+  }));
 
 const projectColumns = [
-  [projects[0], projects[3]],
-  [projects[1], projects[4]],
-  [projects[2], projects[5]],
+  projects.filter((_, index) => index % 3 === 0),
+  projects.filter((_, index) => index % 3 === 1),
+  projects.filter((_, index) => index % 3 === 2),
 ];
 
 export default function FeaturedWorkSection() {
@@ -181,22 +175,29 @@ export default function FeaturedWorkSection() {
             >
               {column.map((project) => (
                 <article
-                  key={project.name}
+                  key={project.slug}
                   className={styles.card}
                   data-work-card
                 >
-                  <div className={styles.imageWrap}>
-                    <img
-                      className={styles.image}
-                      src={project.image}
-                      alt={project.name}
-                    />
-                  </div>
-                  <h3 className={styles.title}>
-                    <span className={styles.name}>{project.name}</span>
-                    <span className={styles.category}> | {project.category}</span>
-                  </h3>
-                  <p className={styles.caption}>{project.caption}</p>
+                  <Link
+                    href={`/our-work/${project.slug}`}
+                    className={styles.cardLink}
+                    aria-label={`View the ${project.name} case study`}
+                  >
+                    <div className={styles.imageWrap}>
+                      <img
+                        className={styles.image}
+                        src={project.image}
+                        alt={project.alt}
+                        loading="lazy"
+                      />
+                    </div>
+                    <h3 className={styles.title}>
+                      <span className={styles.name}>{project.name}</span>
+                      <span className={styles.category}> | {project.category}</span>
+                    </h3>
+                    <p className={styles.caption}>View case study</p>
+                  </Link>
                 </article>
               ))}
             </div>

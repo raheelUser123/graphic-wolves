@@ -70,6 +70,17 @@
   will-change: transform, opacity;
 }
 
+.cardLink {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.cardLink:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 5px;
+}
+
 .card:hover,
 .card:focus-within {
   z-index: 4;

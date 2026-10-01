@@ -5,43 +5,34 @@ import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+import { caseStudies } from "@/components/case-studies/data";
 import styles from "./BrandingFeaturedWork.module.css";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const projects = [
-  {
-    title: "Appcues",
-    date: "2025",
-    image: "/images/services/branding/featured/appcues.webp",
-    href: "/projects/appcues",
-    className: "project1",
-  },
+const featuredProjectPositions = [
+  ["appcues-product-adoption", "project1"],
+  ["finca-sol-y-cielo", "project2"],
+  ["agent-bounty", "project3"],
+  ["synthesis", "project4"],
+] as const;
 
-  {
-    title: "ThermoLab",
-    date: "2025",
-    image: "/images/services/branding/featured/thermolab.webp",
-    href: "/projects/thermolab",
-    className: "project2",
-  },
+const projects = featuredProjectPositions.flatMap(([slug, className]) => {
+  const study = caseStudies.find((item) => item.slug === slug);
+  if (!study) return [];
 
-  {
-    title: "Appcues | Logo Branding",
-    date: "2025",
-    image: "/images/services/branding/featured/casa-cinta.webp",
-    href: "/projects/appcues-branding",
-    className: "project3",
-  },
-
-  {
-    title: "Casa Cinta",
-    date: "2025",
-    image: "/images/services/branding/featured/branding.webp",
-    href: "/projects/casa-cinta",
-    className: "project4",
-  },
-];
+  return [{
+    title: study.title,
+    date: study.services[0] ?? "Branding",
+    image:
+      study.heroMedia.type === "image"
+        ? study.heroMedia.src
+        : study.heroMedia.poster,
+    alt: study.heroMedia.alt,
+    href: `/our-work/${study.slug}`,
+    className,
+  }];
+});
 
 export default function BrandingFeaturedWork() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -258,7 +249,7 @@ export default function BrandingFeaturedWork() {
               <div className={styles.imageWrap}>
                 <img
                   src={project.image}
-                  alt={project.title}
+                  alt={project.alt}
                   className={styles.image}
                 />
               </div>
