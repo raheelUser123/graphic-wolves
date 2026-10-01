@@ -182,38 +182,6 @@ export default function FooterSection() {
 
     const isMobile = window.innerWidth <= 767;
 
-    if (isMobile) {
-      /* Heading — koi shift nahi */
-      gsap.set(left, { x: 0, opacity: 1 });
-      gsap.set(right, { x: 0, opacity: 1 });
-
-      /* Meeting logo — seedha visible */
-      gsap.set(meetingLogo, {
-        scale: 1,
-        opacity: 1,
-        rotation: 0,
-        filter: "blur(0px)",
-        y: 0,
-      });
-
-      /* Swirl — poora draw */
-      const swirlLen = swirlPath.getTotalLength();
-      gsap.set(swirlPath, {
-        strokeDasharray: swirlLen,
-        strokeDashoffset: 0,
-      });
-
-      /* Footer card — poora visible */
-      gsap.set(footerCard, {
-        y: 0,
-        opacity: 1,
-        scale: 1,
-        filter: "blur(0px)",
-      });
-
-      return; /* RAF loop shuru mat karo */
-    }
-
     let rafId = 0;
 
     /*
@@ -372,7 +340,7 @@ export default function FooterSection() {
         );
 
       const splitDistance =
-        118;
+        isMobile ? 42 : 118;
 
       gsap.set(
         left,
@@ -400,8 +368,8 @@ export default function FooterSection() {
       const logoLocal =
         mapProgress(
           progress,
-          0.08,
-          0.34
+          isMobile ? 0.1 : 0.08,
+          isMobile ? 0.26 : 0.34
         );
 
       const logoProgress =
@@ -480,8 +448,8 @@ export default function FooterSection() {
         easeOutCubic(
           mapProgress(
             progress,
-            0.18,
-            0.43
+            isMobile ? 0.12 : 0.18,
+            isMobile ? 0.34 : 0.43
           )
         );
 
@@ -511,8 +479,8 @@ export default function FooterSection() {
         easeOutCubic(
           mapProgress(
             progress,
-            0.37,
-            0.64
+            isMobile ? 0.2 : 0.37,
+            isMobile ? 0.48 : 0.64
           )
         );
 
