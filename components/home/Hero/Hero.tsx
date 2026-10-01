@@ -359,6 +359,7 @@ export default function Hero() {
             src="/images/graphic-logo.svg"
             alt=""
             className={styles.loaderLogo}
+            fetchPriority="high"
           />
         </div>
       </div>
