@@ -76,6 +76,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link
+          rel="preload"
+          href="/fonts/borscha-typeface/Borscha-Regular-BF69c8e64155413.ttf"
+          as="font"
+          type="font/ttf"
+          crossOrigin="anonymous"
+        />
+      </head>
       <body>
         {/* Structured Data */}
         <script
