@@ -5,7 +5,13 @@
   font-weight: 400;
   font-display: swap;
 }
-
+@font-face {
+  font-family: "Borscha";
+  src: url("/fonts/borscha-typeface/Borscha-Medium-BF69c8e64219839.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
 @font-face {
   font-family: "Borscha";
   src: url("/fonts/borscha-typeface/Borscha-Italic-BF69c8e6432f792.ttf") format("truetype");
@@ -68,6 +74,14 @@ body p, body p span, body h1, body h1 *, body h2, body h3, body h4, body h5, bod
   font-style: normal;
 
   font-display: swap;
+}
+@font-face {
+  font-family: "Canela Text Trial Regular";
+
+  src: url("/fonts/canela-font-family/CanelaText-Regular-Trial.otf")
+    format("opentype");
+  font-weight: 500;
+  font-style: normal;
 }
 @font-face {
   font-family: "DM Sans";

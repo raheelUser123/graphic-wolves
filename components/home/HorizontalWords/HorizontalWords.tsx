@@ -207,17 +207,6 @@ export default function HorizontalWords() {
             2
           );
 
-          timeline.to(
-            "[data-sticker='watch']",
-            {
-              scale: 0,
-              rotation: -24,
-              duration: 0.45,
-              ease: "power2.in",
-            },
-            2.8
-          );
-
           timeline.fromTo(
             "[data-sticker='phone']",
             {
@@ -233,28 +222,6 @@ export default function HorizontalWords() {
               ease: "back.out(1.7)",
             },
             3.2
-          );
-
-          timeline.to(
-            "[data-sticker='cursor']",
-            {
-              scale: 0,
-              rotation: 25,
-              duration: 0.45,
-              ease: "power2.in",
-            },
-            4
-          );
-
-          timeline.to(
-            "[data-sticker='phone']",
-            {
-              scale: 0,
-              rotation: 18,
-              duration: 0.5,
-              ease: "power2.in",
-            },
-            5.5
           );
 
           timeline.to(

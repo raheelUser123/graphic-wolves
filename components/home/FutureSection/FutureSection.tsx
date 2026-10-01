@@ -85,19 +85,8 @@ export default function FutureSection() {
               ease: "sine.inOut",
             },
             0.34
-          )
-
-          .to(
-            headingSticker,
-            {
-              scale: 0,
-              rotation: 12,
-              opacity: 0,
-              duration: 0.34,
-              ease: "power2.in",
-            },
-            0.72
           );
+          ;
       }
 
       /* =========================================
@@ -286,36 +275,23 @@ export default function FutureSection() {
         };
 
         const handleLeave = () => {
-          /*
-           * Very small overshoot
-           */
           gsap.to(item, {
             x: targetX * 1.03,
             y: targetY * 1.03,
-
             scaleX: 1.02,
             scaleY: 0.99,
-
             duration: 0.16,
-
             ease: "power2.out",
-
             overwrite: true,
-
             onComplete: () => {
               gsap.to(item, {
                 x: 0,
                 y: 0,
-
                 rotation: 0,
-
                 scaleX: 1,
                 scaleY: 1,
-
                 duration: 1.25,
-
                 ease: "elastic.out(1, 0.5)",
-
                 overwrite: true,
               });
             },

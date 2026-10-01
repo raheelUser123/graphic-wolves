@@ -119,7 +119,7 @@ export default function ExpertiseSection() {
 
       /* CENTER TEXT INITIAL STATE */
       gsap.set(center, {
-        opacity: 0.18,
+        opacity: 0,
       });
 
       gsap.set(rotor, {
@@ -168,8 +168,8 @@ export default function ExpertiseSection() {
       /* AUTO ROTATE WHEN FULLY VISIBLE */
       const autoRotation = gsap.to(rotor, {
         rotation: -360,
-        duration: 30,
-        repeat: -1,
+        duration: 40,
+        repeat: -3,
         ease: "none",
         paused: true,
       });
