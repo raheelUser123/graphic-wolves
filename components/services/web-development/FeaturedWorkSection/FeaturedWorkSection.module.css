@@ -72,13 +72,13 @@
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   align-items: start;
-  gap: 18px;
+  gap: 28px;
 }
 
 .column {
   display: flex;
   flex-direction: column;
-  gap: 72px;
+  gap: 88px;
 }
 
 .column[data-column="2"] {
@@ -202,11 +202,11 @@
 
   .grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 16px;
+    gap: 22px;
   }
 
   .column {
-    gap: 48px;
+    gap: 58px;
   }
 
   .column[data-column="2"],
@@ -254,11 +254,11 @@
 
   .grid {
     grid-template-columns: minmax(0, 1fr);
-    gap: 32px;
+    gap: 36px;
   }
 
   .column {
-    gap: 32px;
+    gap: 38px;
   }
 
   .imageWrap {

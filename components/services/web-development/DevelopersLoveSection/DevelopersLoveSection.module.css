@@ -100,7 +100,7 @@
 
 .imageViewport:hover .websiteImage {
   transform: translateY(calc(-100% + 310px));
-  transition: .9s;
+  transition: transform 6s linear;
 }
 
 
@@ -127,7 +127,7 @@
   font-weight: 500;
   font-style: normal;
 
-  font-size: 56px;
+  font-size: 46px;
   line-height: 100%;
   letter-spacing: -0.01em;
 
@@ -140,19 +140,15 @@
 ========================================= */
 
 .caption {
-  max-width: 620px;
-
-  margin: 0;
-
-  font-family: "DM Sans", sans-serif;
-  font-weight: 500;
-  font-style: normal;
-
-  font-size: 32px;
-  line-height: 139%;
-  letter-spacing: -0.03em;
-
-  color: #999999;
+max-width: 620px;
+    margin: 0;
+    font-family: "DM Sans", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 27px;
+    line-height: 139%;
+    letter-spacing: -0.03em;
+    color: #999999;
 }
 
 
@@ -196,7 +192,7 @@
   color: #111111;
 }
 
-.icon svg {
+.icon img {
   display: block;
 
   width: 28px;
@@ -215,7 +211,7 @@
   font-weight: 500;
   font-style: normal;
 
-  font-size: 32px;
+  font-size: 27px;
   line-height: 139%;
   letter-spacing: -0.03em;
 
@@ -289,6 +285,10 @@
     width: calc(100% - 32px);
 
     gap: 50px;
+  }
+
+  .content {
+    padding: 0;
   }
 
   .previewArea {

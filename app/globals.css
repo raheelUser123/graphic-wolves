@@ -39,6 +39,9 @@ body {
   color: #111;
   overflow-x: hidden;
 }
+body:has(main[data-page="e-commerce"]) {
+  background: unset;
+}
 a { color: inherit; }
 button, a { font: inherit; }
 button { color: inherit; }

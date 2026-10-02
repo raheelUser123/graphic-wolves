@@ -20,9 +20,9 @@
 }
 
 .inner {
-  width: min(1500px, 100%);
+  width: 100%;
   margin: 0 auto;
-  padding: 32px 26px;
+  padding: 32px 0;
 }
 
 .heading {
@@ -38,6 +38,7 @@
 
 .processPanel {
   display: grid;
+  margin-inline: 51px;
   min-height: 414px;
   grid-template-columns: 56% 44%;
   overflow: hidden;
@@ -219,7 +220,7 @@ padding: 30px 34px;
 
 @media (max-width: 900px) {
   .inner {
-    padding: 28px 18px;
+    padding: 28px 0;
   }
 
   .heading {
@@ -267,7 +268,7 @@ padding: 30px 34px;
   }
 
   .inner {
-    padding: 24px 14px;
+    padding: 24px 0;
   }
 
   .heading {

@@ -236,17 +236,17 @@
 .coreSection {
   position: relative;
   width: 100%;
-  padding: 0 20px 72px;
+  padding: 0 0 72px;
   overflow: visible;
-  background: #f9f6f5;
+      background: linear-gradient(180deg, #F9F6F5 58.75%, rgba(249, 246, 245, 0) 94.38%);
 }
 
 .corePanel {
   position: relative;
   z-index: 1;
-  width: min(1500px, 100%);
+  width: calc(100% - 102px);
   min-height: 430px;
-  margin: 0 auto;
+  margin: 0 51px;
   padding: 64px 36px 40px;
   overflow: hidden;
   border-radius: 14px;
@@ -360,10 +360,14 @@
 
 @media (max-width: 600px) {
   .coreSection {
-    padding: 0 14px 52px;
+    width: auto;
+    margin-inline: 51px;
+    padding: 0 0 52px;
   }
 
   .corePanel {
+    width: 100%;
+    margin: 0;
     padding: 44px 16px 20px;
   }
 

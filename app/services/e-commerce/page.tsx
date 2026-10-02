@@ -9,7 +9,7 @@ import EcommerceFeaturedWork from "@/components/services/e-commerce/EcommerceFea
 
 export default function EcommercePage() {
 	return (
-		<main>
+		<main data-page="e-commerce">
 			<Header />
 			<EcommerceHero />
             <EcommerceStatementSection />

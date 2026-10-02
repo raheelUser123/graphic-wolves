@@ -295,13 +295,13 @@
 .decor {
   position: absolute;
 
-  left: -65px;
+  left: 0px;
 
   bottom: -155px;
 
   z-index: 40;
 
-  width: 300px;
+  width: auto;
 
   pointer-events: none;
 
