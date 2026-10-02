@@ -463,7 +463,7 @@
         100% - 28px
       );
 
-    font-size: 47px;
+    font-size: 42px;
   }
 
 
@@ -473,38 +473,38 @@
 
 
   .withWord {
-    font-size: 52px;
+    font-size: 46px;
   }
 
 
   .clientLogo {
-    width: 110px;
+    width: 172px;
   }
 
 
   .logo1 {
-    left: 3%;
+    left: 6%;
 
-    top: 10%;
+    top: 9%;
   }
 
 
   .logo2 {
-    right: 3%;
+    right: 6%;
 
-    top: 10%;
+    top: 9%;
   }
 
 
   .logo3 {
-    left: 1%;
+    left: 2%;
 
     top: 29%;
   }
 
 
   .logo4 {
-    left: 37%;
+    left: 40%;
 
     top: 18%;
   }
@@ -513,35 +513,35 @@
   .logo5 {
     right: 2%;
 
-    top: 30%;
+    top: 29%;
   }
 
 
   .logo6 {
-    left: 3%;
+    left: 2%;
 
-    top: 65%;
+    top: 67%;
   }
 
 
   .logo7 {
-    right: 3%;
+    right: 2%;
 
-    top: 64%;
+    top: 67%;
   }
 
 
   .logo8 {
-    left: 35%;
+    left: 14%;
 
-    bottom: 6%;
+    bottom: 7%;
   }
 
 
   .logo9 {
-    right: 3%;
+    right: 14%;
 
-    bottom: 10%;
+    bottom: 7%;
   }
 
 }

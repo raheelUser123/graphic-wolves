@@ -302,6 +302,12 @@
 }
 
 @media (max-width: 420px) {
+  .ringAnchor {
+    left: 50%;
+    top: 50%;
+}
+
+ 
   .heading,
   .heading em {
     font-size: 34px;

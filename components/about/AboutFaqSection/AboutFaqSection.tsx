@@ -74,13 +74,16 @@ export default function AboutFaqSection() {
       <div className={styles.inner}>
         <h2 id="about-faq-heading" className={styles.heading}>
           <span>Frequently</span>
-          <span className={styles.askWord}>
-            Ask
-            <svg className={styles.askLoop} viewBox="0 0 170 92" aria-hidden="true">
-              <path pathLength="1" d="M151 45C147 18 120 8 81 12 44 15 14 27 12 47 10 66 39 79 79 78c39-1 68-12 73-33 4-17-20-32-50-35-34-4-71 8-82 26" />
-            </svg>
+          <span className={styles.askedWord}>
+            <span className={styles.askWord}>
+              Ask
+              <svg className={styles.askLoop} viewBox="0 0 170 92" aria-hidden="true">
+                <path pathLength="1" d="M151 45C147 18 120 8 81 12 44 15 14 27 12 47 10 66 39 79 79 78c39-1 68-12 73-33 4-17-20-32-50-35-34-4-71 8-82 26" />
+              </svg>
+            </span>
+            ed
           </span>
-          <span>ed Questions</span>
+          <span>Questions</span>
           <span className={styles.thumbMark} aria-hidden="true" />
         </h2>
 

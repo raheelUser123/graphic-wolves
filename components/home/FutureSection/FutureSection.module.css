@@ -471,8 +471,11 @@
 }
 
 @media (max-width: 420px) {
+  .headingSticker {
+    display: none;
+  }
   .cardsArea {
-    transform: scale(0.23);
+    transform: scale(0.30);
     margin-bottom: -345px;
   }
 }

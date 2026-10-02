@@ -21,49 +21,49 @@ gsap.registerPlugin(ScrollTrigger);
 const workImages = {
   topLeftVertical: [
     "/images/featured/top-left-vertical/1.webp",
-    "/images/featured/top-left-vertical/1.webp",
+    "/images/featured/top-left-vertical/2.webp",
     "/images/featured/top-left-vertical/1.webp",
   ],
 
   topLeftHorizontal: [
     "/images/featured/top-left-horizontal/1.webp",
-    "/images/featured/top-left-horizontal/1.webp",
+    "/images/featured/top-left-horizontal/2.webp",
     "/images/featured/top-left-horizontal/1.webp",
   ],
 
   topRight: [
     "/images/featured/top-right/1.webp",
-    "/images/featured/top-right/1.webp",
+    "/images/featured/top-right/2.webp",
     "/images/featured/top-right/1.webp",
   ],
 
   middleTop: [
     "/images/featured/middle-top/1.webp",
-    "/images/featured/middle-top/1.webp",
+    "/images/featured/middle-top/2.webp",
     "/images/featured/middle-top/1.webp",
   ],
 
   middleBottom: [
     "/images/featured/middle-bottom/1.webp",
-    "/images/featured/middle-bottom/1.webp",
+    "/images/featured/middle-bottom/2.webp",
     "/images/featured/middle-bottom/1.webp",
   ],
 
   bottomLeft: [
     "/images/featured/bottom-left/1.webp",
-    "/images/featured/bottom-left/1.webp",
+    "/images/featured/bottom-left/2.webp",
     "/images/featured/bottom-left/1.webp",
   ],
 
   bottomRightTop: [
     "/images/featured/bottom-right-top/1.webp",
-    "/images/featured/bottom-right-top/1.webp",
+    "/images/featured/bottom-right-top/2.webp",
     "/images/featured/bottom-right-top/1.webp",
   ],
 
   bottomRightBottom: [
     "/images/featured/bottom-right-bottom/1.webp",
-    "/images/featured/bottom-right-bottom/1.webp",
+    "/images/featured/bottom-right-bottom/2.webp",
     "/images/featured/bottom-right-bottom/1.webp",
   ],
 };

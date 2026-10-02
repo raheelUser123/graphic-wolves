@@ -177,6 +177,24 @@
   }
 }
 @media (max-width: 1440px) {
+  .card3 {
+    left: 4.7%;
+}
+  .card4 {
+    right: 6%;
+}
+  .card6 {
+    bottom: 4%;
+}
+  .card7 {
+    bottom: 4.5%;
+}
+  .card8 {
+    bottom: 9%;
+}
+  .card5 {
+bottom: 7%;
+  }
   .card2 {
     left: 70.5%;
   }
@@ -313,7 +331,7 @@
 
   .breadcrumbMuted,
   .breadcrumbActive {
-    font-size: 28px;
+    font-size: 16px;
   }
 
   .breadcrumbDivider {

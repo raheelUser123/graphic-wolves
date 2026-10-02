@@ -113,6 +113,12 @@ export default function EcommerceFeaturedWork() {
       className={styles.section}
       aria-labelledby="ecommerce-featured-work-title"
     >
+      <img
+        className={styles.pinkSwirl}
+        src="/images/services/ecommerce/pinkswirl.svg"
+        alt=""
+        aria-hidden="true"
+      />
       <div className={styles.inner}>
         <h2
           ref={headingRef}

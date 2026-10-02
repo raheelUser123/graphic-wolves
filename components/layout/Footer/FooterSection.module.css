@@ -680,6 +680,8 @@
 
   border: 0;
 
+  border-radius: 999px 0 0 999px;
+
   outline: 0;
 
   background:
@@ -710,6 +712,18 @@
   line-height: 1;
 
   letter-spacing: 0;
+}
+
+.newsletterForm input:focus {
+  background: transparent;
+}
+
+.newsletterForm input:-webkit-autofill,
+.newsletterForm input:-webkit-autofill:hover,
+.newsletterForm input:-webkit-autofill:focus,
+.newsletterForm input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px #f0f0f0 inset;
+  -webkit-text-fill-color: rgba(17, 17, 17, 0.8);
 }
 
 
@@ -1222,7 +1236,7 @@ button:hover
 
   .ctaArea {
     min-height:
-      320px;
+      auto;
 
     flex:
       none;
@@ -1290,6 +1304,13 @@ button:hover
       42px;
   }
 
+  .menuColumn {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 20px;
+    row-gap: 12px;
+  }
+
 
   .brandColumn,
   .newsletterColumn {
@@ -1312,7 +1333,7 @@ button:hover
       auto;
 
     margin-top:
-      70px;
+      30px;
   }
 
 
@@ -1364,7 +1385,11 @@ button:hover
   max-width:
     430px
 ) {
+.socials {
 
+    justify-content: center;
+    margin: 0 auto;
+}
   .ctaMain {
     font-size:
       28px;

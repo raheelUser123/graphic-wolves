@@ -225,9 +225,9 @@
 
 @media (max-width: 640px) {
   .pupil {
-    width: 15px;
-    height: 27px;
-}
+        width: 14px;
+        height: 23px;
+    }
   .hero { min-height: 760px; }
   .heroContent { top: 49%; padding: 0 14px; }
   .heading { font-size: clamp(38px, 12vw, 56px); line-height: 0.98; }
@@ -237,7 +237,7 @@
     right: 0;
     bottom: 18px;
     justify-content: center;
-    font-size: 9px;
+    font-size: 17px;
   }
 }
 

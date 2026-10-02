@@ -202,20 +202,17 @@
 
 @media (max-width: 767px) {
 
+      .heading {
+        font-size: 29px;
+        line-height: 39px;
+    }
   .section {
-    min-height: 650px;
+    min-height: auto;
 
     padding:
-      80px
-      18px;
+      0px 0px 70px 0px;
   }
-
-
-  .heading {
-    font-size: 44px;
-
-    line-height: 1.03;
-  }
+    
 
 
   .lastLine {
@@ -362,7 +359,7 @@
   .coreSection {
     width: auto;
     margin-inline: 51px;
-    padding: 0 0 52px;
+    padding: 0 0 6px;
   }
 
   .corePanel {

@@ -8,6 +8,16 @@
   color: #fff;
 }
 
+.pinkSwirl {
+  position: absolute;
+  z-index: 3;
+  top: -170px;
+  right: 0px;
+  width: clamp(88px, 10vw, 100%);
+  height: auto;
+  pointer-events: none;
+}
+
 .inner {
   position: relative;
   width: min(1500px, 100%);
@@ -172,6 +182,11 @@
 
   .caption {
     font-size: 16px;
+  }
+
+  .pinkSwirl {
+    top: -90px;
+    width: 88px;
   }
 }
 

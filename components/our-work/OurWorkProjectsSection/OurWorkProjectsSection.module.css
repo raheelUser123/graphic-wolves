@@ -17,7 +17,7 @@
 
 .content {
   display: grid;
-  gap: 42px;
+  gap: 18px;
   width: 100%;
   opacity: 0;
   transform: translate3d(-38px, 42px, 0);
@@ -54,8 +54,8 @@
   display: flex;
   flex: 0 0 auto;
   align-items: flex-start;
-  gap: 30px;
-  padding-right: 30px;
+  gap: 20px;
+  padding-right: 20px;
 }
 
 .project {
@@ -141,10 +141,10 @@
 
 @media (max-width: 700px) {
   .section { min-height: 520px; padding: 76px 0 84px; }
-  .content { gap: 34px; }
+  .content { gap: 20px; }
   .track { animation-duration: 48s; }
   .trackReverse { animation-duration: 54s; }
-  .group { gap: 18px; padding-right: 18px; }
+  .group { gap: 14px; padding-right: 14px; }
   .project { flex-basis: calc((100cqw - 36px) / 2); }
   .projectTitle { margin-top: 9px; font-size: 17px; }
 }

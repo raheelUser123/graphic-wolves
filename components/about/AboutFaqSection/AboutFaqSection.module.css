@@ -42,6 +42,12 @@
   isolation: isolate;
 }
 
+.askedWord {
+  display: inline-flex;
+  align-items: baseline;
+  white-space: nowrap;
+}
+
 .askLoop {
   position: absolute;
   z-index: -1;
@@ -155,7 +161,9 @@
 }
 
 @media (max-width: 700px) {
-  .faqSection { padding: 88px 18px 96px; }
+    .faqSection {
+        padding: 0px 18px 2px;
+    }
   .purpleMark { top: 14px; left: -118px; width: 190px; height: 220px; }
   .heading { gap: 0 0.14em; margin-bottom: 30px; font-size: 48px; line-height: 1.12; }
   .thumbMark { width: 32px; height: 38px; margin-left: 2px; }
@@ -165,7 +173,11 @@
   .toggleIcon { flex-basis: 18px; font-size: 21px; }
   .answerInner p { padding: 0 17px 19px; font-size: 16px; line-height: 1.5; }
 }
-
+@media (max-width: 470px) {
+  .thumbMark {        width: 45px;
+        height: 45px;
+        margin-left: 0px;}
+}
 @media (prefers-reduced-motion: reduce) {
   .askLoop path { stroke-dashoffset: 0; }
   .answer { transition: none; }

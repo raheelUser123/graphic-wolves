@@ -66,20 +66,17 @@ export default function ExpertiseSection() {
       const items =
         gsap.utils.toArray<HTMLElement>("[data-expertise-card]");
 
-      /* =========================================
-         PERFECT CIRCLE RADIUS
-      ========================================= */
-
+      
       const getRadius = () => {
         const width = window.innerWidth;
         const height = window.innerHeight;
 
         if (width >= 1600) {
-          return Math.min(320, height * 0.35);
+          return Math.min(430, height * 0.4);
         }
 
         if (width >= 1200) {
-          return Math.min(295, height * 0.33);
+          return Math.min(390, height * 0.41);
         }
 
         if (width >= 768) {
@@ -87,10 +84,10 @@ export default function ExpertiseSection() {
         }
 
         if (width >= 480) {
-          return Math.min(190, height * 0.28);
+          return Math.min(165, height * 0.28);
         }
 
-        return Math.min(165, height * 0.26);
+        return Math.min(140, height * 0.26);
       };
 
       /* =========================================

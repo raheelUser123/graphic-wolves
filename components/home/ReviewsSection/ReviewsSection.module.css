@@ -361,7 +361,6 @@
   transform:
     translateX(-50%);
 
-  z-index: 30;
 
   color: #000;
 
@@ -810,17 +809,17 @@
     display: none;
 }
   .purpleShadow {
-    width: 600px;
-    height: 390px;
+          width: 600px;
+        height: 80px;
   }
 
   .introSection {
-    min-height: 70vh;
+    min-height: auto;
 
     padding:
       50px
       14px
-      100px;
+      0px;
   }
 
 

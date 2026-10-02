@@ -588,7 +588,7 @@
     padding:
       75px
       18px
-      90px;
+      0px;
   }
 
 
@@ -621,9 +621,9 @@
     max-width:
       calc(100% - 55px);
 
-    font-size: 40px;
+    font-size: 27px;
 
-    line-height: 0.98;
+    line-height: 37px;
   }
 
 
