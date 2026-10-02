@@ -63,7 +63,7 @@
 .breadcrumbMuted,
 .breadcrumbActive {
   font-family: "Borscha", Arial, sans-serif;
-  font-size: 24px;
+  font-size: 28px;
   font-weight: 600;
   line-height: 1;
   text-decoration: none;
@@ -228,7 +228,7 @@
   .frame { min-height: 0; }
   .content { justify-content: center; padding: 94px 18px 30px; }
   .breadcrumb { gap: 12px; margin: 20px 0 18px; }
-  .breadcrumbMuted, .breadcrumbActive { font-size: 16px; }
+  .breadcrumbMuted, .breadcrumbActive { font-size: 28px; }
   .breadcrumbDivider { height: 19px; }
   .heading { font-size: clamp(42px, 11vw, 54px); }
   .highlight { font-size: 1.03em; }

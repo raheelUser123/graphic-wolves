@@ -63,6 +63,17 @@ body p, body p span, body h1, body h1 *, body h2, body h3, body h4, body h5, bod
 
   font-display: swap;
 }
+@font-face {
+  font-family: "CanelaText-RegularItalic-Trial";
+
+  src: url("/fonts/canela-font-family/CanelaText-RegularItalic-Trial.otf")
+    format("opentype");
+
+  font-weight: 500;
+  font-style: italic;
+
+  font-display: swap;
+}
 
 @font-face {
   font-family: "Canela Text Trial Thin";

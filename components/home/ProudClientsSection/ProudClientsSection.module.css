@@ -261,7 +261,7 @@
   height: auto;
 
   object-fit:
-    contain;
+    cover;
 
   user-select:
     none;

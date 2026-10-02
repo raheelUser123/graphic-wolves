@@ -1,7 +1,28 @@
 /* =========================================
    REVIEWS SECTION
 ========================================= */
-
+.reviewShadow {
+    position: sticky;
+    pointer-events: none;
+  background: linear-gradient(180deg, rgba(249, 246, 245, 0) 0%, rgba(249, 246, 245, 0.45) 30%, rgba(249, 246, 245, 0.85) 68%, #f9f6f5 100%);
+    z-index: 11111111;
+    width: 100%;
+    height: 70px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+.reviewShadow1 {
+  position: absolute;
+    pointer-events: none;
+  background: linear-gradient(180deg, #f9f6f5 0%, rgba(249, 246, 245, 0.85) 32%, rgba(249, 246, 245, 0.4) 68%, rgba(249, 246, 245, 0) 100%);
+    z-index: 11111111;
+    width: 100%;
+    height: 70px;
+    left: 0;
+    right: 0;
+    top: 0;
+}
 .reviewsSection {
   position: relative;
 
@@ -96,6 +117,10 @@
   justify-content: center;
 
   z-index: 2;
+}
+
+.introSectionHidden {
+  display: none;
 }
 
 
@@ -316,7 +341,7 @@
 
   min-height: 760px;
 
-  background: #f9f6f5;
+  background: #fff;
 
   overflow: hidden;
 }
@@ -409,11 +434,11 @@
     );
 
   font-family:
-    "Canela Text Trial",
+    "CanelaText-RegularItalic-Trial",
     Georgia,
     serif;
 
-  font-weight: 300;
+  font-weight: 500;
 
   font-style: italic;
 

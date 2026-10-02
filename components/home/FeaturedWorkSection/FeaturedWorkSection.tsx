@@ -21,49 +21,49 @@ gsap.registerPlugin(ScrollTrigger);
 const workImages = {
   topLeftVertical: [
     "/images/featured/top-left-vertical/1.webp",
-    "/images/featured/top-left-vertical/1.webp",
+    "/images/featured/top-left-vertical/2.webp",
     "/images/featured/top-left-vertical/1.webp",
   ],
 
   topLeftHorizontal: [
     "/images/featured/top-left-horizontal/1.webp",
-    "/images/featured/top-left-horizontal/1.webp",
+    "/images/featured/top-left-horizontal/2.webp",
     "/images/featured/top-left-horizontal/1.webp",
   ],
 
   topRight: [
     "/images/featured/top-right/1.webp",
-    "/images/featured/top-right/1.webp",
+    "/images/featured/top-right/2.webp",
     "/images/featured/top-right/1.webp",
   ],
 
   middleTop: [
     "/images/featured/middle-top/1.webp",
-    "/images/featured/middle-top/1.webp",
+    "/images/featured/middle-top/2.webp",
     "/images/featured/middle-top/1.webp",
   ],
 
   middleBottom: [
     "/images/featured/middle-bottom/1.webp",
-    "/images/featured/middle-bottom/1.webp",
+    "/images/featured/middle-bottom/2.webp",
     "/images/featured/middle-bottom/1.webp",
   ],
 
   bottomLeft: [
     "/images/featured/bottom-left/1.webp",
-    "/images/featured/bottom-left/1.webp",
+    "/images/featured/bottom-left/2.webp",
     "/images/featured/bottom-left/1.webp",
   ],
 
   bottomRightTop: [
     "/images/featured/bottom-right-top/1.webp",
-    "/images/featured/bottom-right-top/1.webp",
+    "/images/featured/bottom-right-top/2.webp",
     "/images/featured/bottom-right-top/1.webp",
   ],
 
   bottomRightBottom: [
     "/images/featured/bottom-right-bottom/1.webp",
-    "/images/featured/bottom-right-bottom/1.webp",
+    "/images/featured/bottom-right-bottom/2.webp",
     "/images/featured/bottom-right-bottom/1.webp",
   ],
 };
@@ -872,10 +872,10 @@ export default function FeaturedWorkSection() {
             }
             d="
               M4 76
-              C18 58 32 58 40 71
-              C39 49 53 42 62 60
-              C64 39 78 27 88 47
-              C87 27 97 16 115 9
+              C16 65 27 66 38 78
+              C33 62 36 49 45 47
+              C55 44 63 56 61 66
+              C92 30 101 14 115 10
             "
           />
         </svg>

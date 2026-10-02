@@ -14,7 +14,7 @@
   padding:
     130px
     24px
-    160px;
+    0px;
 
   background: #1a1a1a;
 
@@ -273,9 +273,9 @@
 ========================================= */
 
 .brandingBadge {
-  left: 23%;
+  left: 25%;
 
-  top: 665px;
+  top: 812px;
 
   width: 160px;
 }
@@ -288,9 +288,9 @@
 .middleSwirl {
   position: absolute;
 
-  left: 29%;
+  left: 35%;
 
-  top: 690px;
+  top: 830px;
 
   width: 105px;
 
@@ -333,7 +333,7 @@
 
   right: 2%;
 
-  top: 585px;
+  top: 470px;
 
   width: 380px;
 
@@ -510,9 +510,9 @@
 .bottomSwirl {
   position: absolute;
 
-  right: 25%;
+  right: 28%;
 
-  top: 1450px;
+  top: 1400px;
 
   width: 110px;
 
@@ -581,7 +581,7 @@
 @media (min-width: 1600px) {
 
   .featuredSection {
-    min-height: 2200px;
+    min-height: 2030px;
   }
 
 

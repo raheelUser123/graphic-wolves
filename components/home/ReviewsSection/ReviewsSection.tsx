@@ -76,7 +76,11 @@ const reviews = [
 const clamp = (value: number, min = 0, max = 1) =>
   Math.min(Math.max(value, min), max);
 
-export default function ReviewsSection() {
+export default function ReviewsSection({
+  showHeading = false,
+}: {
+  showHeading?: boolean;
+}) {
   const sectionRef = useRef<HTMLElement>(null);
 
   const introRef = useRef<HTMLDivElement>(null);
@@ -478,7 +482,9 @@ export default function ReviewsSection() {
       <div
         ref={introRef}
         className={
-          styles.introSection
+          `${styles.introSection} ${
+            showHeading ? "" : styles.introSectionHidden
+          }`
         }
       >
         <h2
@@ -768,8 +774,13 @@ export default function ReviewsSection() {
               )
             )}
           </div>
+          <div
+            className={styles.reviewShadow1}
+            aria-hidden="true"
+          />
         </div>
       </div>
+      <div className={styles.reviewShadow}></div>
     </section>
   );
 }

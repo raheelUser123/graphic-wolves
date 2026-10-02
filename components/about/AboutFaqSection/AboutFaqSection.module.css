@@ -7,13 +7,10 @@
 }
 
 .purpleMark {
-  position: absolute;
-  top: 32px;
-  left: -92px;
-  width: 220px;
-  height: 260px;
-  background: url("/images/about/faqimages/swirlvector.svg") center / contain no-repeat;
-  pointer-events: none;
+    content: url(/images/about/faqimages/swirlvector.svg);
+    position: absolute;
+    left: 0;
+    top: 0px;
 }
 
 .inner {
